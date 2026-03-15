@@ -6,7 +6,7 @@ title: >-
 status: To Do
 assignee: []
 created_date: '2026-03-15 10:51'
-updated_date: '2026-03-15 12:55'
+updated_date: '2026-03-15 12:57'
 labels:
   - phase-0
   - database
@@ -104,10 +104,10 @@ psql $DATABASE_URL -f scripts/db/schema.sql
 ## Definition of Done
 <!-- DOD:BEGIN -->
 - [ ] #1 Code reviewed and merged to develop
-- [ ] #2 Data contract doc created in docs/database-schema.md
-- [ ] #3 Error dictionary entries added: ERR_DB_UNREACHABLE, ERR_DB_PERMISSION_DENIED
-- [ ] #4 DB client uses singleton from lib/db.ts (no inline instantiation)
-- [ ] #5 scripts/db/verify.sql confirms all tables and indexes
-- [ ] #6 Verification script passes (scripts/verify/db-check.sh)
-- [ ] #7 Corresponding [P0] Verify Database Schema Deployment task in Backlog.md marked Done
+- [ ] #2 DB client uses singleton from lib/db.ts (no inline instantiation)
+- [ ] #3 scripts/db/verify.sql confirms all tables and indexes
+- [ ] #4 Verification script passes (scripts/verify/db-check.sh)
+- [ ] #5 Corresponding [P0] Verify Database Schema Deployment task in Backlog.md marked Done
+- [ ] #6 Data contract doc created via backlog doc create -t technical 'Data contract: DB schema' - record doc-NNN ID here
+- [ ] #7 Error dictionary doc created via backlog doc create -t reference 'Error dictionary: ERR_DB_UNREACHABLE, ERR_DB_PERMISSION_DENIED' - record doc-NNN ID here
 <!-- DOD:END -->
