@@ -6,7 +6,7 @@ title: >-
 status: To Do
 assignee: []
 created_date: '2026-03-08 17:52'
-updated_date: '2026-03-15 12:54'
+updated_date: '2026-03-15 12:57'
 labels:
   - phase-0
   - infrastructure
@@ -108,8 +108,8 @@ See `.kiro/specs/phase-0-infrastructure-setup.md` for full details.
 ## Definition of Done
 <!-- DOD:BEGIN -->
 - [ ] #1 Code reviewed and merged to develop
-- [ ] #2 Deployment guide created in docs/
-- [ ] #3 All verification tasks (TASK-007 through TASK-011) pass
-- [ ] #4 Application Insights logging enabled on dev App Service
-- [ ] #5 Corresponding verify tasks in Backlog.md marked Done
+- [ ] #2 All verification tasks (TASK-007 through TASK-011) pass
+- [ ] #3 Application Insights logging enabled on dev App Service
+- [ ] #4 Corresponding verify tasks in Backlog.md marked Done
+- [ ] #5 Deployment guide created via backlog doc create -t technical 'Deployment guide: P0 infrastructure' — record doc-NNN ID here
 <!-- DOD:END -->
