@@ -1,6 +1,6 @@
 # Al-Hayaat School Website
 
-Al-Hayaat School is an Islamic school that empowers students with a holistic education rooted in the teachings of the Holy Quran and the principles of Ahlulbayt [A.S.]. The mission is to shape academically competent, spiritually grounded, and morally upright individuals ready to contribute to society with confidence and pride in their Islamic identity.
+Al-Hayaat School is an school that empowers students with a holistic education rooted in the teachings of the Holy Quran and the principles of Ahlulbayt [A.S.]. The mission is to shape academically competent, spiritually grounded, and morally upright individuals ready to contribute to society with confidence and pride in their identity.
 
 ## What This Project Is
 

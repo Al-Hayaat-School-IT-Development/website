@@ -1,6 +1,6 @@
 # Learning Analysis Action Plan
 
-**Project**: Al-Hayaat Islamic School Webflow → Next.js Migration  
+**Project**: Al-Hayaat School Webflow → Next.js Migration  
 **Plan Date**: March 8, 2026  
 **Based On**: Analysis of 175 learning entries  
 **Priority Framework**: Impact × Frequency + Urgency
