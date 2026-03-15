@@ -6,7 +6,7 @@ title: >-
 status: To Do
 assignee: []
 created_date: '2026-03-15 10:51'
-updated_date: '2026-03-15 11:55'
+updated_date: '2026-03-15 12:56'
 labels:
   - phase-0
   - setup
@@ -47,22 +47,22 @@ The Webflow site has no version control — all changes are made directly in the
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Given no repository exists for the project
+- [ ] #1 Given no repository exists - When gh repo create runs - Then a private repo named al-hayaat-nextjs exists with README.md and Node.js .gitignore
 When the developer creates al-hayaat-nextjs on GitHub with README and .gitignore
 Then the repository is accessible and contains main branch with initial commit
-- [ ] #2 Given the repository exists with main branch
+- [ ] #2 Given the repository exists with main - When the develop branch is created and set as default - Then both main and develop branches are confirmed via gh api
 When the developer creates the develop branch from main
 Then both branches are listed in gh api repos/{owner}/al-hayaat-nextjs/branches
-- [ ] #3 Given both branches exist
+- [ ] #3 Given both branches exist - When branch protection rules are applied - Then direct pushes to main are rejected and PRs require 1 review plus passing status checks
 When the developer configures branch protection on main
 Then direct pushes are blocked, PR reviews are required, and status checks must pass before merge
-- [ ] #4 Given branch protection is configured
+- [ ] #4 Given branch protection is configured - When all 4 secrets are added - Then gh secret list confirms AZURE_CREDENTIALS and all AZURE_WEBAPP_NAME variants
 When the developer adds repository secrets via gh secret set
 Then gh secret list confirms AZURE_CREDENTIALS, AZURE_WEBAPP_NAME_DEV, AZURE_WEBAPP_NAME_STAGING, and AZURE_WEBAPP_NAME_PROD are present
-- [ ] #5 Edge case: duplicate creation — Given the repository already exists
+- [ ] #5 Edge case: duplicate creation - Given the repo already exists - When the setup script runs - Then the script detects it and exits with a clear message
 When the developer attempts to create it again
 Then the script exits gracefully with a message indicating the repo already exists
-- [ ] #6 Edge case: branch protection bypass — Given branch protection is active on main
+- [ ] #6 Edge case: bypass attempt - Given branch protection is active on main - When a direct push is attempted - Then git rejects it with a protected branch error
 When a developer attempts to push directly to main
 Then the push is rejected with a protection rule error
 <!-- AC:END -->
