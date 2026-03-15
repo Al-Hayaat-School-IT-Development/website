@@ -3,9 +3,10 @@ id: TASK-045
 title: >-
   [P2] Build animation components so page sections and counters animate smoothly
   while respecting reduced-motion preferences
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-03-15 13:24'
+updated_date: '2026-03-15 23:46'
 labels:
   - phase-2
   - ui-components
