@@ -1,9 +1,10 @@
 ---
 id: TASK-023
 title: '[P6d] Automated PDF tax receipt generation and thank-you email delivery'
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-03-15 13:13'
+updated_date: '2026-03-15 21:21'
 labels:
   - stripe
   - email
@@ -78,6 +79,12 @@ export async function sendThankYouEmail(input: ThankYouEmailInput): Promise<void
 - [ ] #4 Given Resend is unavailable when the email is sent, when sendThankYouEmail throws, then the error is caught, logged to Application Insights with ERR_EMAIL_SEND_FAILED, and the webhook still returns HTTP 200 (email failure does not cause Stripe retry)
 - [ ] #5 Given a receipt is generated for a $100 donation on 2026-03-15, when the PDF renders, then the amount displays as '$100.00 CAD' and the date displays as 'March 15, 2026'
 <!-- AC:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+src/lib/pdf/receipt.tsx (A4 PDF via @react-pdf/renderer, CRA-compliant fields). src/lib/email/templates/donation-thank-you.tsx (React Email template). src/lib/email/donations.ts (Resend with PDF attachment, non-blocking). GET /api/stripe/receipt (downloads PDF by session_id). Webhook updated with fire-and-forget email chain.
+<!-- SECTION:FINAL_SUMMARY:END -->
 
 ## Definition of Done
 <!-- DOD:BEGIN -->
