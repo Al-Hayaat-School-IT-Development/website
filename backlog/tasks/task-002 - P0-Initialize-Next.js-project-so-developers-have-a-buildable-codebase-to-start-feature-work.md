@@ -6,7 +6,7 @@ title: >-
 status: To Do
 assignee: []
 created_date: '2026-03-15 10:50'
-updated_date: '2026-03-15 11:54'
+updated_date: '2026-03-15 12:55'
 labels:
   - phase-0
   - setup
@@ -47,19 +47,29 @@ The current Webflow site has no local development environment or build pipeline.
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Given no Next.js project exists in the repository
+- [ ] #1 Given no project exists - When create-next-app runs with all flags - Then a Next.js 15 project is created with TypeScript, Tailwind, ESLint, App Router, src/ directory, and @/* alias
+When `npx create-next-app` is run with --typescript --tailwind --eslint --app --src-dir --import-alias flags
+Then a Next.js 15 project is created with TypeScript, Tailwind CSS, ESLint, App Router, src/ directory, and @/* import alias
 When the developer runs create-next-app with --typescript --tailwind --eslint --app --src-dir --import-alias "@/*"
 Then the project is created with all flags applied and the src/app/ directory structure exists
-- [ ] #2 Given the project is created
+- [ ] #2 Given the project is created - When npm run build executes - Then build completes with exit code 0 and zero errors
+When `npm run build` is executed
+Then the build completes with exit code 0 and zero errors or warnings
 When the developer runs npm run build
 Then the build completes with exit code 0 and no TypeScript errors
-- [ ] #3 Given the project is created
+- [ ] #3 Given the project is created - When npm run lint executes - Then ESLint reports zero violations
+When `npm run lint` is executed
+Then ESLint reports zero violations across all files
 When the developer opens any .ts file and uses an @/* import
 Then TypeScript resolves the import without errors
-- [ ] #4 Edge case: clean install — Given the project is cloned fresh with no node_modules
+- [ ] #4 Edge case: clean install - Given cloned with no node_modules - When npm install and npm run build run - Then build succeeds with exit code 0
+When `npm install && npm run build` is run
+Then the build succeeds with exit code 0 on the first attempt
 When the developer runs npm install followed by npm run build
 Then both commands succeed with exit code 0
-- [ ] #5 Edge case: environment variables — Given .env.local.example exists with all required keys
+- [ ] #5 Edge case: env vars - Given .env.local.example exists - When developer copies it to .env.local - Then the dev server starts without missing variable warnings
+When a developer copies it to .env.local
+Then the development server starts without missing variable warnings
 When the developer copies it to .env.local and fills in values
 Then the app starts without missing-env errors
 <!-- AC:END -->
