@@ -1,9 +1,10 @@
 ---
 id: TASK-015
 title: '[P6a] Configure Stripe payment infrastructure'
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-03-15 13:11'
+updated_date: '2026-03-15 21:21'
 labels:
   - stripe
   - infrastructure
@@ -73,6 +74,12 @@ export function getStripe(): Stripe {
 - [ ] #3 Given the Stripe Dashboard webhook is configured, when a test checkout.session.completed event is sent via Stripe CLI, then the endpoint at /api/stripe/webhook responds with HTTP 200
 - [ ] #4 Given the CI/CD pipeline runs, when the deploy-prod.yml workflow executes, then a verification step confirms all three Stripe environment variables are bound before the deployment proceeds
 <!-- AC:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+src/lib/stripe.ts singleton created with getStripe() lazy init and ERR_STRIPE_KEY_MISSING guard. Stripe v20.4.1 installed (API version 2026-02-25.clover). deploy-prod.yml verifies STRIPE_SECRET_KEY and STRIPE_WEBHOOK_SECRET before deployment. Azure Bicep Key Vault module configures RBAC for App Service managed identity to read secrets.
+<!-- SECTION:FINAL_SUMMARY:END -->
 
 ## Definition of Done
 <!-- DOD:BEGIN -->
