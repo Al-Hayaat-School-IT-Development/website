@@ -6,7 +6,7 @@ title: >-
 status: To Do
 assignee: []
 created_date: '2026-03-15 10:53'
-updated_date: '2026-03-15 11:56'
+updated_date: '2026-03-15 12:57'
 labels:
   - phase-0
   - setup
@@ -50,22 +50,22 @@ A project that fails to build or lint on a clean clone wastes developer time and
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Given TASK-002 is complete and the Next.js project exists
+- [ ] #1 Given TASK-002 is complete - When npm run build executes - Then the build completes with exit code 0 and zero errors
 When the developer runs npm run build
 Then the build exits with code 0 and no errors
-- [ ] #2 Given the project is built
+- [ ] #2 Given the project is built - When npm run lint executes - Then ESLint reports zero violations across all files
 When the developer runs npm run lint
 Then the linter exits with code 0 and no warnings
-- [ ] #3 Given TypeScript is configured
+- [ ] #3 Given TypeScript is in strict mode - When npx tsc runs with noEmit flag - Then zero type errors are reported
 When the developer runs npx tsc --noEmit
 Then type checking passes with code 0
-- [ ] #4 Given the src/ directory structure exists
+- [ ] #4 Given the src/ directory exists with import alias configured - When the build processes all imports - Then all aliases resolve correctly with no module-not-found errors
 When the developer checks for src/app/ subfolder
 Then the App Router directory structure is present
-- [ ] #5 Edge case: import alias — Given a test file uses @/* import syntax
+- [ ] #5 Edge case: import alias - Given a file uses path alias import syntax - When the build runs - Then the import resolves correctly with no module not found error
 When the developer runs the build
 Then the import resolves correctly with no module-not-found errors
-- [ ] #6 Edge case: clean clone — Given the project is cloned fresh with no node_modules
+- [ ] #6 Edge case: clean clone - Given the project is cloned fresh with no node_modules - When npm install and npm run build run - Then the build succeeds with exit code 0
 When the developer runs npm install followed by npm run build
 Then both commands succeed with exit code 0
 <!-- AC:END -->
