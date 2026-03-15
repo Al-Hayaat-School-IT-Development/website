@@ -6,7 +6,7 @@ title: >-
 status: To Do
 assignee: []
 created_date: '2026-03-08 17:52'
-updated_date: '2026-03-15 11:53'
+updated_date: '2026-03-15 11:54'
 labels:
   - phase-0
   - infrastructure
@@ -20,23 +20,57 @@ priority: high
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-Set up GitHub repository, Azure infrastructure with Bicep IaC, CI/CD pipelines, and database schema. Total: 16 hours
+**Story**
+As a developer on the Al-Hayaat project, I want a fully provisioned infrastructure foundation (GitHub repo, Azure resources, CI/CD pipelines, database, and Next.js project), so that the team can begin feature development with confidence that code flows from commit to production.
+
+**Business Context**
+The Webflow site has no version control, no staging environment, and no automated deployments. Establishing infrastructure first eliminates the "works on my machine" problem and ensures every subsequent phase has a reliable, repeatable deployment pipeline from day one.
+
+**Technical Specification**
+- Rendering: N/A — infrastructure-only phase
+- Data: PostgreSQL schema with 5 tables deployed via raw SQL
+- Infrastructure: Azure App Service, PostgreSQL Flexible Server, Key Vault, Application Insights, Storage Account — all provisioned via Bicep IaC
+- Stack constraints: GitHub Actions for CI/CD, Bicep parameter files per environment (dev/staging/prod)
+- Phase dependencies: None — this is the first phase
+- Spec reference: `.kiro/specs/phase-0-infrastructure-setup.md`
+
+**Error Handling**
+| Code | Meaning | UI Recovery |
+|------|---------|-------------|
+| Bicep deployment failure | ARM template validation error | Review deployment logs in Azure Portal, fix template |
+| CI workflow failure | Lint/type-check/build error | Fix code, re-push to trigger CI |
+| DB connection failure | PostgreSQL unreachable | Verify firewall rules and connection string in Key Vault |
+
+**Recommended Skills**
+- `#senior-architect` — infrastructure design, Azure resource provisioning, CI/CD pipeline architecture
+
+**Story Points**: 8
+*Sizing rationale: Spans 5 sub-tasks (repo, Next.js init, Bicep, DB schema, CI/CD) across 16 hours — at the split boundary. Requires Lead Engineer review before sprint.*
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 GitHub repository created: al-hayaat-nextjs
-- [ ] #2 README.md with project overview
-- [ ] #3 .gitignore configured for Next.js
-- [ ] #4 Branch protection rules on main and develop
-- [ ] #5 Repository secrets configured
-- [ ] #6 Next.js 15 project initialized and building
-- [ ] #7 Azure infrastructure deployed (all 6 resources)
-- [ ] #8 Database schema deployed and accessible
-- [ ] #9 CI workflow passing on PRs
-- [ ] #10 Dev environment deployed and accessible
-- [ ] #11 Environment variables configured in Azure Key Vault
-- [ ] #12 Documentation complete (README, deployment guide)
+- [ ] #1 Given the GitHub repository does not exist
+When the developer runs the repository setup script
+Then the al-hayaat-nextjs repo is created with main and develop branches, branch protection rules active, and all 4 secrets configured
+- [ ] #2 Given the repository exists with no project code
+When the developer runs create-next-app with TypeScript, Tailwind, ESLint, and App Router flags
+Then npm run build completes with exit code 0 and src/app/ directory structure exists
+- [ ] #3 Given the Azure dev resource group is empty
+When the developer deploys infrastructure/main.bicep with dev parameters
+Then all 6 resources (App Service, PostgreSQL, Key Vault, Storage, App Insights, App Service Plan) are provisioned and az resource list confirms them
+- [ ] #4 Given the PostgreSQL server is running
+When the developer executes scripts/db/schema.sql
+Then 5 tables are created (contact_submissions, job_applications, newsletter_subscribers, donations, users) with correct indexes
+- [ ] #5 Given all infrastructure is deployed
+When a PR is opened against develop
+Then the ci.yml workflow triggers and passes lint, type-check, and build steps
+- [ ] #6 Edge case: Bicep idempotency — Given infrastructure was already deployed
+When the developer re-runs the Bicep deployment
+Then no resources are duplicated and the deployment succeeds with no changes
+- [ ] #7 Edge case: Secret rotation — Given Key Vault secrets exist
+When a secret value is updated
+Then the App Service picks up the new value on next restart without code changes
 <!-- AC:END -->
 
 ## Implementation Plan
@@ -56,3 +90,12 @@ None — this is the first phase.
 ## References
 See `.kiro/specs/phase-0-infrastructure-setup.md` for full details.
 <!-- SECTION:PLAN:END -->
+
+## Definition of Done
+<!-- DOD:BEGIN -->
+- [ ] #1 Code reviewed and merged to develop
+- [ ] #2 Deployment guide created in docs/
+- [ ] #3 All verification tasks (TASK-007 through TASK-011) pass
+- [ ] #4 Application Insights logging enabled on dev App Service
+- [ ] #5 Corresponding verify tasks in Backlog.md marked Done
+<!-- DOD:END -->
