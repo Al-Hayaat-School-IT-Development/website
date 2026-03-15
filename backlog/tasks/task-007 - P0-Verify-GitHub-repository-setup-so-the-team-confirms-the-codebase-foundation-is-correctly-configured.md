@@ -6,7 +6,7 @@ title: >-
 status: To Do
 assignee: []
 created_date: '2026-03-15 10:52'
-updated_date: '2026-03-15 11:55'
+updated_date: '2026-03-15 12:56'
 labels:
   - phase-0
   - setup
@@ -50,22 +50,22 @@ A misconfigured repository (missing branch protection, wrong secrets) can silent
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Given TASK-005 is complete and the repository exists
+- [ ] #1 Given TASK-005 is complete - When scripts/verify/repo-check.sh executes - Then it prints PASS for all checks and exits with code 0
 When the developer runs gh repo view al-hayaat-nextjs
 Then the command returns repo details without error
-- [ ] #2 Given the repository exists
+- [ ] #2 Given the repository exists - When the script checks branch protection on main - Then require-pr-reviews and status-checks are both confirmed enabled
 When the developer runs gh api repos/{owner}/al-hayaat-nextjs/branches
 Then both main and develop branches are listed
-- [ ] #3 Given branch protection is configured
+- [ ] #3 Given branch protection is configured - When the script checks secrets - Then all 4 secrets are confirmed present by name
 When the developer queries the main branch protection API
 Then protection rules show required reviews and status checks are active
-- [ ] #4 Given secrets are configured
+- [ ] #4 Given secrets are configured - When the script runs all checks - Then it exits with code 0 and zero FAIL lines in the output
 When the developer runs gh secret list
 Then all 4 secrets are present (AZURE_CREDENTIALS, AZURE_WEBAPP_NAME_DEV, AZURE_WEBAPP_NAME_STAGING, AZURE_WEBAPP_NAME_PROD)
-- [ ] #5 Edge case: missing protection — Given branch protection was not applied to develop
+- [ ] #5 Edge case: missing protection - Given branch protection was not applied to develop - When the script runs - Then it prints FAIL for develop branch protection and exits with code 1
 When the verification script runs
 Then it reports FAIL for develop branch protection with a remediation command
-- [ ] #6 Edge case: partial secrets — Given only 2 of 4 secrets are configured
+- [ ] #6 Edge case: partial secrets - Given only 2 of 4 secrets are configured - When the script runs - Then it prints FAIL listing each missing secret by name and exits with code 1
 When the verification script runs
 Then it reports FAIL and lists the missing secret names
 <!-- AC:END -->
