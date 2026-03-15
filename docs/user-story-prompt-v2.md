@@ -20,6 +20,7 @@
 | SKILL.md reference confusion | Prompt references SKILL.md snippets in docs/ — unclear intent | Clarified as "data contract docs", not skill files |
 | No skill routing | Developer doesn't know which Kiro skill to activate per story type | Added SKILL ROUTING table + Recommended Skills field per story |
 | No engineering standards | No guardrails for singleton pattern, component reuse, or docs-driven dev | Added ENGINEERING STANDARDS section (singleton, single-source UI, docs-driven, Fibonacci gate) |
+| No content extraction standard | UI stories don't specify how to extract text from Webflow HTML into structured JSON | Added ENGINEERING STANDARD §4: Content Extraction & Single-Source Text Architecture, Content Extraction field in OUTPUT FORMAT, updated few-shot example |
 
 ---
 
@@ -42,6 +43,35 @@ a developer can pick up and implement without asking a single clarifying questio
 - Small tasks (1–2 pts) are reserved for styling tweaks, copy changes, or documentation updates only.
 - No inline styles or non-Tailwind CSS — every visual element must reference a design token from `src/styles/tailwind.config.ts` or a shadcn/ui primitive.
 
+## STORY TYPE CLASSIFICATION
+Before writing each story, classify it as one of the following types.
+Story type controls which OUTPUT FORMAT sections are required (see CONDITIONAL FIELDS below).
+
+| Type | When to use |
+|------|-------------|
+| INFRASTRUCTURE | Provisioning, configuration, tooling — Bicep, CI/CD, repo setup, Next.js scaffolding |
+| VERIFICATION | Automated scripts confirming infrastructure is correctly configured |
+| DESIGN_SYSTEM | Design tokens, Tailwind config, base layout primitives (P1) |
+| UI_COMPONENT | React components in the component library (P2) |
+| PAGE_MIGRATION | Full page rendering migrated from Webflow source (P3) |
+| BACKEND_API | API routes, raw SQL, server actions, DB integration (P4) |
+| ADMIN | Auth, dashboard, admin flows (P5) |
+| PAYMENT | Stripe, webhooks, donation flows (P6) |
+| PERFORMANCE | Optimization, Core Web Vitals, SEO (P7) |
+| TESTING | E2E tests, deployment verification (P8) |
+
+## CONDITIONAL FIELDS
+Include or omit OUTPUT FORMAT sections based on story type:
+
+| Section | Required for |
+|---------|--------------|
+| Data Contract | BACKEND_API, ADMIN, PAYMENT — and any story touching `lib/db.ts` or `lib/api-client.ts` |
+| Content Extraction | UI_COMPONENT and PAGE_MIGRATION only |
+| Reusable Components | DESIGN_SYSTEM, UI_COMPONENT, PAGE_MIGRATION only |
+| Testing & Validation | DESIGN_SYSTEM and above (P1+) — omit for INFRASTRUCTURE and VERIFICATION |
+| Mobile viewport AC | DESIGN_SYSTEM, UI_COMPONENT, PAGE_MIGRATION only |
+| Application Insights DoD | Any story deploying to or configuring Azure App Service |
+
 ## ENGINEERING STANDARDS
 Every story must be written with these non-negotiable standards in mind. Reference them in
 Technical Specification and Definition of Done where applicable.
@@ -63,12 +93,96 @@ Technical Specification and Definition of Done where applicable.
 - Stories must list which existing component is reused vs. which new component is created
 
 ### 3. Documentation-Driven Development
-A story is NOT "Ready for Dev" without these artifacts defined in `docs/`:
-- Mapping schema `.md` for any Webflow-to-Next.js data migration
-- OpenAPI/Swagger spec draft for any new backend endpoint (frontend work cannot start without it)
+A story is NOT "Ready for Dev" without these artifacts created via `backlog doc create` (auto-numbered
+into `backlog/docs/`):
+- Mapping schema doc for any Webflow-to-Next.js data migration:
+  `backlog doc create -t technical "Migration schema: {entity}"`
+- OpenAPI/Swagger spec draft for any new backend endpoint (frontend work cannot start without it):
+  `backlog doc create -t technical "API spec: {endpoint}"`
 - Error dictionary entry for every new service:
-  - `ERR_AUTH_EXPIRED`, `ERR_DB_UNREACHABLE`, `ERR_VALIDATION_FAILED` (use these standards)
-- Stories must include a Data Contract section and list required docs artifacts in Definition of Done
+  `backlog doc create -t reference "Error dictionary: {service}"`
+  Use standard codes: `ERR_AUTH_EXPIRED`, `ERR_DB_UNREACHABLE`, `ERR_VALIDATION_FAILED`
+- Stories must include a Data Contract section and list required `backlog doc` IDs in Definition of Done
+
+### 4. Content Extraction & Single-Source Text Architecture
+All visible text on the site lives in structured JSON files — never hardcoded in JSX/TSX.
+This is the single source of truth for all page copy, enabling non-developer edits and
+consistent content management.
+
+**File structure:**
+```
+src/content/
+├── _shared.json      ← nav, footer, CTA, contact info (reused across pages)
+├── home.json
+├── about.json
+├── programs.json
+├── admissions.json
+├── contact.json
+├── careers.json
+├── donate.json
+└── school-plans.json
+```
+
+**Rules:**
+- One JSON file per page, plus `_shared.json` for cross-page content (nav, footer, CTAs,
+  contact info)
+- Every text block gets a unique ID following the convention: `{page}-{section}-{element}`
+  (e.g., `about-hero-headline`, `about-mission-vision-mission`, `home-why-faith`)
+- Content buried in Webflow-specific markup (`data-w-tab`, `data-w-id`, nested widget divs)
+  must be extracted into flat, obvious JSON keys — no content should be "hidden"
+- Sections reused across pages (e.g., "Why Al-Hayaat?", CTA blocks) live in `_shared.json`
+  and are referenced by ID — update once, reflect everywhere
+- Images referenced in content use filename only (e.g., `"image": "Frame-1362791640.webp"`)
+  — the component resolves the full path via `next/image`
+- Tab content, accordion content, and other interactive widget text must be extracted as
+  sibling keys (not nested inside markup-specific structures)
+
+**Extraction source:** `al-hayaat.webflow/*.html` — parse each HTML file, extract all visible
+text, meta tags, image references, and alt text into the corresponding JSON file.
+
+**TypeScript contract:**
+```typescript
+interface ContentBlock {
+  id: string;           // {page}-{section}-{element}
+  [key: string]: string | ContentBlock | ContentBlock[] | { label: string; href: string };
+}
+
+interface PageContent {
+  page: string;
+  meta: { id: string; title: string; description: string; og_title: string; og_description: string };
+  sections: Record<string, ContentBlock>;
+}
+```
+
+**Stories involving UI components or page migration (P2, P3) must include a Content Extraction
+section** that specifies:
+1. Which HTML source file to parse (`al-hayaat.webflow/{page}.html`)
+2. Which sections to extract (list section IDs)
+3. Which content is shared vs. page-specific
+4. Any Webflow-specific markup patterns to watch for (`data-w-tab`, `w-slider`, etc.)
+
+**Example extraction (about page — mission/vision tabs):**
+```json
+{
+  "mission_vision": {
+    "id": "about-mission-vision",
+    "headline": "Our Mission, Vision and Value",
+    "tabs": {
+      "mission": {
+        "id": "about-mission-vision-mission",
+        "label": "Our Mission",
+        "body": "Our mission is to shape individuals who are academically competent..."
+      },
+      "vision": {
+        "id": "about-mission-vision-vision",
+        "label": "Our Vision",
+        "body": "At Al-Hayaat School, we believe in empowering students..."
+      }
+    }
+  }
+}
+```
+Notice how tab content buried in `data-w-tab` divs becomes flat, searchable JSON.
 
 ## PROJECT CONTEXT
 Al-Hayaat Islamic School — migrating from Webflow (al-hayaat.webflow.io) to Next.js 15.
@@ -111,6 +225,9 @@ Before writing each story:
 3. Identify the rendering strategy and justify it (SSR/SSG/ISR/Client)
 4. Check: can this be tested independently? If not, split it.
 5. Check: is it ≤8 points? If not, identify the vertical slice boundary and split.
+6. If the story involves UI text: identify the Webflow source HTML file, list sections to
+   extract, flag any Webflow-specific markup patterns (data-w-tab, w-slider, w-dropdown),
+   and determine which content is page-specific vs. shared (_shared.json)
 
 ## OUTPUT FORMAT PER STORY
 
@@ -143,6 +260,24 @@ compared to the Webflow version. Be specific, not generic.}
 | 404  | {meaning} | {what user sees} |
 | 500  | {meaning} | {what user sees} |
 | 422  | {meaning} | {what user sees} |
+
+**Content Extraction** *(required for any story that renders UI text — P2 components, P3 pages)*
+- Source file: `al-hayaat.webflow/{page}.html`
+- Target file: `src/content/{page}.json` (or `_shared.json` for cross-page content)
+- Sections to extract: {list section IDs, e.g., `about-hero`, `about-mission-vision`, `about-team`}
+- Shared content: {list any sections that also appear on other pages → extract to `_shared.json`}
+- Webflow markup patterns: {list platform-specific patterns to parse, e.g., `data-w-tab` for tabs,
+  `w-slider` for sliders, `w-dropdown` for accordions}
+- Extraction example:
+```json
+{
+  "{section_id}": {
+    "id": "{page}-{section}-{element}",
+    "headline": "{extracted text}",
+    "{nested_key}": "{extracted text}"
+  }
+}
+```
 
 **Acceptance Criteria**
 ```gherkin
@@ -179,12 +314,16 @@ Then {expected result}
 
 **Definition of Done**
 - [ ] Code reviewed and merged to `develop`
-- [ ] Data contract doc created in `docs/` (if API/DB story)
-- [ ] OpenAPI spec draft in `docs/` (if new endpoint)
-- [ ] Error dictionary entries added for any new service errors
+- [ ] Data contract doc created via `backlog doc create -t technical "Data contract: {name}"` in `backlog/docs/` (if API/DB story) — record the assigned `doc-NNN` ID here
+- [ ] OpenAPI spec draft created via `backlog doc create -t technical "API spec: {endpoint}"` in `backlog/docs/` (if new endpoint) — record the assigned `doc-NNN` ID here
+- [ ] Error dictionary doc created via `backlog doc create -t reference "Error dictionary: {service}"` in `backlog/docs/` for any new service errors
 - [ ] DB/API client uses singleton from `lib/db.ts` or `lib/api-client.ts` (no inline instantiation)
 - [ ] No raw `<img>` tags — `next/image` used exclusively
 - [ ] No duplicate components — variant props used for visual differences
+- [ ] Content JSON file created/updated in `src/content/` (if UI/text story)
+- [ ] All visible text sourced from content JSON — no hardcoded strings in JSX
+- [ ] Shared content extracted to `_shared.json` where applicable
+- [ ] Content block IDs follow `{page}-{section}-{element}` convention
 - [ ] Verification script passes (`scripts/verify/`)
 - [ ] Application Insights logging enabled
 - [ ] WCAG 2.1 AA checked (manual + axe-core)
@@ -234,6 +373,25 @@ interface HeroSectionProps {
 | Image 404 | Hero image missing | Show branded placeholder with school colors |
 | — | CTA href broken | Log to App Insights, button still renders |
 
+**Content Extraction**
+- Source file: `al-hayaat.webflow/index.html`
+- Target file: `src/content/home.json`
+- Sections to extract: `home-hero`
+- Shared content: None — hero is page-specific
+- Webflow markup patterns: Standard `div` with class `hero-section`, background image in inline style
+- Extraction example:
+```json
+{
+  "hero": {
+    "id": "home-hero",
+    "headline": "Al-Hayaat School",
+    "subtext": "Nurturing young minds through academic excellence and spiritual development...",
+    "cta": { "label": "Enroll now", "href": "/admissions" },
+    "image": { "src": "hero-bg.webp", "alt": "Students learning in a bright classroom" }
+  }
+}
+```
+
 **Acceptance Criteria**
 ```gherkin
 # Happy path
@@ -272,6 +430,8 @@ Then the text is legible (min 16px), the CTA button is full-width, and no horizo
 
 **Definition of Done**
 - [ ] Code reviewed and merged to `develop`
+- [ ] Content JSON created: `src/content/home.json` with `home-hero` section
+- [ ] All hero text sourced from content JSON — no hardcoded strings in JSX
 - [ ] Verification script passes (`scripts/verify/`)
 - [ ] Application Insights logging enabled
 - [ ] WCAG 2.1 AA checked (manual + axe-core)
@@ -306,6 +466,10 @@ Use the `#skill-name` syntax — Kiro recognizes these as context keys during im
 - Do NOT generate stories for tasks already marked Done in backlog/tasks/
 - Do NOT exceed 8 story points — split on vertical slice (user-visible value boundary), not technical layer
 - Do NOT use inline styles or non-Tailwind CSS — every visual element must reference a design token from `src/styles/tailwind.config.ts` or a shadcn/ui primitive
+- Do NOT hardcode visible text in JSX/TSX — all UI copy must be sourced from `src/content/*.json` files and referenced by content block ID
+- Do NOT add a mobile viewport Gherkin scenario to INFRASTRUCTURE or VERIFICATION stories — it is irrelevant for non-UI tasks
+- Do NOT include Content Extraction, Reusable Components, or Testing & Validation sections in INFRASTRUCTURE or VERIFICATION stories
+- Do NOT use static `docs/` file paths for data contracts or error dictionaries — always use `backlog doc create` so documents are tracked with a `doc-NNN` ID
 
 ## SPLIT RULE
 When a story exceeds 8 points, split by asking: "What is the smallest slice that delivers
@@ -322,7 +486,7 @@ Before returning your response, verify each story:
 - [ ] Story statement follows "As a / I want / so that" with active voice
 - [ ] Single user role per story
 - [ ] Technical Specification includes rendering strategy with justification
-- [ ] At least 3 Gherkin scenarios (happy path + 2 edge cases including mobile)
+- [ ] At least 3 complete Gherkin scenarios (Given/When/Then) — happy path + 2 edge cases; for DESIGN_SYSTEM, UI_COMPONENT, and PAGE_MIGRATION stories one edge case must be a mobile viewport (375px) scenario; omit mobile scenario for INFRASTRUCTURE and VERIFICATION stories
 - [ ] Story points ≤ 8 (if >8, split was applied); if 8 pts, "Requires Lead Engineer review" noted
 - [ ] Phase dependencies reference actual TASK-XXX IDs from backlog/tasks/
 - [ ] Spec reference points to existing .kiro/specs/phase-{N}-*.md file
@@ -333,4 +497,7 @@ Before returning your response, verify each story:
 - [ ] Data contract + required docs artifacts listed in Definition of Done
 - [ ] Recommended Skills field populated using SKILL ROUTING table
 - [ ] Definition of Done checklist is complete
+- [ ] Content Extraction, Reusable Components, and Testing & Validation sections present for UI_COMPONENT and PAGE_MIGRATION stories; confirmed absent for INFRASTRUCTURE and VERIFICATION stories
+- [ ] Content block IDs follow `{page}-{section}-{element}` convention
+- [ ] Shared/reused content identified and flagged for `_shared.json`
 ```
