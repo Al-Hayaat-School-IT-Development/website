@@ -3,9 +3,10 @@ id: TASK-021
 title: >-
   [P4] Build careers listings page so job seekers can browse current openings
   and understand position requirements
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-03-15 13:13'
+updated_date: '2026-03-16 11:42'
 labels:
   - phase-4
   - page
