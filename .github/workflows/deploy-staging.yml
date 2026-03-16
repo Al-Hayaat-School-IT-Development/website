@@ -1,4 +1,6 @@
-name: Deploy to Staging
+name: Deploy App (Staging)
+# Deploys the Next.js application code to the existing App Service.
+# To provision or update Azure infrastructure, run the "Deploy Infrastructure (Staging)" workflow first.
 
 on:
   workflow_dispatch:
@@ -9,7 +11,7 @@ on:
 
 jobs:
   deploy:
-    name: Deploy to Azure Staging
+    name: Build & Deploy Next.js → al-hayaat-staging
     runs-on: ubuntu-latest
     if: github.event.inputs.confirm == 'staging'
 

@@ -1,0 +1,12 @@
+{
+  "page": "home",
+  "sections": {
+    "hero": {
+      "id": "home-hero",
+      "headline": "Al-Hayaat School",
+      "subtext": "Bridging education and values",
+      "cta": { "label": "Enroll Now", "href": "#" },
+      "backgroundVariant": "primary"
+    }
+  }
+}

@@ -1,4 +1,6 @@
-name: Deploy to Production
+name: Deploy App (Production)
+# Deploys the Next.js application code to the existing App Service.
+# To provision or update Azure infrastructure, run the "Deploy Infrastructure (Production)" workflow first.
 
 on:
   push:
@@ -15,7 +17,7 @@ jobs:
         run: echo "Production deployment approved"
 
   deploy:
-    name: Deploy to Azure Production
+    name: Build & Deploy Next.js → al-hayaat-prod
     runs-on: ubuntu-latest
     needs: approve
 

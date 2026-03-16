@@ -12,11 +12,26 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
   kind: 'StorageV2'
 }
 
+resource blobService 'Microsoft.Storage/storageAccounts/blobServices@2023-01-01' = {
+  name: 'default'
+  parent: storageAccount
+}
+
 resource resumesContainer 'Microsoft.Storage/storageAccounts/blobServices/containers@2023-01-01' = {
-  name: '${storageAccount.name}/default/resumes'
+  name: 'resumes'
+  parent: blobService
+  properties: {
+    publicAccess: 'None'
+  }
+}
+
+resource uploadsContainer 'Microsoft.Storage/storageAccounts/blobServices/containers@2023-01-01' = {
+  name: 'uploads'
+  parent: blobService
   properties: {
     publicAccess: 'None'
   }
 }
 
 output storageAccountId string = storageAccount.id
+output storageAccountName string = storageAccount.name
