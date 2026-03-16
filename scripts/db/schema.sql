@@ -47,6 +47,17 @@ CREATE TABLE IF NOT EXISTS donations (
   created_at        TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
+-- Enrollment applications
+CREATE TABLE IF NOT EXISTS applications (
+  id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  student_data    JSONB NOT NULL,
+  guardian_data   JSONB NOT NULL,
+  academic_data   JSONB NOT NULL,
+  additional_data JSONB NOT NULL,
+  submitted_at    TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  status          TEXT NOT NULL DEFAULT 'pending'
+);
+
 -- Admin users
 CREATE TABLE IF NOT EXISTS users (
   id            UUID PRIMARY KEY DEFAULT gen_random_uuid(),

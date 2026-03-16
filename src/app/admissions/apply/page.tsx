@@ -19,6 +19,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { applicationSchema, type ApplicationFormData } from '@/lib/validations/forms';
+import { toast } from 'sonner';
 import admissionsContent from '@/content/admissions.json';
 
 // ── Options ───────────────────────────────────────────────────────────────────
@@ -56,6 +57,7 @@ export default function AdmissionsApplyPage() {
     trigger,
     handleSubmit,
     watch,
+    setError,
     formState: { errors, isSubmitting },
   } = useForm<ApplicationFormData>({
     resolver: zodResolver(applicationSchema),
@@ -81,16 +83,31 @@ export default function AdmissionsApplyPage() {
     setCurrentStep((s) => Math.max(1, s - 1));
   }
 
-  // Will be fully wired to POST /api/application in TASK-032
   async function handleFormSubmit(data: ApplicationFormData) {
     setSubmitError(null);
     try {
-      console.log('Application data:', data);
-      // TODO (TASK-032): replace with actual API call
-      // await fetch('/api/application', { method: 'POST', body: JSON.stringify(data) })
-      setIsSubmitted(true);
+      const res = await fetch('/api/application', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (res.status === 201) {
+        setIsSubmitted(true);
+      } else if (res.status === 422) {
+        const { errors: fieldErrors } = await res.json();
+        Object.entries(fieldErrors).forEach(([field, messages]) => {
+          setError(field as Parameters<typeof setError>[0], {
+            message: (messages as string[])[0],
+          });
+        });
+        setCurrentStep(1);
+      } else if (res.status === 429) {
+        toast.error('Too many submissions. Please try again in an hour.');
+      } else {
+        toast.error('Something went wrong. Please try again.');
+      }
     } catch {
-      setSubmitError('Something went wrong. Please try again or email admin@alhayaat.ca.');
+      toast.error('Network error. Please check your connection.');
     }
   }
 

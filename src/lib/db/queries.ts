@@ -130,6 +130,42 @@ export async function upsertNewsletterSubscriber(
   return rows[0] ?? { isNew: false };
 }
 
+// ── Enrollment Applications ───────────────────────────────────
+
+export interface CreateApplicationInput {
+  studentData: Record<string, unknown>;
+  guardianData: Record<string, unknown>;
+  academicData: Record<string, unknown>;
+  additionalData: Record<string, unknown>;
+}
+
+export interface Application {
+  id: string;
+  student_data: Record<string, unknown>;
+  guardian_data: Record<string, unknown>;
+  academic_data: Record<string, unknown>;
+  additional_data: Record<string, unknown>;
+  submitted_at: Date;
+  status: string;
+}
+
+export async function createApplication(
+  input: CreateApplicationInput
+): Promise<Application | null> {
+  const { rows } = await db.query<Application>(
+    `INSERT INTO applications (student_data, guardian_data, academic_data, additional_data, status)
+     VALUES ($1, $2, $3, $4, 'pending')
+     RETURNING *`,
+    [
+      JSON.stringify(input.studentData),
+      JSON.stringify(input.guardianData),
+      JSON.stringify(input.academicData),
+      JSON.stringify(input.additionalData),
+    ]
+  );
+  return rows[0] ?? null;
+}
+
 // ── Job Applications ──────────────────────────────────────────
 
 export interface CreateJobApplicationInput {
