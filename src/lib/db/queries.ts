@@ -117,11 +117,15 @@ export async function createContactSubmission(input: ContactSubmissionInput): Pr
 
 // ── Newsletter ────────────────────────────────────────────────
 
-export async function upsertNewsletterSubscriber(email: string): Promise<void> {
-  await db.query(
+export async function upsertNewsletterSubscriber(
+  email: string
+): Promise<{ isNew: boolean }> {
+  const { rows } = await db.query<{ isNew: boolean }>(
     `INSERT INTO newsletter_subscribers (email)
      VALUES ($1)
-     ON CONFLICT (email) DO UPDATE SET active = TRUE`,
+     ON CONFLICT (email) DO UPDATE SET active = TRUE
+     RETURNING (xmax = 0) AS "isNew"`,
     [email]
   );
+  return rows[0] ?? { isNew: false };
 }
