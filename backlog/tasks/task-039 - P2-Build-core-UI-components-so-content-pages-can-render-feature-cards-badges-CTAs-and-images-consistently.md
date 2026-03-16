@@ -3,9 +3,10 @@ id: TASK-039
 title: >-
   [P2] Build core UI components so content pages can render feature cards,
   badges, CTAs, and images consistently
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-03-15 13:21'
+updated_date: '2026-03-16 05:04'
 labels:
   - phase-2
   - ui-components

@@ -3,9 +3,10 @@ id: TASK-043
 title: >-
   [P2] Build data display components so admin tables, empty states, and loading
   skeletons render accessibly across all pages
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-03-15 13:23'
+updated_date: '2026-03-16 05:04'
 labels:
   - phase-2
   - ui-components

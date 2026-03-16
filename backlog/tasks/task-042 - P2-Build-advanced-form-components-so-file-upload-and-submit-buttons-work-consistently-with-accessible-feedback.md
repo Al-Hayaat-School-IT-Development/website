@@ -3,9 +3,10 @@ id: TASK-042
 title: >-
   [P2] Build advanced form components so file upload and submit buttons work
   consistently with accessible feedback
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-03-15 13:23'
+updated_date: '2026-03-16 05:04'
 labels:
   - phase-2
   - ui-components
