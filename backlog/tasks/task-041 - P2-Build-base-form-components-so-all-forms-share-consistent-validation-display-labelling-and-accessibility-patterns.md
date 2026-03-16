@@ -3,9 +3,10 @@ id: TASK-041
 title: >-
   [P2] Build base form components so all forms share consistent validation
   display, labelling, and accessibility patterns
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-03-15 13:22'
+updated_date: '2026-03-16 05:04'
 labels:
   - phase-2
   - ui-components

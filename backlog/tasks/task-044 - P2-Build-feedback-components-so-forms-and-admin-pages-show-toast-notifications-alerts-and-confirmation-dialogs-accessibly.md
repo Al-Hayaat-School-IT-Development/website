@@ -3,9 +3,10 @@ id: TASK-044
 title: >-
   [P2] Build feedback components so forms and admin pages show toast
   notifications, alerts, and confirmation dialogs accessibly
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-03-15 13:24'
+updated_date: '2026-03-16 05:04'
 labels:
   - phase-2
   - ui-components
