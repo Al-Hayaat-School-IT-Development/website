@@ -1,9 +1,10 @@
 ---
 id: TASK-051
 title: '[P2] Build AutoScrollCarousel component for About page hero'
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-03-17 11:15'
+updated_date: '2026-03-17 12:20'
 labels:
   - P2
   - ui-component
@@ -42,3 +43,9 @@ Files to create/update:
 - [ ] #5 Component accepts images array prop with src and alt fields
 - [ ] #6 Mobile: carousel still scrolls but images scale down proportionally
 <!-- AC:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+Created `src/components/ui/AutoScrollCarousel.tsx` — a client component looping hero images via `@keyframes webflow-marquee`. Accepts an `images` array, duplicates for seamless looping. Wired into About page hero via `about.json hero.carousel`.
+<!-- SECTION:FINAL_SUMMARY:END -->
