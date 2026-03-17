@@ -3,10 +3,11 @@ id: TASK-003
 title: >-
   [P0] Deploy database schema so the application has persistent storage for form
   submissions and user data
-status: Done
-assignee: []
+status: In Progress
+assignee:
+  - Copilot
 created_date: '2026-03-15 10:51'
-updated_date: '2026-03-15 21:21'
+updated_date: '2026-03-17 12:14'
 labels:
   - phase-0
   - database
@@ -58,27 +59,27 @@ users (id SERIAL PK, email VARCHAR(255) UNIQUE, password_hash VARCHAR(255), role
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Given the PostgreSQL Flexible Server is running in dev - When scripts/db/schema.sql executes - Then all 5 tables are created with correct columns, data types, and constraints
+- [ ] #1 Given the current Next.js app architecture and Webflow reference flows in `al-hayaat.webflow/`, when the database task is reviewed, then the backlog story and technical scope reflect the active raw-SQL `pg` implementation instead of outdated Prisma/5-table assumptions.
 When scripts/db/schema.sql is executed
 Then all 5 tables are created with correct columns, data types, and constraints
 When the developer executes psql $DATABASE_URL -f scripts/db/schema.sql
 Then all 5 tables are created in the public schema without errors
-- [ ] #2 Given the schema is deployed - When a SELECT query runs against each table - Then all tables return 0 rows with no errors
+- [ ] #2 Given `scripts/db/schema.sql` is the schema source of truth, when the schema is aligned with the current application code, then all persisted workflows are represented correctly: contact submissions, newsletter subscribers, donations, admissions applications, career/job applications, and admin-user groundwork.
 When a SELECT query runs against each table
 Then all tables return 0 rows with no errors
 When the developer queries pg_indexes for the public schema
 Then 3 indexes exist: idx_contact_created, idx_applications_created, idx_donations_created
-- [ ] #3 Given the schema is deployed - When each table is inspected with \d+ - Then all expected indexes exist on the correct columns
+- [ ] #3 Given the careers application flow is implemented via `src/app/api/jobs/apply/route.ts` and `src/lib/db/queries.ts`, when the schema is updated, then the table/column definitions match the code paths without runtime column mismatches.
 When \d+ is used to inspect each table
 Then all expected indexes exist on the correct columns
 When the developer executes psql $DATABASE_URL -f scripts/db/seed.sql
 Then sample data is inserted and SELECT COUNT(*) on each table returns > 0 rows
-- [ ] #4 Edge case: idempotent re-run - Given the schema was already deployed - When schema.sql runs again - Then no error is thrown and all tables remain unchanged (CREATE TABLE IF NOT EXISTS)
+- [ ] #4 Given the local PostgreSQL database is available, when the schema is applied to `alhayaat_db`, then the expected tables, constraints, and indexes are created successfully and the schema remains safe to re-run.
 When schema.sql is executed again
 Then no error is thrown and all tables remain unchanged (CREATE TABLE IF NOT EXISTS)
 When the developer re-runs scripts/db/schema.sql
 Then no errors occur and existing data is preserved
-- [ ] #5 Edge case: connection pooling - Given lib/db.ts exports a singleton pg Pool - When multiple routes import from lib/db.ts - Then only one Pool instance exists in memory per process
+- [ ] #5 Given the database task is completed, when future engineers review the backlog and docs, then they can see the architecture review rationale, current schema decisions, and references back to `al-hayaat.webflow/` and current app files.
 When multiple API routes import from lib/db.ts
 Then only one Pool instance exists in memory per process
 When multiple concurrent queries execute
@@ -88,18 +89,18 @@ Then connections are reused from the pool and no connection limit errors occur
 ## Implementation Plan
 
 <!-- SECTION:PLAN:BEGIN -->
-## Deploy
-```bash
-psql $DATABASE_URL -f scripts/db/schema.sql
-```
-
-## Tables
-- contact_submissions (id, name, email, phone, message, created_at)
-- job_applications (id, name, email, position, resume_url, created_at)
-- newsletter_subscribers (id, email, subscribed_at, active)
-- donations (id, amount, donor_name, donor_email, stripe_session_id, created_at)
-- users (id, email, password_hash, role, created_at)
+1. Reconcile the task with the current app architecture by reviewing `src/lib/db.ts`, `src/lib/db/queries.ts`, the active API routes, and Webflow references in `al-hayaat.webflow/`.
+2. Update the task story, technical scope, and acceptance criteria so the task reflects the current raw-SQL `pg` architecture and the actual persisted workflows: contact, newsletter, donations, admissions applications, career applications, and admin-auth groundwork.
+3. Align `scripts/db/schema.sql` with the live code paths, especially fixing schema drift between the job/careers application table definition and `createJobApplication()` / `POST /api/jobs/apply`.
+4. Add or update supporting verification/documentation assets so the schema can be checked locally after deployment.
+5. Apply the schema to the local `alhayaat_db` database and verify the expected tables and indexes exist.
 <!-- SECTION:PLAN:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+Architecture review completed against current Next.js app and `al-hayaat.webflow/`. Findings: the project uses raw SQL via `pg`, not Prisma; `scripts/db/schema.sql` is the active schema source; backlog/docs are stale; and the careers/job application schema currently drifts from `src/lib/db/queries.ts` and `src/app/api/jobs/apply/route.ts`.
+<!-- SECTION:NOTES:END -->
 
 ## Final Summary
 
