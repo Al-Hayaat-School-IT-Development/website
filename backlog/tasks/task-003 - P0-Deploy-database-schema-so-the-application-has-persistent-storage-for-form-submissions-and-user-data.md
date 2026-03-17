@@ -7,7 +7,7 @@ status: In Progress
 assignee:
   - Copilot
 created_date: '2026-03-15 10:51'
-updated_date: '2026-03-17 12:14'
+updated_date: '2026-03-17 12:16'
 labels:
   - phase-0
   - database
@@ -20,41 +20,24 @@ priority: high
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
 **Story**
-As a developer on the Al-Hayaat project, I want the PostgreSQL database schema deployed with all 5 tables, indexes, and seed data, so that API routes and form submissions have a tested, production-ready data layer to write against.
+As a developer on the Al-Hayaat project, I want the PostgreSQL schema to match the current Next.js implementation and the public workflows referenced in `al-hayaat.webflow/`, so that form submissions, donations, applications, and admin data views persist reliably without schema drift.
 
 **Business Context**
-The Webflow site stores form submissions in Webflow's proprietary CMS with no export capability and no relational integrity. Migrating to PostgreSQL with a well-defined schema enables structured queries, data exports, and integration with the admin dashboard (P5) and Stripe donations (P6).
+The project has moved beyond planning: API routes and admin views already depend on PostgreSQL through raw SQL query helpers. Outdated backlog/docs still describe Prisma and a 5-table design, which creates operational risk and can hide runtime failures.
 
 **Technical Specification**
-- Rendering: N/A — database-only task
-- Data: Raw SQL schema file creating 5 tables with parameterized indexes; seed data for dev testing
-- Infrastructure: Azure PostgreSQL Flexible Server (B1ms for dev, D2s_v3 for prod)
-- Stack constraints: Raw SQL only (no ORM), pg library for connections, parameterized queries ($1, $2), connection pooling via `lib/db.ts` singleton
-- Phase dependencies: TASK-006 (Azure infrastructure must be deployed for PostgreSQL server to exist)
-- Spec reference: `.kiro/specs/phase-0-infrastructure-setup.md`
+- Rendering: N/A — data layer and schema alignment
+- Data: Raw SQL schema, verification SQL, and related docs
+- Active persistence workflows: contact, newsletter, Stripe donations, admissions applications, careers/job applications, and admin-user groundwork
+- Stack constraints: raw SQL via `pg`, parameterized queries, singleton pool in `src/lib/db.ts`
+- Key references: `scripts/db/schema.sql`, `src/lib/db.ts`, `src/lib/db/queries.ts`, `src/app/api/**`, `al-hayaat.webflow/`
+- Review requirement: validate whether each table is still needed, whether fields/indexes align with current usage, and whether additional tables/columns should be introduced only where justified by implemented or clearly committed flows
 
-**Data Contract**
-```sql
--- Tables
-contact_submissions (id SERIAL PK, name VARCHAR(255), email VARCHAR(255), phone VARCHAR(50), message TEXT, created_at TIMESTAMPTZ DEFAULT NOW())
-job_applications (id SERIAL PK, name VARCHAR(255), email VARCHAR(255), position VARCHAR(255), resume_url TEXT, created_at TIMESTAMPTZ DEFAULT NOW())
-newsletter_subscribers (id SERIAL PK, email VARCHAR(255) UNIQUE, subscribed_at TIMESTAMPTZ DEFAULT NOW(), active BOOLEAN DEFAULT TRUE)
-donations (id SERIAL PK, amount DECIMAL(10,2), donor_name VARCHAR(255), donor_email VARCHAR(255), stripe_session_id VARCHAR(255), created_at TIMESTAMPTZ DEFAULT NOW())
-users (id SERIAL PK, email VARCHAR(255) UNIQUE, password_hash VARCHAR(255), role VARCHAR(50) DEFAULT 'admin', created_at TIMESTAMPTZ DEFAULT NOW())
-```
-
-**Error Handling**
-| Code | Meaning | UI Recovery |
-|------|---------|-------------|
-| Connection refused | PostgreSQL server unreachable | Verify firewall rules allow client IP; check DATABASE_URL in Key Vault |
-| Duplicate table | Schema already applied | Schema is idempotent (CREATE TABLE IF NOT EXISTS) — safe to re-run |
-| Permission denied | DB user lacks CREATE privilege | Grant privileges via Azure Portal or psql admin connection |
-
-**Recommended Skills**
-- `#senior-backend` — database schema design, PostgreSQL optimization, raw SQL patterns
-
-**Story Points**: 3
-*Sizing rationale: 5 tables with indexes plus seed data — moderate complexity but well-defined schema.*
+**Current Review Findings**
+- Raw SQL via `pg` is the live architecture; Prisma is not in use.
+- The schema source of truth is `scripts/db/schema.sql`.
+- The careers/job application table definition is out of sync with the live query layer.
+- Supporting docs/scripts (`verify.sql`, `seed.sql`, README, backlog stories) need to be brought up to date alongside the schema.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
