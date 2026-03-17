@@ -3,9 +3,10 @@ id: TASK-056
 title: >-
   [P3] Complete Donate page: color-variant donation cards and Arabic text
   support
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-03-17 11:17'
+updated_date: '2026-03-17 12:19'
 labels:
   - P3
   - page-migration
@@ -42,3 +43,9 @@ Dependencies: TASK-049 (ColoredBorderCard), TASK-052 (Amiri Quran font)
 - [ ] #4 Donation amount preset buttons render with correct button styling
 - [ ] #5 All donate page text sourced from src/content/donate.json including Arabic content
 <!-- AC:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+Rewrote `src/app/donate/page.tsx` with Webflow-aligned layout. Sections: hero with Arabic Quranic verse and translation, two-column layout (info + donation form), 5 payment method `ColoredBorderCard` components (yellow/orange/blue/green/red for Pledge, E-Transfer, Cheque, Credit Card, EFT), and reused `DonationForm`. Arabic text rendered via `.text-arabic` class with Amiri font.
+<!-- SECTION:FINAL_SUMMARY:END -->

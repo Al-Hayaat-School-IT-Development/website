@@ -1,9 +1,10 @@
 ---
 id: TASK-048
 title: '[P2] Build Button component with Webflow shadow-shift hover animation'
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-03-17 11:13'
+updated_date: '2026-03-17 12:19'
 labels:
   - P2
   - ui-component
@@ -47,3 +48,9 @@ Files to create/update:
 - [ ] #5 Button used consistently via variant prop — no duplicate button components exist
 - [ ] #6 All existing button usages in pages/components updated to new Button component
 <!-- AC:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+Implemented Webflow-style shadow-shift hover animation on the Button component in `src/components/ui/button.tsx`. Default and secondary variants use `shadow-[3px_3px_0_0_var(--brand--yellow)]` with `hover:translate-x/y[3.5px]` collapse. Also fixed the Base UI `nativeButton` semantics bug: when `render` prop is used (e.g. for Link), `nativeButton` is automatically set to `false` to avoid console warnings.
+<!-- SECTION:FINAL_SUMMARY:END -->
