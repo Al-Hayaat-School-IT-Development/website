@@ -57,6 +57,12 @@ Files to update:
 - [ ] #4 globals.css defines all Webflow brand CSS custom properties
 <!-- AC:END -->
 
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+Completed first brand-system pass: imported Webflow-aligned fonts in `src/app/layout.tsx`, added brand CSS variables/theme tokens in `src/app/globals.css`, updated `tailwind.config.ts`, and replaced old `#1e3a5f` literals in `src/` with `#1453a5`.
+<!-- SECTION:NOTES:END -->
+
 ## Final Summary
 
 <!-- SECTION:FINAL_SUMMARY:BEGIN -->
