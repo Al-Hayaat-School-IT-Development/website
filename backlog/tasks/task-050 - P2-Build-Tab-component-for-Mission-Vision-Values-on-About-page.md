@@ -1,9 +1,10 @@
 ---
 id: TASK-050
 title: '[P2] Build Tab component for Mission/Vision/Values on About page'
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-03-17 11:14'
+updated_date: '2026-03-17 12:20'
 labels:
   - P2
   - ui-component
@@ -43,3 +44,9 @@ Files to create/update:
 - [ ] #5 Tab content sourced from src/content/about.json (no hardcoded strings)
 - [ ] #6 Component is accessible: uses role=tablist, role=tab, role=tabpanel, aria-selected
 <!-- AC:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+Upgraded `src/components/ui/TabsPanel.tsx` with `orientation` prop and `variant="webflow"` mode using a polygon indicator background. Used in About page Mission/Vision/Values section with `missionVision.tabs` from `about.json`.
+<!-- SECTION:FINAL_SUMMARY:END -->

@@ -1,9 +1,10 @@
 ---
 id: TASK-049
 title: '[P2] Build ColoredBorderCard component with color accent variants'
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-03-17 11:14'
+updated_date: '2026-03-17 12:20'
 labels:
   - P2
   - ui-component
@@ -35,3 +36,9 @@ Files to create:
 - [ ] #4 Component is reused in Admissions, Donate, and School Plans pages without duplication
 - [ ] #5 SchoolPlanCard subvariant has 0.75rem accent bar at bottom (absolute positioned)
 <!-- AC:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+Created `src/components/ui/ColoredBorderCard.tsx` with 5 accent variants (yellow, orange, blue, green, red) and border/bar accent styles. Exported from `src/components/ui/index.ts`. Used across Admissions, Donate, School Plan, Careers, Contact, and Curriculum pages.
+<!-- SECTION:FINAL_SUMMARY:END -->
