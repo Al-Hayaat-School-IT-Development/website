@@ -48,7 +48,7 @@ export default function DonatePage() {
         </Container>
       </Section>
 
-      <Section background="gray" padding="lg">
+      <Section background="white" padding="lg">
         <Container maxWidth="7xl">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
             <FadeIn>

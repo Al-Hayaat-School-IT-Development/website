@@ -21,7 +21,7 @@ export function MobileNav() {
           <Button
             variant="ghost"
             size="icon-sm"
-            className="relative border-none bg-transparent text-white shadow-none hover:bg-white/10 md:hidden"
+            className="relative border-none bg-transparent text-brand-black shadow-none hover:bg-black/5 md:hidden"
             aria-label="Open navigation menu"
           />
         }

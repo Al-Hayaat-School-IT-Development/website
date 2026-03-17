@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BriefcaseBusiness, CheckCircle2, Lightbulb, MapPin, Users } from 'lucide-react';
-import { Container, PageHeader, Section } from '@/components/layout';
+import { Container, Section } from '@/components/layout';
 import { ColoredBorderCard, FadeIn } from '@/components/ui';
 import { Button } from '@/components/ui/button';
 import careersContent from '@/content/careers.json';
@@ -34,18 +34,38 @@ export default function CareersPage() {
 
   return (
     <main className="min-h-screen bg-white">
-      <Section background="gray" padding="md">
-        <Container>
-          <h2 className="mb-2 text-sm font-semibold uppercase tracking-widest text-brand-blue">
-            {hero.join_heading}
-          </h2>
-          <PageHeader
-            title={hero.headline}
-            subtitle={hero.subtext}
-            breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Careers' }]}
-          />
-        </Container>
-      </Section>
+      <section className="relative overflow-hidden bg-brand-green py-12 text-white">
+        <Image
+          src="/images/cta-bg.webp"
+          alt=""
+          fill
+          className="object-cover object-center"
+          aria-hidden="true"
+          priority
+        />
+        <div className="relative z-10">
+          <Container>
+            <h2 className="mb-2 text-sm font-semibold uppercase tracking-widest text-white/80">
+              {hero.join_heading}
+            </h2>
+            <div className="py-8">
+              <nav aria-label="Breadcrumb" className="mb-4">
+                <ol className="flex items-center gap-2 text-sm text-white/60">
+                  <li className="flex items-center gap-2">
+                    <Link href="/" className="hover:text-white hover:underline">Home</Link>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span aria-hidden="true">/</span>
+                    <span aria-current="page" className="font-medium text-white">Careers</span>
+                  </li>
+                </ol>
+              </nav>
+              <h1 className="text-3xl font-bold tracking-tight text-white">{hero.headline}</h1>
+              {hero.subtext && <p className="mt-2 text-lg text-white/80">{hero.subtext}</p>}
+            </div>
+          </Container>
+        </div>
+      </section>
 
       <Section background="white" padding="lg">
         <Container maxWidth="xl">
@@ -62,7 +82,7 @@ export default function CareersPage() {
         </Container>
       </Section>
 
-      <Section background="gray" padding="lg">
+      <Section background="white" padding="lg">
         <Container maxWidth="xl">
           <FadeIn>
             <div className="mb-8">
@@ -150,13 +170,13 @@ export default function CareersPage() {
         </Container>
       </Section>
 
-      <Section background="gray" padding="lg">
+      <Section background="primary" padding="lg">
         <Container maxWidth="7xl">
           <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] lg:items-center">
             <FadeIn>
               <div>
-                <h2 className="text-brand-black">{cta.heading}</h2>
-                <p className="mt-5 text-lg leading-relaxed text-brand-black/75">{cta.body}</p>
+                <h2 className="text-white">{cta.heading}</h2>
+                <p className="mt-5 text-lg leading-relaxed text-white/80">{cta.body}</p>
                 <div className="mt-8 flex flex-wrap gap-4">
                   <Button render={<Link href={cta.primary_cta.href} />}>{cta.primary_cta.label}</Button>
                   <Button variant="secondary" render={<Link href={cta.secondary_cta.href} />}>
@@ -164,7 +184,7 @@ export default function CareersPage() {
                   </Button>
                 </div>
                 <div className="mt-8">
-                  <p className="mb-3 text-sm font-medium text-brand-black/75">
+                  <p className="mb-3 text-sm font-medium text-white/80">
                     Guaranteed safe &amp; secure checkout:
                   </p>
                   <div className="flex flex-wrap items-center gap-3">

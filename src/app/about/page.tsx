@@ -190,7 +190,7 @@ export default function AboutPage() {
         heading={cta.heading}
         body={cta.body}
         primaryCta={cta.cta}
-        variant="primary"
+        variant="green"
       />
     </>
   );

@@ -7,7 +7,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-body);
+  --font-sans: var(--font-base);
   --font-mono: var(--font-geist-mono);
   --font-display: var(--font-display);
   --font-heading: var(--font-heading);
@@ -158,7 +158,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-body), sans-serif;
+    font-family: var(--font-base), sans-serif;
   }
   h1,
   h2,

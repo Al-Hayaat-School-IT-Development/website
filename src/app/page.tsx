@@ -42,14 +42,14 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-black">
+      <section className="relative overflow-hidden bg-white">
         <div className="absolute inset-0">
           <Image
             src={hero.background.glitter}
             alt=""
             fill
             priority
-            className="object-cover opacity-90"
+            className="object-cover"
             aria-hidden="true"
           />
         </div>
@@ -59,19 +59,19 @@ export default function HomePage() {
             alt=""
             fill
             sizes="100vw"
-            className="object-cover object-bottom"
+            className="object-cover object-bottom opacity-20"
             aria-hidden="true"
           />
         </div>
         <div className="pointer-events-none absolute left-1/2 top-8 z-10 hidden -translate-x-[24rem] lg:block">
-          <Image src={hero.background.dots} alt="" width={253} height={130} aria-hidden="true" />
+          <Image src={hero.background.dots} alt="" width={253} height={130} className="opacity-30" aria-hidden="true" />
         </div>
 
         <Container maxWidth="7xl" className="relative z-20 py-24 sm:py-28 lg:py-32">
           <FadeIn>
             <div className="mx-auto max-w-4xl text-center">
-              <h1 className="text-white">{hero.headline}</h1>
-              <p className="mt-5 text-xl font-medium text-white/80 sm:text-2xl">{hero.subtext}</p>
+              <h1 className="text-brand-black">{hero.headline}</h1>
+              <p className="mt-5 text-xl font-medium text-brand-black/75 sm:text-2xl">{hero.subtext}</p>
               <div className="mt-8 flex justify-center">
                 <Button render={<Link href={hero.cta.href} />} size="lg">
                   {hero.cta.label}
@@ -125,7 +125,7 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section background="gray" padding="lg">
+      <Section background="white" padding="lg">
         <Container maxWidth="7xl">
           <FadeIn>
             <div className="mb-12 text-center">
@@ -175,12 +175,12 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section background="primary" padding="lg">
+      <Section background="gray" padding="lg">
         <Container maxWidth="7xl">
           <FadeIn>
             <div className="mb-12 text-center">
-              <h2 className="text-white">{growthPlan.heading}</h2>
-              <p className="mx-auto mt-4 max-w-2xl text-lg text-white/80">{growthPlan.intro}</p>
+              <h2 className="text-brand-black">{growthPlan.heading}</h2>
+              <p className="mx-auto mt-4 max-w-2xl text-lg text-brand-black/70">{growthPlan.intro}</p>
             </div>
           </FadeIn>
 
@@ -188,21 +188,21 @@ export default function HomePage() {
             {(growthPlan.stats as Stat[]).map((stat, index) => (
               <FadeIn key={`${stat.label}-${index}`} delay={index * 120}>
                 <div className="flex flex-col items-center gap-2">
-                  <span className="text-5xl font-bold text-white">
+                  <span className="text-5xl font-bold text-brand-blue">
                     <AnimatedCounter target={stat.value} suffix={stat.suffix} />
                   </span>
-                  <span className="text-base text-white/70">{stat.label}</span>
+                  <span className="text-base text-brand-black/70">{stat.label}</span>
                 </div>
               </FadeIn>
             ))}
           </div>
 
           <FadeIn>
-            <div className="rounded-2xl bg-white/10 p-8 text-center">
-              <h2 className="mb-6 text-white">{growthPlan.educators.heading}</h2>
+            <div className="rounded-2xl bg-white p-8 text-center">
+              <h2 className="mb-6 text-brand-black">{growthPlan.educators.heading}</h2>
               <div className="mx-auto max-w-3xl space-y-4">
                 {growthPlan.educators.paragraphs.map((paragraph) => (
-                  <p key={paragraph} className="text-base leading-relaxed text-white/80">
+                  <p key={paragraph} className="text-base leading-relaxed text-brand-black/70">
                     {paragraph}
                   </p>
                 ))}
@@ -246,8 +246,8 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* News & Announcements */}
-      <Section background="gray" padding="lg">
+      {/* News & Announcements — hidden to match Webflow (.section_home-news-announcement has class "hide") */}
+      <Section background="gray" padding="lg" className="hidden">
         <Container maxWidth="7xl">
           <FadeIn>
             <div className="mb-12 text-center">
@@ -280,7 +280,7 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section background="gray" padding="lg">
+      <Section background="white" padding="lg">
         <Container maxWidth="7xl">
           <div className="grid gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-center">
             <FadeIn>
@@ -342,7 +342,7 @@ export default function HomePage() {
         heading={finalCta.heading}
         body={finalCta.body}
         primaryCta={finalCta.cta}
-        variant="primary"
+        variant="green"
       />
     </>
   );
