@@ -1,0 +1,24 @@
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.68.103:3000
+- Environments: .env.local
+
+✓ Starting...
+✓ Ready in 21.4s
+⚠ Cross origin request detected from 192.168.68.103 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+○ Compiling / ...
+ GET / 200 in 26.8s (compile: 25.0s, render: 1843ms)
+ GET /about 200 in 27.2s (compile: 22.9s, render: 4.3s)
+ GET / 200 in 794ms (compile: 15ms, render: 779ms)
+ GET /about 200 in 1395ms (compile: 31ms, render: 1363ms)
+ GET /donate 200 in 2.6s (compile: 879ms, render: 1728ms)
+ GET / 200 in 740ms (compile: 8ms, render: 733ms)
+ GET /about 200 in 457ms (compile: 7ms, render: 451ms)
+ GET /careers 200 in 728ms (compile: 7ms, render: 721ms)
+ GET / 200 in 896ms (compile: 8ms, render: 888ms)
+ HEAD / 200 in 339ms (compile: 6ms, render: 333ms)
+ GET / 200 in 1462ms (compile: 5ms, render: 1457ms)
+ GET /about 200 in 1159ms (compile: 35ms, render: 1124ms)
+ GET /careers 200 in 1015ms (compile: 6ms, render: 1009ms)
+ GET /donate 200 in 921ms (compile: 12ms, render: 910ms)
