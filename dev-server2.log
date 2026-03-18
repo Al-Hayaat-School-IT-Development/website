@@ -176,3 +176,9 @@ the name `subjectIcons` is defined multiple times
 ✓ Compiled in 1557ms
 ✓ Compiled in 1105ms
 ✓ Compiled in 3.6s
+✓ Compiled in 1113ms
+✓ Compiled in 594ms
+
+thread 'tokio-runtime-worker' (24092) panicked at turbopack\crates\turbo-persistence\src\static_sorted_file.rs:387:51:
+range start index 2565684 out of range for slice of length 2565448
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

@@ -38,7 +38,7 @@ export function TabsPanel({
         variant={webflowVariant ? 'line' : 'default'}
         className={cn(
           webflowVariant &&
-            'w-full shrink-0 gap-3 rounded-none bg-transparent p-0 md:w-[18rem] md:items-stretch',
+            'w-full shrink-0 gap-0 rounded-none bg-transparent p-0 md:mr-20 md:w-auto md:items-start',
           listClassName,
         )}
       >
@@ -48,7 +48,7 @@ export function TabsPanel({
             value={tab.id}
             className={cn(
               webflowVariant &&
-                "min-h-[4.25rem] justify-start rounded-2xl border border-black/5 bg-transparent px-6 py-4 text-left text-lg font-medium text-brand-black/50 shadow-none transition-all duration-300 data-active:bg-brand-off-white-background data-active:text-brand-black data-active:opacity-100 md:after:hidden md:data-active:bg-[url('/images/Polygon-46.svg')] md:data-active:bg-[length:1.25rem_3.75rem] md:data-active:bg-[center_right_1.25rem] md:data-active:bg-no-repeat",
+                "min-h-0 justify-start rounded-none border-0 bg-transparent px-0 py-2 text-left text-[1.5rem] font-medium text-brand-black/50 shadow-none transition-all duration-300 data-active:bg-transparent data-active:pl-[1.875rem] data-active:text-brand-black data-active:opacity-100 data-active:bg-[url('/images/Polygon-46.svg')] data-active:bg-[length:auto] data-active:bg-[position:0%_center] data-active:bg-no-repeat",
             )}
           >
             {tab.label}
@@ -61,7 +61,7 @@ export function TabsPanel({
           value={tab.id}
           className={cn(
             webflowVariant &&
-              'rounded-[1.25rem] border border-black/10 bg-white p-8 text-base leading-relaxed text-brand-black/80 shadow-sm',
+              'rounded-none border-0 bg-transparent p-0 text-[1.2rem] font-medium leading-[1.3] text-brand-black/80 shadow-none',
             contentClassName,
           )}
         >

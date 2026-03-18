@@ -1,3 +1,5 @@
+<!-- WEBFLOW VERIFICATION -->
+Always double-check with `al-hayaat.webflow/` (HTML, CSS, and live site) for exact layout, spacing, and styling when implementing UI tasks—regardless of what the backlog story says.
 
 <!-- BACKLOG.MD MCP GUIDELINES START -->
 

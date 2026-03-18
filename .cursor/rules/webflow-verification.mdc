@@ -1,0 +1,27 @@
+---
+description: Always verify UI implementation against Webflow source for exact details
+globs: "**/page.tsx,**/components/**/*.tsx,src/**/*.tsx"
+alwaysApply: false
+---
+
+# Webflow Source Verification
+
+**Regardless of the backlog story, always double-check with `al-hayaat.webflow/` for exact details** when implementing or fixing UI, components, or pages.
+
+## Sources to Use
+
+1. **HTML structure**: `al-hayaat.webflow/about.html`, `index.html`, etc.
+2. **CSS**: `al-hayaat.webflow/css/al-hayaat.webflow.css` — classes, layout, spacing, max-widths
+3. **Live reference**: https://al-hayaat.webflow.io/ for visual confirmation
+
+## What to Verify
+
+- Layout (stacked vs grid, order of elements)
+- Max-widths (e.g. `48.5625rem` = 777px for About hero header)
+- Padding, margins, gaps
+- Decorative elements and positioning
+- Carousel/hero structure and containment
+
+## Example
+
+For About hero: Webflow uses `about-hero-header-wrapper` (max-width 48.5625rem, centered) stacked above `about-hero-mask` (carousel). Both are inside `about-hero-component` within the container. Use these exact values rather than task approximations.
