@@ -125,7 +125,7 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section background="white" padding="lg" className="relative">
+      <Section background="white" padding="lg" className="relative overflow-hidden">
         <div
           className="pointer-events-none absolute -right-52 hidden xl:block"
           style={{ top: '-16rem' }}
@@ -294,8 +294,8 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section background="white" padding="lg">
-        <Container maxWidth="7xl">
+      <Section background="white" padding="none">
+        <Container maxWidth="7xl" className="pb-24 pt-0">
           <div className="relative overflow-hidden rounded-xl bg-brand-blue px-10 py-14">
             <div className="grid gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-center">
               <FadeIn>

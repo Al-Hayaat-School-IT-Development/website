@@ -3,6 +3,9 @@
 ## Overview
 Complete specification for all 39 reusable components in the Al-Hayaat School website.
 
+> For fonts, colors, and typography details, see [DESIGN-SYSTEM.md](./DESIGN-SYSTEM.md).
+> All components must use the design tokens defined there — never hardcode hex values or font names.
+
 ---
 
 ## Layout Components (7)
