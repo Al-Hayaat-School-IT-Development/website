@@ -45,7 +45,7 @@ export function CTASection({
         />
       )}
       <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center gap-8 text-center">
-        <h2 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+        <h2 className="font-display text-[clamp(2.5rem,5vw,5rem)] leading-[0.75] font-normal">
           {heading}
         </h2>
         <p

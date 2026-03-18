@@ -36,7 +36,7 @@ export default function SchoolPlanPage() {
         </Container>
       </Section>
 
-      <Section background="white" padding="lg">
+      <Section background="off-white-bg" padding="lg">
         <Container maxWidth="7xl">
           <FadeIn>
             <div className="mx-auto max-w-4xl text-center">

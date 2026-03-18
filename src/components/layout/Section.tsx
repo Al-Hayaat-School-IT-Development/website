@@ -2,7 +2,7 @@ import { cn } from '@/lib/utils';
 
 export interface SectionProps {
   children: React.ReactNode;
-  background?: 'white' | 'gray' | 'primary' | 'transparent';
+  background?: 'white' | 'gray' | 'off-white-bg' | 'primary' | 'transparent';
   padding?: 'sm' | 'md' | 'lg' | 'none';
   className?: string;
 }
@@ -10,14 +10,15 @@ export interface SectionProps {
 const backgroundMap: Record<NonNullable<SectionProps['background']>, string> = {
   white: 'bg-white',
   gray: 'bg-brand-off-white',
+  'off-white-bg': 'bg-brand-off-white-background',
   primary: 'bg-brand-blue',
   transparent: 'bg-transparent',
 };
 
 const paddingMap: Record<NonNullable<SectionProps['padding']>, string> = {
-  sm: 'py-8',
-  md: 'py-12',
-  lg: 'py-20',
+  sm: 'py-12',
+  md: 'py-20',
+  lg: 'py-32',
   none: 'py-0',
 };
 
