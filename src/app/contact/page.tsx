@@ -92,7 +92,7 @@ export default function ContactPage() {
         </Container>
       </Section>
 
-      <CTASection heading={cta.heading} body={cta.body} primaryCta={cta.primary_cta} />
+      <CTASection heading={cta.heading} body={cta.body} primaryCta={cta.primaryCta} />
     </main>
   );
 }

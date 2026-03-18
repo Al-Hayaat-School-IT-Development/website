@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { MapPin } from 'lucide-react';
-import { Container, Grid, PageHeader, Section } from '@/components/layout';
-import { AutoScrollCarousel, CTASection, FadeIn, TabsPanel, WhyCard, aboutWhyIcons } from '@/components/ui';
+import { Container, Grid, Section } from '@/components/layout';
+import { AutoScrollCarousel, CTASection, FadeIn, TabsPanel, WhyCard, homeWhyIcons } from '@/components/ui';
 import { Button } from '@/components/ui/button';
 import aboutContent from '@/content/about.json';
 
@@ -16,7 +15,7 @@ type TeamMember = {
   image?: { src: string; alt: string };
 };
 
-const WHY_ICONS = aboutWhyIcons;
+const WHY_ICONS = homeWhyIcons;
 
 export const metadata = {
   title: aboutContent.meta.title,
@@ -58,18 +57,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <Section background="white" padding="sm">
-        <Container maxWidth="7xl">
-          <PageHeader
-            title=""
-            breadcrumbs={[
-              { label: 'Home', href: '/' },
-              { label: 'About Us' },
-            ]}
-          />
-        </Container>
-      </Section>
-
       <Section background="gray" padding="lg">
         <Container maxWidth="7xl">
           <FadeIn>
@@ -98,7 +85,7 @@ export default function AboutPage() {
             {(team.members as TeamMember[]).map((member, index) => (
               <FadeIn key={member.id} delay={index * 100}>
                 <article className="overflow-hidden rounded-[1.25rem] border border-black/10 bg-white shadow-sm">
-                  <div className="relative aspect-[4/3] bg-brand-off-white">
+                  <div className="relative hidden aspect-[4/3] bg-brand-off-white">
                     {member.image ? (
                       <Image
                         src={member.image.src}
@@ -163,15 +150,12 @@ export default function AboutPage() {
         </Container>
       </Section>
 
-      <Section background="white" padding="lg">
+      <Section background="white" padding="lg" className="hidden">
         <Container maxWidth="7xl">
           <FadeIn>
             <div className="mx-auto max-w-2xl text-center">
               <h2 className="text-brand-black">{office.heading}</h2>
-              <div className="mt-4 flex items-center justify-center gap-2 text-brand-blue">
-                <MapPin className="h-5 w-5 flex-shrink-0" />
-                <span className="font-semibold">{office.address}</span>
-              </div>
+              <p className="mt-4 text-lg font-medium text-brand-blue">{office.address}</p>
               <p className="mt-4 text-lg leading-relaxed text-brand-black/70">{office.description}</p>
             </div>
           </FadeIn>

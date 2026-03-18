@@ -1,10 +1,8 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 import { BookOpen, CheckCircle2, GraduationCap, Heart } from 'lucide-react';
 import { Container, Grid, PageHeader, Section } from '@/components/layout';
-import { CTASection, ColoredBorderCard, FadeIn } from '@/components/ui';
-import { Button } from '@/components/ui/button';
+import { CTASection, ColoredBorderCard, EnrollNowButton, FadeIn } from '@/components/ui';
 import { Badge } from '@/components/ui/badge';
 import admissionsContent from '@/content/admissions.json';
 
@@ -93,9 +91,10 @@ export default function AdmissionsPage() {
                     {card.description}
                   </p>
                   <div className="pt-2">
-                    <Button render={<Link href="/admissions/apply" />} variant="ghost" className="px-0 text-brand-blue hover:bg-transparent hover:text-brand-blue/80">
-                      Enroll now
-                    </Button>
+                    <EnrollNowButton
+                      variant="ghost"
+                      className="px-0 text-brand-blue hover:bg-transparent hover:text-brand-blue/80"
+                    />
                   </div>
                 </ColoredBorderCard>
               ))}
@@ -114,9 +113,7 @@ export default function AdmissionsPage() {
                   {how_to_apply.intro}
                 </p>
                 <div className="mt-8">
-                  <Button size="lg" render={<Link href="/admissions/apply" />}>
-                    Enroll now
-                  </Button>
+                  <EnrollNowButton size="lg" />
                 </div>
               </div>
             </FadeIn>
@@ -253,7 +250,7 @@ export default function AdmissionsPage() {
         </Container>
       </Section>
 
-      <CTASection heading={cta.heading} body={cta.body} primaryCta={cta.primary_cta} />
+      <CTASection heading={cta.heading} body={cta.body} primaryCta={cta.primaryCta} />
     </main>
   );
 }

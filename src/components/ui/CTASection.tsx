@@ -59,7 +59,7 @@ export function CTASection({
         <div className="flex flex-wrap items-center justify-center gap-4">
           <Button
             size="lg"
-            variant={isPrimary || isGreen ? 'secondary' : 'default'}
+            variant={isPrimary ? 'secondary' : 'default'}
             render={<Link href={primaryCta.href} />}
           >
             {primaryCta.label}

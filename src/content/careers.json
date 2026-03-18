@@ -82,7 +82,7 @@
   "cta": {
     "heading": "Support Our Mission",
     "body": "Together, we're building a brighter future for our children and the community.",
-    "primary_cta": { "label": "Apply", "href": "/careers/elementary-school-teacher" },
-    "secondary_cta": { "label": "Donate", "href": "/donate" }
+    "primaryCta": { "label": "Apply", "href": "/careers/elementary-school-teacher" },
+    "secondaryCta": { "label": "Donate", "href": "/donate" }
   }
 }

@@ -109,7 +109,7 @@
   "cta": {
     "heading": "Join Our Community",
     "body": "Together, we're building a brighter future for our children and the community.",
-    "primary_cta": { "label": "Enroll now", "href": "/admissions/apply" }
+    "primaryCta": { "label": "Enroll now", "href": "/admissions/apply" }
   },
   "apply": {
     "heading": "Student Registration",

@@ -178,9 +178,9 @@ export default function CareersPage() {
                 <h2 className="text-white">{cta.heading}</h2>
                 <p className="mt-5 text-lg leading-relaxed text-white/80">{cta.body}</p>
                 <div className="mt-8 flex flex-wrap gap-4">
-                  <Button render={<Link href={cta.primary_cta.href} />}>{cta.primary_cta.label}</Button>
-                  <Button variant="secondary" render={<Link href={cta.secondary_cta.href} />}>
-                    {cta.secondary_cta.label}
+                  <Button render={<Link href={cta.primaryCta.href} />}>{cta.primaryCta.label}</Button>
+                  <Button variant="secondary" render={<Link href={cta.secondaryCta.href} />}>
+                    {cta.secondaryCta.label}
                   </Button>
                 </div>
                 <div className="mt-8">
