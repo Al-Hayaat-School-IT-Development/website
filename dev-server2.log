@@ -40,3 +40,46 @@ Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allow
  GET /about 200 in 1301ms (compile: 26ms, render: 1275ms)
  GET /careers 200 in 1046ms (compile: 47ms, render: 999ms)
  GET /donate 200 in 1190ms (compile: 38ms, render: 1152ms)
+✓ Compiled in 991ms
+ GET /about 200 in 369ms (compile: 20ms, render: 349ms)
+ GET / 200 in 766ms (compile: 478ms, render: 288ms)
+ GET / 200 in 848ms (compile: 432ms, render: 416ms)
+ GET / 200 in 772ms (compile: 322ms, render: 450ms)
+✓ Compiled in 1059ms
+ GET / 200 in 756ms (compile: 332ms, render: 424ms)
+✓ Compiled in 568ms
+ GET / 200 in 252ms (compile: 20ms, render: 232ms)
+✓ Compiled in 593ms
+ GET / 200 in 831ms (compile: 471ms, render: 360ms)
+✓ Compiled in 560ms
+ GET / 200 in 604ms (compile: 291ms, render: 313ms)
+ GET / 200 in 1166ms (compile: 560ms, render: 606ms)
+✓ Compiled in 891ms
+ GET / 200 in 824ms (compile: 303ms, render: 520ms)
+✓ Compiled in 1301ms
+ GET / 200 in 1108ms (compile: 442ms, render: 665ms)
+✓ Compiled in 6.5s
+ GET / 200 in 616ms (compile: 204ms, render: 412ms)
+ GET / 200 in 7.8s (compile: 3.0s, render: 4.8s)
+ GET / 200 in 7.2s (compile: 1762ms, render: 5.4s)
+✓ Compiled in 645ms
+ GET / 200 in 231ms (compile: 10ms, render: 221ms)
+✓ Compiled in 1378ms
+ GET / 200 in 477ms (compile: 237ms, render: 240ms)
+✓ Compiled in 2.4s
+ GET / 200 in 524ms (compile: 51ms, render: 473ms)
+ GET / 200 in 4.7s (compile: 677ms, render: 4.0s)
+ GET / 200 in 5.1s (compile: 367ms, render: 4.7s)
+✓ Compiled in 759ms
+✓ Compiled in 1007ms
+ GET / 200 in 2.0s (compile: 36ms, render: 1982ms)
+ GET / 200 in 2.7s (compile: 338ms, render: 2.4s)
+ GET / 200 in 2.8s (compile: 387ms, render: 2.5s)
+✓ Compiled in 1191ms
+✓ Compiled in 537ms
+ GET / 200 in 1314ms (compile: 677ms, render: 637ms)
+ GET / 200 in 1907ms (compile: 378ms, render: 1528ms)
+ GET / 200 in 1330ms (compile: 26ms, render: 1304ms)
+ GET / 200 in 1114ms (compile: 16ms, render: 1098ms)
+ GET / 200 in 793ms (compile: 21ms, render: 771ms)
+ GET / 200 in 533ms (compile: 31ms, render: 503ms)

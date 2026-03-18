@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Mail, Phone, Facebook, Instagram, Youtube, Twitter } from 'lucide-react';
-import { FooterNewsletter } from './FooterNewsletter';
 import sharedData from '@/content/_shared.json';
 
 const SOCIAL_ICONS = {
@@ -21,7 +20,7 @@ export function Footer() {
   return (
     <footer className="bg-brand-off-white-background text-brand-black" aria-label="Site footer">
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-4">
               <Image
@@ -97,12 +96,6 @@ export function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-brand-blue">
-              Newsletter
-            </h3>
-            <FooterNewsletter />
-          </div>
         </div>
       </div>
 

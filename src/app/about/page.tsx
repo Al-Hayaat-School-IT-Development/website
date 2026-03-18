@@ -161,7 +161,6 @@ export default function AboutPage() {
                   icon={WHY_ICONS[index % WHY_ICONS.length]}
                   title={card.title}
                   description={card.description}
-                  index={index}
                 />
               </FadeIn>
             ))}
