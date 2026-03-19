@@ -3,9 +3,10 @@ id: TASK-017
 title: >-
   [P5] Build admin login page so authenticated users can access the admin
   dashboard
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-03-15 13:11'
+updated_date: '2026-03-19 12:04'
 labels:
   - phase-5
   - admin
@@ -95,6 +96,12 @@ Then zod validation errors appear under each required field and the form is not 
 - [ ] #2 Given the admin is on /login — When an incorrect password is submitted — Then inline Alert 'Invalid email or password' appears and the admin remains on /login
 - [ ] #3 Given the admin is on /login with empty fields — When Sign In is clicked — Then zod validation errors appear under each required field and the form is not submitted
 <!-- AC:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+Login page at src/app/login/page.tsx with LoginForm at src/components/admin/LoginForm.tsx. react-hook-form + zod validation, next-auth/react signIn(), callbackUrl redirect on success, AlertBanner for server errors, Loader2 spinner on submit.
+<!-- SECTION:FINAL_SUMMARY:END -->
 
 ## Definition of Done
 <!-- DOD:BEGIN -->
