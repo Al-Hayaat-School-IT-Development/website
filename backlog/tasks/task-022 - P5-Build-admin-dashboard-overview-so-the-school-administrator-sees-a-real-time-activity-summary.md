@@ -3,9 +3,10 @@ id: TASK-022
 title: >-
   [P5] Build admin dashboard overview so the school administrator sees a
   real-time activity summary
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-03-15 13:13'
+updated_date: '2026-03-19 12:04'
 labels:
   - phase-5
   - admin
@@ -104,6 +105,12 @@ Then the other 3 stat cards render correctly, donations card shows an error stat
 - [ ] #2 Given no records exist in any table — When admin visits /admin — Then all stat cards show 0 and recent activity shows 'No recent activity'
 - [ ] #3 Given the donations table query throws an error — When admin visits /admin — Then the other 3 stat cards render correctly and the donations card shows an error state logged to Application Insights
 <!-- AC:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+Admin dashboard at src/app/admin/page.tsx with SSR getDashboardStats() using Promise.all across 4 parallel SQL queries via lib/db.ts singleton. Stat cards for contacts, job applications, subscribers, donations. Recent activity union query (last 10). Admin sidebar layout at src/app/admin/layout.tsx. Error states per card. Adapts to actual schema (no read_at column — uses total counts; uses active boolean for subscribers; pending status for job applications).
+<!-- SECTION:FINAL_SUMMARY:END -->
 
 ## Definition of Done
 <!-- DOD:BEGIN -->
