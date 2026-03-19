@@ -60,8 +60,8 @@ export default function AboutPage() {
       <Section id="about-mission-vision-section" background="off-white-bg" padding="none">
         <Container maxWidth="7xl" className="py-16">
           <FadeIn>
-            <div id="mission-vision-header-wrap" className="mb-[2.0625rem] text-center md:pl-64">
-              <h3 className="text-brand-black">{missionVision.heading}</h3>
+            <div id="mission-vision-header-wrap" className="mb-[2.0625rem] md:pl-64">
+              <h3 className="font-heading text-[1.5rem] font-semibold leading-[1.2] md:text-[3rem] lg:text-[2rem] text-brand-black">{missionVision.heading}</h3>
             </div>
           </FadeIn>
           <FadeIn delay={80}>
@@ -75,8 +75,8 @@ export default function AboutPage() {
       <Section id="about-team-section" background="white" padding="none">
         <Container maxWidth="7xl" className="py-20">
           <FadeIn>
-            <div className="mb-16 text-center">
-              <h2 className="text-brand-black">{team.heading}</h2>
+            <div className="mb-16">
+              <h2 className="font-heading text-[1.5rem] font-semibold leading-[1.2] md:text-[3rem] lg:text-[2rem] text-brand-black">{team.heading}</h2>
             </div>
           </FadeIn>
           <div id="about-team-container" className="mb-16 grid gap-12">
