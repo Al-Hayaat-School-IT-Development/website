@@ -3,9 +3,10 @@ id: TASK-104
 title: >-
   [P2] Build HomeHeroSection component to extract the Home page hero inline
   section
-status: To Do
+status: In Progress
 assignee: []
 created_date: '2026-03-19 15:16'
+updated_date: '2026-03-19 17:49'
 labels:
   - UI_COMPONENT
   - section-componentization
@@ -74,17 +75,21 @@ The Home page hero is the highest-visibility section on the site — it is the f
 *Sizing rationale: Complex background layer setup, priority image loading, CTA wiring, content JSON extraction.*
 
 ## Definition of Done
-- [ ] `src/components/sections/HomeHeroSection.tsx` created with typed props
-- [ ] Added to `src/components/sections/index.ts`
-- [ ] Inline hero JSX removed from `src/app/page.tsx`
-- [ ] All hero text sourced from `src/content/home.json` — no hardcoded strings
-- [ ] `next/image` with `priority` used for above-the-fold image
-- [ ] No raw `<img>` tags
-- [ ] No inline styles
-- [ ] WCAG 2.1 AA: hero image has descriptive alt text, CTA button is keyboard-accessible
-- [ ] Lighthouse Performance >90 on Home page
-- [ ] Code reviewed and merged to `develop`
+<!-- DOD:BEGIN -->
+- [ ] #1 `src/components/sections/HomeHeroSection.tsx` created with typed props
+- [ ] #2 Added to `src/components/sections/index.ts`
+- [ ] #3 Inline hero JSX removed from `src/app/page.tsx`
+- [ ] #4 All hero text sourced from `src/content/home.json` — no hardcoded strings
+- [ ] #5 `next/image` with `priority` used for above-the-fold image
+- [ ] #6 No raw `<img>` tags
+- [ ] #7 No inline styles
+- [ ] #8 WCAG 2.1 AA: hero image has descriptive alt text, CTA button is keyboard-accessible
+- [ ] #9 Lighthouse Performance >90 on Home page
+- [ ] #10 Code reviewed and merged to `develop`
 <!-- SECTION:DESCRIPTION:END -->
+<!-- DOD:END -->
+
+
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
