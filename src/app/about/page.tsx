@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import { Container, GreenHero, Section } from '@/components/layout';
 import { AutoScrollCarousel, FadeIn, TabsPanel, homeWhyIcons } from '@/components/ui';
-import { CTASection } from '@/components/sections';
-import { WhySection } from '@/components/sections';
+import { CTASection, PageIntroSection, WhySection } from '@/components/sections';
 import type { WhySectionCard } from '@/components/sections';
 import aboutContent from '@/content/about.json';
 type MissionTab = { id: string; label: string; text: string };
@@ -36,16 +35,11 @@ export default function AboutPage() {
         title={hero.headline}
       />
 
-      <Section id="about-intro-section" background="white" padding="none" className="py-[6rem]">
-        <Container maxWidth="7xl">
-          <FadeIn>
-            <div id="about-intro-content">
-              <h2 className="mb-[0.875rem] text-brand-black">{hero.intro_heading}</h2>
-              <p className="mt-5 text-[1.25rem] leading-relaxed text-brand-black/75">{hero.subtext}</p>
-            </div>
-          </FadeIn>
-        </Container>
-      </Section>
+      <PageIntroSection
+        id="about-intro-section"
+        headline={hero.intro_heading}
+        body={hero.subtext}
+      />
 
       <section id="about-hero-carousel-section" className="overflow-hidden bg-brand-off-white-background">
         <Container maxWidth="7xl" className="py-[4.375rem]">

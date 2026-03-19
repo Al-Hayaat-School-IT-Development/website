@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { Container, GreenHero, Section } from '@/components/layout';
 import { AutoScrollCarousel } from '@/components/ui/AutoScrollCarousel';
 import { FadeIn, subjectIcons } from '@/components/ui';
-import { CTASection } from '@/components/sections';
+import { CTASection, PageIntroSection } from '@/components/sections';
 import type { SubjectId } from '@/components/ui';
 import content from '@/content/curriculum.json';
 
@@ -20,16 +20,11 @@ export default function CurriculumPage() {
         title={content.hero.title}
       />
 
-      <Section id="curriculum-intro-section" background="white" padding="none" className="py-[6rem]">
-        <Container maxWidth="7xl">
-          <FadeIn>
-            <div id="curriculum-intro-content">
-              <h2 className="mb-[0.875rem] text-brand-black">{content.intro.heading}</h2>
-              <p className="mt-5 text-[1.25rem] leading-relaxed text-brand-black/75">{content.intro.body}</p>
-            </div>
-          </FadeIn>
-        </Container>
-      </Section>
+      <PageIntroSection
+        id="curriculum-intro-section"
+        headline={content.intro.heading}
+        body={content.intro.body}
+      />
 
       {/* ── Content below intro ─────────────────────────────────────── */}
       <section id="curriculum-content-section" className="bg-white">

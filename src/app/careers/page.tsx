@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Container, GreenHero, Section } from '@/components/layout';
 import { FadeIn } from '@/components/ui';
-import { SupportMissionSection } from '@/components/sections';
+import { PageIntroSection, SupportMissionSection } from '@/components/sections';
 import { Button } from '@/components/ui/button';
 import careersContent from '@/content/careers.json';
 

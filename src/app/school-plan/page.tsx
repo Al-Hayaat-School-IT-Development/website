@@ -2,8 +2,7 @@ import Link from 'next/link';
 import { CheckCircle2 } from 'lucide-react';
 import { Container, GreenHero, Section } from '@/components/layout';
 import { ColoredBorderCard, FadeIn } from '@/components/ui';
-import { SupportMissionSection } from '@/components/sections';
-import { CTASection } from '@/components/sections';
+import { CTASection, PageIntroSection, SupportMissionSection } from '@/components/sections';
 import { Button } from '@/components/ui/button';
 import content from '@/content/school-plan.json';
 
@@ -26,16 +25,11 @@ export default function SchoolPlanPage() {
         title={content.hero.title}
       />
 
-      <Section id="school-plan-intro-section" background="white" padding="none" className="py-[6rem]">
-        <Container maxWidth="7xl">
-          <FadeIn>
-            <div id="school-plan-intro-content">
-              <h2 className="mb-[0.875rem] text-brand-black">{content.intro.heading}</h2>
-              <p className="mt-5 text-[1.25rem] leading-relaxed text-brand-black/75">{content.intro.body}</p>
-            </div>
-          </FadeIn>
-        </Container>
-      </Section>
+      <PageIntroSection
+        id="school-plan-intro-section"
+        headline={content.intro.heading}
+        body={content.intro.body}
+      />
 
       {/* Section matches Webflow section_school-plans: bg #fffcf9 */}
       <Section id="school-plans-cards-section" background="off-white-bg" padding="none" className="pt-[3.9375rem] pb-[3.125rem]">

@@ -8,6 +8,6 @@
   },
   "then": {
     "type": "askAgent",
-    "prompt": "Reflect on this session: What patterns emerged? What mistakes were corrected? What insights are worth persisting? Store valuable learnings to the appropriate database (global: ~/.kiro/learnings.jsonl for cross-project patterns, local: .kiro-memory/learnings.jsonl for repo-specific insights). Use categories: 'mistake', 'pattern', 'convention', 'optimization'. Include source as 'agent_reflection'."
+    "prompt": "Reflect on this session: What patterns emerged? What mistakes were corrected? What insights are worth persisting? Store ALL valuable learnings to the LOCAL database only: .kiro-memory/learnings.jsonl. Do NOT write to ~/.kiro/learnings.jsonl. Use categories: 'mistake', 'pattern', 'convention', 'optimization'. Include source as 'agent_reflection'."
   }
 }

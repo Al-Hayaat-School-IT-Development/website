@@ -1,3 +1,5 @@
+export { PageIntroSection } from './PageIntroSection';
+export type { PageIntroSectionProps } from './PageIntroSection';
 export { WhySection } from './WhySection';
 export type { WhySectionCard, WhySectionProps } from './WhySection';
 export { CTASection } from './CTASection';
