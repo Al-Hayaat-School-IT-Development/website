@@ -3,9 +3,10 @@ id: TASK-114
 title: >-
   [P2] Build CurriculumContentSection component to extract the Curriculum page
   main content inline section
-status: To Do
+status: In Progress
 assignee: []
 created_date: '2026-03-19 15:19'
+updated_date: '2026-03-19 20:24'
 labels:
   - UI_COMPONENT
   - section-componentization
@@ -61,14 +62,18 @@ The curriculum content section is the most complex inline section in the codebas
 *Sizing rationale: Most complex inline section — full-width image + two-column layout + nested carousel.*
 
 ## Definition of Done
-- [ ] `src/components/sections/CurriculumContentSection.tsx` created
-- [ ] Added to `src/components/sections/index.ts`
-- [ ] Inline section JSX removed from `src/app/curriculum/page.tsx`
-- [ ] All content sourced from `src/content/curriculum.json`
-- [ ] All images use `next/image`
-- [ ] No inline styles
-- [ ] Code reviewed and merged to `develop`
+<!-- DOD:BEGIN -->
+- [ ] #1 `src/components/sections/CurriculumContentSection.tsx` created
+- [ ] #2 Added to `src/components/sections/index.ts`
+- [ ] #3 Inline section JSX removed from `src/app/curriculum/page.tsx`
+- [ ] #4 All content sourced from `src/content/curriculum.json`
+- [ ] #5 All images use `next/image`
+- [ ] #6 No inline styles
+- [ ] #7 Code reviewed and merged to `develop`
 <!-- SECTION:DESCRIPTION:END -->
+<!-- DOD:END -->
+
+
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
