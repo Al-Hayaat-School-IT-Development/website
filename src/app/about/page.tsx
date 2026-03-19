@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import { Container, GreenHero, Section } from '@/components/layout';
-import { AutoScrollCarousel, CTASection, FadeIn, TabsPanel, WhySection, homeWhyIcons } from '@/components/ui';
-import type { WhySectionCard } from '@/components/ui';
+import { AutoScrollCarousel, CTASection, FadeIn, TabsPanel, homeWhyIcons } from '@/components/ui';
+import { WhySection } from '@/components/sections';
+import type { WhySectionCard } from '@/components/sections';
 import aboutContent from '@/content/about.json';
 type MissionTab = { id: string; label: string; text: string };
 type TeamMember = {

@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Container, GreenHero, Section } from '@/components/layout';
 import { AutoScrollCarousel } from '@/components/ui/AutoScrollCarousel';
 import { CTASection, FadeIn, subjectIcons } from '@/components/ui';
+import type { SubjectId } from '@/components/ui';
 import content from '@/content/curriculum.json';
 
 export const metadata = {
@@ -73,7 +74,7 @@ export default function CurriculumPage() {
                   {content.subjects.map((subject) => (
                     <div key={subject.id} className="flex items-center gap-6">
                       <div className="h-6 w-6 shrink-0 text-brand-black">
-                        {subjectIcons[subject.id]}
+                        {subjectIcons[subject.id as SubjectId]}
                       </div>
                       <span className="font-body text-[1.2rem] font-medium leading-[1.3] text-brand-black opacity-80">
                         {subject.label}

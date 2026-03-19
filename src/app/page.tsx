@@ -1,8 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Container, Section } from '@/components/layout';
-import { CTASection, FadeIn, WhySection, AnimatedCounter, homeWhyIcons, subjectIconList, SupportMissionSection } from '@/components/ui';
-import type { WhySectionCard } from '@/components/ui';
+import { CTASection, FadeIn, AnimatedCounter, homeWhyIcons, subjectIconList, SupportMissionSection } from '@/components/ui';
+import { WhySection } from '@/components/sections';
+import type { WhySectionCard } from '@/components/sections';
 import { Button } from '@/components/ui/button';
 import homeContent from '@/content/home.json';
 type Stat = { value: number; suffix: string; label: string };
