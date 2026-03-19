@@ -3,9 +3,10 @@ id: TASK-103
 title: >-
   [P2] Build PageIntroSection generic component to replace all inline
   heading+body intro sections across pages
-status: To Do
+status: In Progress
 assignee: []
 created_date: '2026-03-19 15:15'
+updated_date: '2026-03-19 17:24'
 labels:
   - UI_COMPONENT
   - section-componentization
@@ -71,15 +72,19 @@ About, Careers, Contact, School Plan, Curriculum, and Admissions pages all have 
 *Sizing rationale: New generic component + 6 content JSON updates + wiring in 6 pages.*
 
 ## Definition of Done
-- [ ] `src/components/sections/PageIntroSection.tsx` created with typed props
-- [ ] Added to `src/components/sections/index.ts`
-- [ ] All 6 pages updated to use PageIntroSection — inline intro JSX removed
-- [ ] All visible intro text sourced from content JSON — no hardcoded strings in JSX
-- [ ] Content JSON `intro` key present in all 6 page content files
-- [ ] Zero TypeScript errors
-- [ ] WCAG 2.1 AA checked — heading hierarchy valid
-- [ ] Code reviewed and merged to `develop`
+<!-- DOD:BEGIN -->
+- [ ] #1 `src/components/sections/PageIntroSection.tsx` created with typed props
+- [ ] #2 Added to `src/components/sections/index.ts`
+- [ ] #3 All 6 pages updated to use PageIntroSection — inline intro JSX removed
+- [ ] #4 All visible intro text sourced from content JSON — no hardcoded strings in JSX
+- [ ] #5 Content JSON `intro` key present in all 6 page content files
+- [ ] #6 Zero TypeScript errors
+- [ ] #7 WCAG 2.1 AA checked — heading hierarchy valid
+- [ ] #8 Code reviewed and merged to `develop`
 <!-- SECTION:DESCRIPTION:END -->
+<!-- DOD:END -->
+
+
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
