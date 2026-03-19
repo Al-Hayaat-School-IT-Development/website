@@ -3,10 +3,10 @@ id: TASK-113
 title: >-
   [P2] Build AdmissionsFeesTableSection component to extract the Admissions fees
   table inline section
-status: In Progress
+status: Done
 assignee: []
 created_date: '2026-03-19 15:19'
-updated_date: '2026-03-19 20:21'
+updated_date: '2026-03-19 20:23'
 labels:
   - UI_COMPONENT
   - section-componentization
