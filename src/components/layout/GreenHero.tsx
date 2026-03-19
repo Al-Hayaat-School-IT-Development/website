@@ -3,12 +3,11 @@ import { cn } from '@/lib/utils';
 
 export interface GreenHeroProps {
   readonly title: string;
-  readonly subtitle?: string;
   readonly id?: string;
   readonly className?: string;
 }
 
-export function GreenHero({ title, subtitle, id, className }: GreenHeroProps) {
+export function GreenHero({ title, id, className }: GreenHeroProps) {
   return (
     <section
       id={id}
@@ -27,16 +26,11 @@ export function GreenHero({ title, subtitle, id, className }: GreenHeroProps) {
       />
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-10">
         <div className="mx-auto max-w-7xl">
-          <div className="max-w-[25rem] xl:mx-auto">
-            <h1 className="font-display text-[5rem] font-normal leading-[0.7] text-white xl:flex xl:justify-center">
+          <div className="flex justify-center">
+            <h1 className="font-display text-[5rem] font-normal leading-[0.7] text-center text-white">
               {title}
             </h1>
           </div>
-          {subtitle && (
-            <div className="mt-4 max-w-[25rem] xl:mx-auto">
-              <p className="font-sans text-[1rem] text-white/90 xl:text-center">{subtitle}</p>
-            </div>
-          )}
         </div>
       </div>
     </section>

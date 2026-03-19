@@ -20,7 +20,6 @@ export default function CareersPage() {
       <GreenHero
         id="careers-hero-section"
         title={hero.join_heading}
-        subtitle={hero.headline}
       />
 
       {/* ── Intro + Why Join + Job Openings ── all inside one donate-content-wrapper inside container-large */}

@@ -1,10 +1,9 @@
 import Image from 'next/image';
 import { Container, GreenHero, Section } from '@/components/layout';
-import { AutoScrollCarousel, FadeIn, TabsPanel, homeWhyIcons } from '@/components/ui';
-import { CTASection, PageIntroSection, WhySection } from '@/components/sections';
+import { FadeIn, homeWhyIcons } from '@/components/ui';
+import { AboutHeroCarouselSection, AboutMissionVisionSection, CTASection, PageIntroSection, WhySection } from '@/components/sections';
 import type { WhySectionCard } from '@/components/sections';
 import aboutContent from '@/content/about.json';
-type MissionTab = { id: string; label: string; text: string };
 type TeamMember = {
   id: string;
   name: string;
@@ -21,12 +20,7 @@ export const metadata = {
 };
 
 export default function AboutPage() {
-  const { hero, missionVision, team, why, office, cta } = aboutContent.sections;
-  const missionTabs = (missionVision.tabs as MissionTab[]).map((tab) => ({
-    id: tab.id,
-    label: tab.label,
-    content: <p>{tab.text}</p>,
-  }));
+  const { hero, team, why, office, cta } = aboutContent.sections;
 
   return (
     <>
@@ -41,31 +35,16 @@ export default function AboutPage() {
         body={hero.subtext}
       />
 
-      <section id="about-hero-carousel-section" className="overflow-hidden bg-brand-off-white-background">
-        <Container maxWidth="7xl" className="py-[4.375rem]">
-          <FadeIn>
-            <div id="about-hero-carousel">
-              <AutoScrollCarousel images={hero.carousel} fadeColor="from-[#fffcf9]" />
-            </div>
-          </FadeIn>
-        </Container>
-      </section>
+      <AboutHeroCarouselSection
+        id="about-hero-carousel-section"
+        images={hero.carousel}
+      />
 
-      {/* background matches Webflow: var(--brand--off-white-background) = #fffcf9 */}
-      <Section id="about-mission-vision-section" background="off-white-bg" padding="none">
-        <Container maxWidth="7xl" className="py-16">
-          <FadeIn>
-            <div id="mission-vision-header-wrap" className="mb-[2.0625rem] md:pl-64">
-              <h3 className="font-heading text-[1.5rem] font-semibold leading-[1.2] md:text-[3rem] lg:text-[2rem] text-brand-black">{missionVision.heading}</h3>
-            </div>
-          </FadeIn>
-          <FadeIn delay={80}>
-            <div id="mission-vision-tabs-component">
-              <TabsPanel tabs={missionTabs} defaultTab={missionTabs[0]?.id} orientation="vertical" variant="webflow" />
-            </div>
-          </FadeIn>
-        </Container>
-      </Section>
+      <AboutMissionVisionSection
+        id="about-mission-vision-section"
+        heading={aboutContent.sections.missionVision.heading}
+        tabs={aboutContent.sections.missionVision.tabs}
+      />
 
       <Section id="about-team-section" background="white" padding="none">
         <Container maxWidth="7xl" className="py-20">

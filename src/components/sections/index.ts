@@ -1,3 +1,13 @@
+export { AboutHeroCarouselSection } from './AboutHeroCarouselSection';
+export type { AboutHeroCarouselSectionProps } from './AboutHeroCarouselSection';
+export { AboutMissionVisionSection } from './AboutMissionVisionSection';
+export type { AboutMissionVisionSectionProps } from './AboutMissionVisionSection';
+export { HomeCurriculumSection } from './HomeCurriculumSection';
+export type { HomeCurriculumSectionProps } from './HomeCurriculumSection';
+export { HomeFeatureSection } from './HomeFeatureSection';
+export type { HomeFeatureSectionProps } from './HomeFeatureSection';
+export { HomeHeroSection } from './HomeHeroSection';
+export type { HomeHeroSectionProps } from './HomeHeroSection';
 export { PageIntroSection } from './PageIntroSection';
 export type { PageIntroSectionProps } from './PageIntroSection';
 export { WhySection } from './WhySection';

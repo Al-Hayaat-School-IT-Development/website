@@ -22,8 +22,6 @@
     },
     "feature": {
       "id": "home-feature",
-      "heading": "Welcome to Al-Hayaat School",
-      "eyebrow": "School vision statement",
       "writtenImage": "/images/islam-written.webp",
       "featureImage": {
         "src": "/images/MUN03197-3241.png",
@@ -32,12 +30,6 @@
       "paragraphs": [
         "With constant mindfulness of Allah, the Most High, and the Hereafter, we strive to provide our students with the strongest foundation in a secure environment. Through exemplary role models and high-quality, Islamically-oriented education, we aim to empower them to navigate the world as confident, contributing Muslims. In doing so, we prioritize the character of the School above all else.",
         "Al-Hayaat School is set to open its doors in 2026, initially offering classes from Junior Kindergarten to Grade 3. We have ambitious plans to expand our grade offerings in the future."
-      ],
-      "decorativeDots": [
-        { "id": "feature-decor-1", "color": "cyan-light" },
-        { "id": "feature-decor-2", "color": "yellow" },
-        { "id": "feature-decor-3", "color": "green-2" },
-        { "id": "feature-decor-4", "color": "white" }
       ]
     },
     "why": {

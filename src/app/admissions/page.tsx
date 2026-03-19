@@ -29,7 +29,6 @@ export default function AdmissionsPage() {
       <GreenHero
         id="admissions-hero-section"
         title={hero.headline}
-        subtitle={hero.subtext}
       />
 
       <Section background="white" padding="none" className="pb-[3rem] pt-[2rem]">

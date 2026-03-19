@@ -1,10 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Container, Section } from '@/components/layout';
-import { FadeIn, AnimatedCounter, homeWhyIcons, subjectIconList } from '@/components/ui';
-import { SupportMissionSection } from '@/components/sections';
-import { CTASection } from '@/components/sections';
-import { WhySection } from '@/components/sections';
+import { FadeIn, AnimatedCounter, homeWhyIcons } from '@/components/ui';
+import { CTASection, HomeCurriculumSection, HomeFeatureSection, HomeHeroSection, SupportMissionSection, WhySection } from '@/components/sections';
 import type { WhySectionCard } from '@/components/sections';
 import { Button } from '@/components/ui/button';
 import homeContent from '@/content/home.json';
@@ -19,8 +17,6 @@ type Collaborator = {
 type NewsArticle = { id: string; title: string; excerpt: string; date: string; href: string };
 
 const WHY_ICONS = homeWhyIcons;
-
-const SUBJECT_ICONS = subjectIconList;
 
 const collaboratorAccentMap = {
   'cyan-light': 'bg-brand-cyan-light',
@@ -39,89 +35,19 @@ export default function HomePage() {
 
   return (
     <>
-      <section id="home-hero-section" className="relative overflow-hidden bg-white">
-        <div className="absolute inset-0">
-          <Image
-            src={hero.background.glitter}
-            alt=""
-            fill
-            priority
-            className="object-cover"
-            aria-hidden="true"
-          />
-        </div>
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-48 sm:h-64">
-          <Image
-            src={hero.background.dashlines}
-            alt=""
-            fill
-            sizes="100vw"
-            className="object-cover object-bottom opacity-20"
-            aria-hidden="true"
-          />
-        </div>
-        <div className="pointer-events-none absolute bottom-0 right-0 z-10 hidden lg:block">
-          <Image src={hero.background.dots} alt="" width={253} height={130} className="opacity-30" aria-hidden="true" />
-        </div>
+      <HomeHeroSection
+        headline={hero.headline}
+        subtext={hero.subtext}
+        cta={hero.cta}
+        background={hero.background}
+      />
 
-        <Container maxWidth="7xl" className="relative z-20 pt-[10rem] pb-[16rem]">
-          <FadeIn>
-            <div id="home-hero-content" className="mx-auto max-w-4xl text-center">
-              <h1 className="text-brand-black">{hero.headline}</h1>
-              <p className="mt-5 text-xl font-medium text-brand-black/75 sm:text-2xl">{hero.subtext}</p>
-              <div className="mt-8 flex justify-center">
-                <Button render={<Link href={hero.cta.href} />} size="lg">
-                  {hero.cta.label}
-                </Button>
-              </div>
-            </div>
-          </FadeIn>
-        </Container>
-      </section>
-
-      {/* Welcome to Al-Hayaat School — hidden to match Webflow (section_home-feature is set to invisible in the designer) */}
-      <Section id="home-feature-section" background="primary" padding="lg" className="hidden">
-        <Container maxWidth="7xl">
-          <div className="grid gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center">
-            <FadeIn>
-              <div id="home-feature-content" className="relative">
-                <h2 className="text-white">{feature.heading}</h2>
-                <p className="mt-4 text-sm font-semibold uppercase tracking-[0.24em] text-white/70">
-                  {feature.eyebrow}
-                </p>
-                <div className="my-6">
-                  <Image src={feature.writtenImage} alt="Arabic calligraphy spelling Islam." width={170} height={46} />
-                </div>
-                <div className="space-y-5 text-lg leading-relaxed text-white/85">
-                  {feature.paragraphs.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
-                </div>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={120}>
-              <div id="home-feature-image-container" className="relative mx-auto w-full max-w-[34rem]">
-                <div className="relative overflow-hidden rounded-[1.75rem] border border-white/15 bg-white/5 p-3 shadow-2xl">
-                  <div className="relative aspect-[1.05] overflow-hidden rounded-[1.25rem]">
-                    <Image
-                      src={feature.featureImage.src}
-                      alt={feature.featureImage.alt}
-                      fill
-                      sizes="(max-width: 1024px) 90vw, 540px"
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-                <span className="absolute -left-4 top-8 h-7 w-7 rounded-full bg-brand-cyan-light" aria-hidden="true" />
-                <span className="absolute right-8 top-4 h-10 w-10 rounded-full bg-brand-yellow" aria-hidden="true" />
-                <span className="absolute -bottom-2 left-8 h-8 w-8 rounded-full bg-brand-green-2" aria-hidden="true" />
-                <span className="absolute bottom-14 right-0 h-6 w-6 rounded-full bg-white" aria-hidden="true" />
-              </div>
-            </FadeIn>
-          </div>
-        </Container>
-      </Section>
+      <HomeFeatureSection
+        id="home-feature-section"
+        writtenImage={feature.writtenImage}
+        featureImage={feature.featureImage}
+        paragraphs={feature.paragraphs}
+      />
 
       <WhySection
         id="home-why-section"
@@ -154,36 +80,13 @@ export default function HomePage() {
         }
       />
 
-      <Section id="home-curriculum-section" background="white" padding="none" className="relative overflow-hidden py-20">
-        <div className="pointer-events-none absolute -bottom-[6.375rem] -right-[5.375rem]" aria-hidden="true">
-          <Image src="/images/dotted.png" alt="" width={270} height={254} />
-        </div>
-        <Container maxWidth="7xl">
-          <FadeIn>
-            <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-20">
-              <div id="home-curriculum-header" className="lg:max-w-[32rem] lg:shrink-0">
-                <h2 className="text-brand-black">{curriculum.heading}</h2>
-                <p className="mt-4 text-lg text-brand-black/65">{curriculum.intro}</p>
-              </div>
-              <div id="home-curriculum-subjects" className="w-full">
-                <ul className="mb-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
-                  {curriculum.subjects.map((subject, subjectIdx) => (
-                    <li key={subject} className="flex items-center gap-6 text-base font-medium text-brand-black">
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center text-brand-black/70">
-                        {SUBJECT_ICONS[subjectIdx]}
-                      </span>
-                      {subject}
-                    </li>
-                  ))}
-                </ul>
-                <Button render={<Link href={curriculum.cta.href} />} size="sm">
-                  {curriculum.cta.label}
-                </Button>
-              </div>
-            </div>
-          </FadeIn>
-        </Container>
-      </Section>
+      <HomeCurriculumSection
+        id="home-curriculum-section"
+        heading={curriculum.heading}
+        intro={curriculum.intro}
+        subjects={curriculum.subjects}
+        cta={curriculum.cta}
+      />
 
       {/* Growth Plan — hidden to match Webflow (display: none in .padding-section-our-growth-plan) */}
       <Section id="home-growth-plan-section" background="gray" padding="lg" className="hidden">
