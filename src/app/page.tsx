@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Container, Section } from '@/components/layout';
-import { CTASection, FadeIn, WhyCard, AnimatedCounter, homeWhyIcons, subjectIconList } from '@/components/ui';
+import { CTASection, FadeIn, WhyCard, AnimatedCounter, homeWhyIcons, subjectIconList, SupportMissionSection } from '@/components/ui';
 import { Button } from '@/components/ui/button';
 import homeContent from '@/content/home.json';
 
@@ -14,7 +14,6 @@ type Collaborator = {
   accent: 'cyan-light' | 'yellow' | 'green-2';
   logo: { src: string; alt: string };
 };
-type PaymentLogo = { id: string; src: string; alt: string };
 type NewsArticle = { id: string; title: string; excerpt: string; date: string; href: string };
 
 const WHY_ICONS = homeWhyIcons;
@@ -33,7 +32,7 @@ export const metadata = {
 };
 
 export default function HomePage() {
-  const { hero, feature, why, curriculum, growthPlan, supportMission, collaborators, finalCta } =
+  const { hero, feature, why, curriculum, growthPlan, collaborators, finalCta } =
     homeContent.sections;
 
   return (
@@ -262,76 +261,7 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section id="home-support-mission-section" background="white" padding="none">
-        <Container maxWidth="7xl" className="pb-24 pt-0">
-          <div className="relative overflow-hidden rounded-xl bg-brand-blue px-10 py-14">
-            <div className="grid gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-center">
-              <FadeIn>
-                <div id="support-mission-content">
-                  <h2 className="text-white">{supportMission.heading}</h2>
-                  <ul className="mt-6 space-y-4">
-                    {supportMission.points.map((point) => (
-                      <li key={point} className="flex items-start gap-3 text-left text-white/80">
-                        <Image
-                          src="/images/list-check.svg"
-                          alt=""
-                          width={20}
-                          height={20}
-                          className="mt-1 h-5 w-5 flex-shrink-0"
-                          aria-hidden="true"
-                        />
-                        <span className="text-base leading-relaxed">{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-8">
-                    <Button render={<Link href={supportMission.cta.href} />} variant="secondary">
-                      {supportMission.cta.label}
-                    </Button>
-                  </div>
-                  <div className="mt-8">
-                    <p className="mb-3 text-sm font-medium text-white/75">
-                      Guaranteed safe &amp; secure checkout:
-                    </p>
-                    <div id="home-support-payment-logos" className="flex flex-wrap items-center gap-3">
-                      {(supportMission.paymentLogos as PaymentLogo[]).map((logo) => (
-                        <div key={logo.id} className="rounded-xl border border-white/20 bg-white/10 px-3 py-2">
-                          <Image src={logo.src} alt={logo.alt} width={58} height={30} className="h-6 w-auto object-contain" />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </FadeIn>
-
-              <FadeIn delay={120}>
-                <div id="support-mission-image-wrapper" className="relative mx-auto w-full max-w-[32rem]">
-                  <div className="relative overflow-hidden rounded-[1.75rem] border border-white/20 bg-white/10 p-3">
-                    <div className="relative aspect-[0.92] overflow-hidden rounded-[1.25rem]">
-                      <Image
-                        src={supportMission.image.src}
-                        alt={supportMission.image.alt}
-                        fill
-                        sizes="(max-width: 1024px) 90vw, 520px"
-                        className="object-cover"
-                      />
-                    </div>
-                  </div>
-                  {/* Triangle, square, and circle decorative shapes container */}
-                  <div
-                    id="support-mission-decor-shapes"
-                    className="absolute -right-4 top-6 hidden rounded-2xl bg-white p-3 shadow-lg md:block"
-                  >
-                    <Image src={supportMission.decor.main} alt="Abstract shapes including a triangle, square, and circle." width={88} height={88} />
-                  </div>
-                  <span className="absolute -left-2 bottom-10 h-4 w-4 rotate-45 bg-brand-yellow" aria-hidden="true" />
-                  <span className="absolute right-8 top-full mt-3 h-4 w-4 rotate-12 bg-brand-orange-light" aria-hidden="true" />
-                </div>
-              </FadeIn>
-            </div>
-          </div>
-        </Container>
-      </Section>
+      <SupportMissionSection sectionId="home-support-mission-section" />
 
       {/* News & Announcements — hidden to match Webflow (.section_home-news-announcement has class "hide") */}
       <Section id="home-news-section" background="gray" padding="lg" className="hidden">

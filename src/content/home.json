@@ -116,7 +116,9 @@
         { "id": "apple-pay", "src": "/images/apple-pay.webp", "alt": "Apple Pay logo." },
         { "id": "google-pay", "src": "/images/g-pay.webp", "alt": "Google Pay logo." },
         { "id": "shop", "src": "/images/shop.webp", "alt": "Shop Pay logo." },
-        { "id": "amex", "src": "/images/am-ex.webp", "alt": "American Express logo." }
+        { "id": "amex", "src": "/images/am-ex.webp", "alt": "American Express logo." },
+        { "id": "klarna", "src": "/images/klarna.webp", "alt": "Klarna logo." },
+        { "id": "code", "src": "/images/code.webp", "alt": "Crypto checkout logo." }
       ],
       "points": [
         "Covering essential school costs and daily learning",
