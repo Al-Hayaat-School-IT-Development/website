@@ -3,9 +3,10 @@ id: TASK-105
 title: >-
   [P2] Build HomeCurriculumSection component to extract the Home page curriculum
   inline section
-status: To Do
+status: In Progress
 assignee: []
 created_date: '2026-03-19 15:16'
+updated_date: '2026-03-19 19:22'
 labels:
   - UI_COMPONENT
   - section-componentization
@@ -61,13 +62,17 @@ The curriculum section on the Home page is a two-column layout with a heading, i
 *Sizing rationale: Two-column layout with icon grid, content JSON extraction.*
 
 ## Definition of Done
-- [ ] `src/components/sections/HomeCurriculumSection.tsx` created with typed props
-- [ ] Added to `src/components/sections/index.ts`
-- [ ] Inline curriculum JSX removed from `src/app/page.tsx`
-- [ ] All text sourced from `src/content/home.json`
-- [ ] No inline styles, no raw `<img>` tags
-- [ ] Code reviewed and merged to `develop`
+<!-- DOD:BEGIN -->
+- [ ] #1 `src/components/sections/HomeCurriculumSection.tsx` created with typed props
+- [ ] #2 Added to `src/components/sections/index.ts`
+- [ ] #3 Inline curriculum JSX removed from `src/app/page.tsx`
+- [ ] #4 All text sourced from `src/content/home.json`
+- [ ] #5 No inline styles, no raw `<img>` tags
+- [ ] #6 Code reviewed and merged to `develop`
 <!-- SECTION:DESCRIPTION:END -->
+<!-- DOD:END -->
+
+
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
