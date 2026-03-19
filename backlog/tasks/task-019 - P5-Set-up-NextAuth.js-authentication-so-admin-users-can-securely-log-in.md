@@ -1,9 +1,10 @@
 ---
 id: TASK-019
 title: '[P5] Set up NextAuth.js authentication so admin users can securely log in'
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-03-15 13:12'
+updated_date: '2026-03-19 12:04'
 labels:
   - phase-5
   - admin
@@ -87,6 +88,12 @@ Then the error is caught logged to Application Insights with ERR_DB_UNREACHABLE 
 - [ ] #2 Given admin email exists in DB — When incorrect password is submitted — Then 401 returned and login page shows 'Invalid email or password' without revealing whether email exists
 - [ ] #3 Given PostgreSQL is unreachable — When admin attempts to authenticate — Then error is caught logged to App Insights (ERR_DB_UNREACHABLE) and login page shows 'Service unavailable'
 <!-- AC:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+Implemented NextAuth v5 credentials provider in src/auth.ts. DB query uses lib/db.ts singleton. Route handler at src/app/api/auth/[...nextauth]/route.ts. Admin seed script at scripts/create-admin.ts. bcryptjs used for password comparison with 12 salt rounds.
+<!-- SECTION:FINAL_SUMMARY:END -->
 
 ## Definition of Done
 <!-- DOD:BEGIN -->
