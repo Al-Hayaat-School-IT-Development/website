@@ -3,9 +3,10 @@ id: TASK-115
 title: >-
   [P2] Build CurriculumGrowthSection component to extract the Curriculum page
   growth/educator inline section
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-03-19 15:20'
+updated_date: '2026-03-19 20:27'
 labels:
   - UI_COMPONENT
   - section-componentization
@@ -59,16 +60,20 @@ The curriculum growth section is a custom blue card with an absolutely-positione
 *Sizing rationale: Bespoke layout with absolute positioning, decorative SVGs, design token enforcement.*
 
 ## Definition of Done
-- [ ] `src/components/sections/CurriculumGrowthSection.tsx` created
-- [ ] Added to `src/components/sections/index.ts`
-- [ ] Inline section JSX removed from `src/app/curriculum/page.tsx`
-- [ ] All content sourced from `src/content/curriculum.json`
-- [ ] No arbitrary CSS hex values — Tailwind design tokens only
-- [ ] Educator image uses `next/image` with alt text
-- [ ] Decorative SVGs have `aria-hidden="true"`
-- [ ] No inline styles
-- [ ] Code reviewed and merged to `develop`
+<!-- DOD:BEGIN -->
+- [ ] #1 `src/components/sections/CurriculumGrowthSection.tsx` created
+- [ ] #2 Added to `src/components/sections/index.ts`
+- [ ] #3 Inline section JSX removed from `src/app/curriculum/page.tsx`
+- [ ] #4 All content sourced from `src/content/curriculum.json`
+- [ ] #5 No arbitrary CSS hex values — Tailwind design tokens only
+- [ ] #6 Educator image uses `next/image` with alt text
+- [ ] #7 Decorative SVGs have `aria-hidden="true"`
+- [ ] #8 No inline styles
+- [ ] #9 Code reviewed and merged to `develop`
 <!-- SECTION:DESCRIPTION:END -->
+<!-- DOD:END -->
+
+
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
