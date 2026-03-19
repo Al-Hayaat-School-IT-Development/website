@@ -3,7 +3,7 @@ id: TASK-121
 title: >-
   [P2] Build SchoolPlanCardsSection component to extract the School Plan page
   cards inline section
-status: In Progress
+status: Done
 assignee: []
 created_date: '2026-03-19 15:22'
 updated_date: '2026-03-19 20:30'
