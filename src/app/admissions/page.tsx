@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { BookOpen, CheckCircle2, GraduationCap, Heart } from 'lucide-react';
-import { Container, Grid, PageHeader, Section } from '@/components/layout';
+import { Container, Grid, GreenHero, Section } from '@/components/layout';
 import { CTASection, ColoredBorderCard, EnrollNowButton, FadeIn } from '@/components/ui';
 import { Badge } from '@/components/ui/badge';
 import admissionsContent from '@/content/admissions.json';
@@ -25,14 +25,15 @@ export default function AdmissionsPage() {
 
   return (
     <main className="min-h-screen bg-white">
-      <Section id="admissions-hero-section" background="white" padding="none" className="overflow-hidden pt-[5rem] pb-[6rem] sm:pt-[7rem] sm:pb-[8rem] lg:pt-[9.125rem]">
+      <GreenHero
+        id="admissions-hero-section"
+        title={hero.headline}
+        subtitle={hero.subtext}
+      />
+
+      <Section background="white" padding="none" className="pb-[3rem] pt-[2rem]">
         <Container>
-          <PageHeader
-            title={hero.headline}
-            subtitle={hero.subtext}
-            className="pb-4"
-          />
-          <div className="relative mt-4 overflow-hidden rounded-[1.5rem] border border-black/10 bg-white">
+          <div className="overflow-hidden rounded-[1.5rem] border border-black/10 bg-white">
             <Image
               src="/images/banner.png"
               alt="Colorful admissions banner with abstract school-themed shapes."
@@ -148,10 +149,10 @@ export default function AdmissionsPage() {
                 {requirements.forms.map((form, index) => {
                   const isFirst = index === 0;
                   return (
-                    <a
+                    <button
                       key={form.id}
-                      href="#"
-                      className="group flex min-h-40 flex-col justify-between rounded-[1.25rem] border border-black/10 bg-white p-5 shadow-sm transition-transform duration-200 hover:-translate-y-1"
+                      type="button"
+                      className="group flex min-h-40 flex-col justify-between rounded-[1.25rem] border border-black/10 bg-white p-5 shadow-sm transition-transform duration-200 hover:-translate-y-1 text-left w-full"
                     >
                       <CheckCircle2 className="h-5 w-5 text-brand-blue" />
                       <p className="text-base font-medium leading-relaxed text-brand-black/80">
@@ -167,7 +168,7 @@ export default function AdmissionsPage() {
                           className="h-14 w-14 object-contain"
                         />
                       </div>
-                    </a>
+                    </button>
                   );
                 })}
               </div>
@@ -184,10 +185,7 @@ export default function AdmissionsPage() {
                 </ul>
                 <p className="mt-6 text-sm leading-relaxed text-brand-black/65">
                   Download, sign, and email completed forms to{' '}
-                  <a href="mailto:admin@alhayaat.ca" className="font-medium text-brand-blue hover:underline">
-                    admin@alhayaat.ca
-                  </a>
-                  .
+                  <a href="mailto:admin@alhayaat.ca" className="font-medium text-brand-blue hover:underline">admin@alhayaat.ca</a>.
                 </p>
               </div>
             </div>

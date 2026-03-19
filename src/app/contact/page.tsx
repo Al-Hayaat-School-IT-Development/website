@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Mail, MapPin, Phone } from 'lucide-react';
-import { Container, PageHeader, Section } from '@/components/layout';
+import { Container, GreenHero, Section } from '@/components/layout';
 import { CTASection, ColoredBorderCard, FadeIn } from '@/components/ui';
 import ContactForm from './ContactForm';
 import contactContent from '@/content/contact.json';
@@ -15,12 +15,19 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen bg-white">
-      <Section id="contact-hero-section" background="gray" padding="md">
-        <Container>
-          <PageHeader
-            title={hero.heading}
-            subtitle={hero.subtext}
-          />
+      <GreenHero
+        id="contact-hero-section"
+        title={hero.heading}
+      />
+
+      <Section id="contact-intro-section" background="white" padding="none" className="py-[6rem]">
+        <Container maxWidth="7xl">
+          <FadeIn>
+            <div id="contact-intro-content">
+              <h2 className="mb-[0.875rem] text-brand-black">{hero.intro_heading}</h2>
+              <p className="mt-5 text-[1.25rem] leading-relaxed text-brand-black/75">{hero.subtext}</p>
+            </div>
+          </FadeIn>
         </Container>
       </Section>
 
@@ -60,7 +67,7 @@ export default function ContactPage() {
                     <div>
                       <h3 className="text-[1.8rem] text-brand-black">Phone</h3>
                       <p className="mt-3 text-base leading-relaxed text-brand-black/75">
-                        <a href={`tel:${contact_info.phone.replace(/[^0-9+]/g, '')}`} className="font-medium text-brand-blue hover:underline">
+                        <a href={`tel:${contact_info.phone.replaceAll(/[^0-9+]/g, '')}`} className="font-medium text-brand-blue hover:underline">
                           {contact_info.phone}
                         </a>
                       </p>

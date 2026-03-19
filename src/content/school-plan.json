@@ -2,12 +2,14 @@
   "page": "school-plan",
   "hero": {
     "title": "School Plans",
+    "subtitle": "Al-Hayaat School is set to open its doors in September 2026, offering a faith-based, high-quality education for the Kitchener-Waterloo community.",
     "breadcrumbs": [
       { "label": "Home", "href": "/" },
       { "label": "School Plans" }
     ]
   },
   "intro": {
+    "heading": "Opening September 2026",
     "body": "Al-Hayaat School is set to open its doors in September 2026, offering a faith-based, high-quality education for the Kitchener-Waterloo community. Our carefully phased growth plan ensures a strong foundation for the school's future:"
   },
   "openingPlan": {

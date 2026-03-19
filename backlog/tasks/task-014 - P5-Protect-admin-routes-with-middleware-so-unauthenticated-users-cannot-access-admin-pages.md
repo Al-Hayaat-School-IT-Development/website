@@ -3,9 +3,10 @@ id: TASK-014
 title: >-
   [P5] Protect admin routes with middleware so unauthenticated users cannot
   access admin pages
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-03-15 13:10'
+updated_date: '2026-03-19 12:04'
 labels:
   - phase-5
   - admin
@@ -84,6 +85,12 @@ Then they are redirected to /login?expired=1 and the login page shows "Your sess
 - [ ] #2 Given no session cookie is present — When a visitor navigates to /admin/donations — Then they are redirected to /login?callbackUrl=%2Fadmin%2Fdonations
 - [ ] #3 Given the admin's session JWT has expired — When any /admin/* route is accessed — Then redirect to /login?expired=1 and login page shows 'Your session has expired'
 <!-- AC:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+middleware.ts created at project root using auth() from src/auth.ts. Matcher covers /admin/:path*. Unauthenticated requests redirect to /login?callbackUrl=<requested path>.
+<!-- SECTION:FINAL_SUMMARY:END -->
 
 ## Definition of Done
 <!-- DOD:BEGIN -->

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { HandCoins, Landmark, Mail, ShieldCheck, Wallet } from 'lucide-react';
-import { Container, Section } from '@/components/layout';
+import { Container, GreenHero, Section } from '@/components/layout';
 import { CTASection, ColoredBorderCard, FadeIn } from '@/components/ui';
 import { Button } from '@/components/ui/button';
 import { DonationForm } from '@/components/donate/DonationForm';
@@ -29,12 +29,16 @@ export default function DonatePage() {
 
   return (
     <main className="min-h-screen bg-white">
-      <Section id="donate-hero-section" background="white" padding="lg">
+      <GreenHero
+        id="donate-hero-section"
+        title={hero.headline}
+      />
+
+      <Section id="donate-verse-section" background="white" padding="lg">
         <Container maxWidth="7xl">
           <FadeIn>
             <div className="mx-auto max-w-5xl text-center">
-              <h1 className="text-brand-black">{hero.headline}</h1>
-              <p className="mt-7 text-arabic text-[1.9rem] leading-[1.9] text-brand-black/85 sm:text-[2.35rem]">
+              <p className="whitespace-pre-line text-arabic text-[1.9rem] leading-[1.9] text-brand-black/85 sm:text-[2.35rem]">
                 {hero.arabic_verse}
               </p>
               <p className="mx-auto mt-6 max-w-4xl text-lg leading-relaxed text-brand-black/75">
@@ -124,7 +128,7 @@ export default function DonatePage() {
                   content={{
                     id: String(payment_form.id),
                     form_headline: String(payment_form.form_headline),
-                    preset_amounts: payment_form.preset_amounts as number[],
+                    preset_amounts: payment_form.preset_amounts,
                     custom_label: String(payment_form.custom_label),
                     name_label: String(payment_form.name_label),
                     email_label: String(payment_form.email_label),

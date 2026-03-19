@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { CheckCircle2 } from 'lucide-react';
-import { Container, Section } from '@/components/layout';
+import { Container, GreenHero, Section } from '@/components/layout';
 import { CTASection, ColoredBorderCard, FadeIn, SupportMissionSection } from '@/components/ui';
 import { Button } from '@/components/ui/button';
 import content from '@/content/school-plan.json';
@@ -19,16 +19,26 @@ export default function SchoolPlanPage() {
 
   return (
     <>
+      <GreenHero
+        id="school-plan-hero-section"
+        title={content.hero.title}
+      />
+
+      <Section id="school-plan-intro-section" background="white" padding="none" className="py-[6rem]">
+        <Container maxWidth="7xl">
+          <FadeIn>
+            <div id="school-plan-intro-content">
+              <h2 className="mb-[0.875rem] text-brand-black">{content.intro.heading}</h2>
+              <p className="mt-5 text-[1.25rem] leading-relaxed text-brand-black/75">{content.intro.body}</p>
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
       {/* Section matches Webflow section_school-plans: bg #fffcf9 */}
       <Section id="school-plans-cards-section" background="off-white-bg" padding="none" className="pt-[3.9375rem] pb-[3.125rem]">
         <Container maxWidth="7xl">
-          <FadeIn>
-            <div id="school-plans-header" className="mx-auto max-w-[46.75rem] text-center">
-              <p className="text-lg leading-relaxed text-brand-black/75">{content.intro.body}</p>
-            </div>
-          </FadeIn>
-
-          <div id="school-plans-card-container" className="mt-[5.1875rem] grid gap-[3.125rem] lg:grid-cols-2">
+          <div id="school-plans-card-container" className="grid gap-[3.125rem] lg:grid-cols-2">
             <FadeIn>
               <ColoredBorderCard
                 accent="yellow"

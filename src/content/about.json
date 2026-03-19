@@ -11,6 +11,7 @@
     "hero": {
       "id": "about-hero",
       "headline": "About Al-Hayaat",
+      "intro_heading": "Welcome to Al-Hayaat School",
       "subtext": "Welcome to Al-Hayaat School, an educational institution dedicated to nurturing young minds through a unique blend of academic excellence and spiritual development. Located in the heart of the Kitchener-Waterloo region, our school is set to become a beacon of knowledge and values for the local Muslim community.",
       "cta": { "label": "Enroll now", "href": "/admissions" },
       "decor": {

@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Heart, Search } from 'lucide-react';
+import { HandCoins, Search } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { MobileNav } from './MobileNav';
@@ -57,7 +57,7 @@ export function Navigation() {
               size="sm"
               className="hidden md:inline-flex"
             >
-              <Heart className="size-4" />
+              <HandCoins className="size-4" />
               {cta.label}
             </Button>
             <MobileNav />
@@ -68,7 +68,7 @@ export function Navigation() {
   );
 }
 
-function NavLink({ href, label, isActive }: { href: string; label: string; isActive: boolean }) {
+function NavLink({ href, label, isActive }: Readonly<{ href: string; label: string; isActive: boolean }>) {
   return (
     <Link
       href={href}

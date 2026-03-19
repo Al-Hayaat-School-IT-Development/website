@@ -88,7 +88,7 @@ export async function listDonations(input: ListDonationsInput): Promise<ListDona
     ),
   ]);
 
-  const total = parseInt(countResult.rows[0].count, 10);
+  const total = Number.parseInt(countResult.rows[0].count, 10);
   return {
     donations: dataResult.rows,
     total,
@@ -164,6 +164,82 @@ export async function createApplication(
     ]
   );
   return rows[0] ?? null;
+}
+
+// ── Dashboard Stats ───────────────────────────────────────────
+
+export interface DashboardStats {
+  contactSubmissions: { total: number };
+  jobApplications: { total: number; pending: number };
+  newsletterSubscribers: { total: number };
+  donations: { total: number; totalAmountCad: number };
+  recentActivity: Array<{
+    type: 'contact' | 'application' | 'donation';
+    id: string;
+    summary: string;
+    createdAt: string;
+  }>;
+}
+
+export async function getDashboardStats(): Promise<DashboardStats> {
+  const [contacts, jobs, subscribers, donations, activity] = await Promise.all([
+    db.query<{ total: string }>(
+      `SELECT COUNT(*)::text AS total FROM contact_submissions`
+    ),
+    db.query<{ total: string; pending: string }>(
+      `SELECT COUNT(*)::text AS total,
+              COUNT(*) FILTER (WHERE status = 'pending')::text AS pending
+       FROM job_applications`
+    ),
+    db.query<{ total: string }>(
+      `SELECT COUNT(*)::text AS total FROM newsletter_subscribers WHERE active = TRUE`
+    ),
+    db.query<{ total: string; total_amount: string }>(
+      `SELECT COUNT(*)::text AS total,
+              COALESCE(SUM(amount_cad), 0)::text AS total_amount
+       FROM donations WHERE status = 'completed'`
+    ),
+    db.query<{ type: string; id: string; summary: string; created_at: string }>(
+      `SELECT type, id, summary, created_at FROM (
+         SELECT 'contact' AS type, id::text,
+                CONCAT(name, ' — ', SUBSTRING(message, 1, 60)) AS summary,
+                created_at
+         FROM contact_submissions
+         UNION ALL
+         SELECT 'application', id::text,
+                CONCAT(applicant_name, ' applied for ', position_title) AS summary,
+                submitted_at AS created_at
+         FROM job_applications
+         UNION ALL
+         SELECT 'donation', id::text,
+                CONCAT('$', amount_cad::text, ' from ',
+                       COALESCE(NULLIF(donor_name, ''), donor_email)) AS summary,
+                created_at
+         FROM donations WHERE status = 'completed'
+       ) AS combined
+       ORDER BY created_at DESC
+       LIMIT 10`
+    ),
+  ]);
+
+  return {
+    contactSubmissions: { total: Number.parseInt(contacts.rows[0].total, 10) },
+    jobApplications: {
+      total: Number.parseInt(jobs.rows[0].total, 10),
+      pending: Number.parseInt(jobs.rows[0].pending, 10),
+    },
+    newsletterSubscribers: { total: Number.parseInt(subscribers.rows[0].total, 10) },
+    donations: {
+      total: Number.parseInt(donations.rows[0].total, 10),
+      totalAmountCad: Number.parseFloat(donations.rows[0].total_amount),
+    },
+    recentActivity: activity.rows.map((r) => ({
+      type: r.type as 'contact' | 'application' | 'donation',
+      id: r.id,
+      summary: r.summary,
+      createdAt: r.created_at,
+    })),
+  };
 }
 
 // ── Job Applications ──────────────────────────────────────────

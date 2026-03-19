@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
-import { Container, Section } from '@/components/layout';
+import { Container, GreenHero, Section } from '@/components/layout';
 import { FadeIn, SupportMissionSection } from '@/components/ui';
 import { Button } from '@/components/ui/button';
 import careersContent from '@/content/careers.json';
@@ -17,32 +16,11 @@ export default function CareersPage() {
   return (
     <main className="min-h-screen bg-white">
 
-      {/* ── Hero ── matches Webflow .seciton_cta: green bg + cta-bg.webp, two stacked headings, py-[6rem] */}
-      <section
+      <GreenHero
         id="careers-hero-section"
-        className="relative overflow-hidden bg-brand-green text-white"
-      >
-        <Image
-          src="/images/cta-bg.webp"
-          alt=""
-          fill
-          className="object-cover object-center"
-          aria-hidden="true"
-          priority
-        />
-        <div className="relative z-10 px-4 sm:px-6 lg:px-10">
-          <div className="mx-auto max-w-7xl py-[6rem]">
-            <div className="max-w-[25rem] xl:mx-auto">
-              <h2 className="font-display text-[5rem] font-normal leading-[0.7] text-white xl:flex xl:justify-center">
-                {hero.join_heading}
-              </h2>
-            </div>
-            <div className="max-w-[25rem] xl:mx-auto">
-              <p className="font-sans text-[1rem] text-white xl:text-center">{hero.headline}</p>
-            </div>
-          </div>
-        </div>
-      </section>
+        title={hero.join_heading}
+        subtitle={hero.headline}
+      />
 
       {/* ── Intro + Why Join + Job Openings ── all inside one donate-content-wrapper inside container-large */}
       <Section id="careers-content-section" background="white" padding="none">

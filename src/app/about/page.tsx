@@ -1,8 +1,6 @@
 import Image from 'next/image';
-import Link from 'next/link';
-import { Container, Section } from '@/components/layout';
+import { Container, GreenHero, Section } from '@/components/layout';
 import { AutoScrollCarousel, CTASection, FadeIn, TabsPanel, WhyCard, homeWhyIcons } from '@/components/ui';
-import { Button } from '@/components/ui/button';
 import aboutContent from '@/content/about.json';
 
 type WhyCardItem = { id: string; title: string; description: string };
@@ -32,30 +30,25 @@ export default function AboutPage() {
 
   return (
     <>
-      <section id="about-hero-section" className="overflow-hidden bg-brand-off-white-background">
-        <Container maxWidth="7xl" className="pb-[4.375rem] pt-[4.375rem]">
-          <div className="relative pb-32">
-            <FadeIn>
-              <div id="about-hero-header-wrapper" className="mx-auto max-w-[48.5625rem] text-center">
-                <div className="mb-5">
-                  <h1 className="text-brand-black">{hero.headline}</h1>
-                </div>
-                <div className="mb-11">
-                  <p className="text-[1.2rem] font-medium leading-[1.3] text-brand-black/80">{hero.subtext}</p>
-                </div>
-                <div className="flex justify-center">
-                  <Button render={<Link href={hero.cta.href} />}>{hero.cta.label}</Button>
-                </div>
-              </div>
-            </FadeIn>
-            <div className="pointer-events-none absolute bottom-4 left-0 hidden lg:block" aria-hidden="true">
-              <Image src={hero.decor.shapeOne} alt="" width={150} height={150} />
+      <GreenHero
+        id="about-hero-section"
+        title={hero.headline}
+      />
+
+      <Section id="about-intro-section" background="white" padding="none" className="py-[6rem]">
+        <Container maxWidth="7xl">
+          <FadeIn>
+            <div id="about-intro-content">
+              <h2 className="mb-[0.875rem] text-brand-black">{hero.intro_heading}</h2>
+              <p className="mt-5 text-[1.25rem] leading-relaxed text-brand-black/75">{hero.subtext}</p>
             </div>
-            <div className="pointer-events-none absolute bottom-0 right-0 hidden lg:block" aria-hidden="true">
-              <Image src={hero.decor.shapeTwo} alt="" width={96} height={74} />
-            </div>
-          </div>
-          <FadeIn delay={80}>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      <section id="about-hero-carousel-section" className="overflow-hidden bg-brand-off-white-background">
+        <Container maxWidth="7xl" className="py-[4.375rem]">
+          <FadeIn>
             <div id="about-hero-carousel">
               <AutoScrollCarousel images={hero.carousel} />
             </div>

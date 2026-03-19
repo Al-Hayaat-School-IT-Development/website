@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Heart, Search } from 'lucide-react';
+import { HandCoins, Search } from 'lucide-react';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -82,7 +82,7 @@ export function MobileNav() {
               variant="secondary"
               className="w-full"
             >
-              <Heart className="size-4" />
+              <HandCoins className="size-4" />
               {cta.label}
             </Button>
           </div>

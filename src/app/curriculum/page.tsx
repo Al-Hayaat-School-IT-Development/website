@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Container } from '@/components/layout';
+import { Container, GreenHero, Section } from '@/components/layout';
 import { AutoScrollCarousel } from '@/components/ui/AutoScrollCarousel';
 import { CTASection, FadeIn, subjectIcons } from '@/components/ui';
 import content from '@/content/curriculum.json';
@@ -13,14 +13,26 @@ export const metadata = {
 export default function CurriculumPage() {
   return (
     <>
-      {/* ── Hero section ───────────────────────────────────────────── */}
-      <section id="curriculum-hero-section" className="bg-white">
-        <Container maxWidth="7xl" className="pt-[4.9375rem]">
+      <GreenHero
+        id="curriculum-hero-section"
+        title={content.hero.title}
+      />
+
+      <Section id="curriculum-intro-section" background="white" padding="none" className="py-[6rem]">
+        <Container maxWidth="7xl">
           <FadeIn>
-            {/* Centered H1 title */}
-            <div className="mb-14 text-center">
-              <h1 className="text-brand-black">{content.hero.title}</h1>
+            <div id="curriculum-intro-content">
+              <h2 className="mb-[0.875rem] text-brand-black">{content.intro.heading}</h2>
+              <p className="mt-5 text-[1.25rem] leading-relaxed text-brand-black/75">{content.intro.body}</p>
             </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ── Content below intro ─────────────────────────────────────── */}
+      <section id="curriculum-content-section" className="bg-white">
+        <Container maxWidth="7xl" className="pt-[2rem]">
+          <FadeIn>
 
             {/* Full-width hero image — aspect-ratio 2.39, no white card */}
             <div className="relative mb-10 overflow-hidden rounded-lg" style={{ aspectRatio: '2.39' }}>
@@ -43,12 +55,6 @@ export default function CurriculumPage() {
               </div>
             </div>
 
-            {/* Subtext below image */}
-            <div className="mb-[5.875rem] block w-full max-w-[80%]">
-              <p className="font-body text-[1.2rem] font-medium leading-[1.3] text-brand-black opacity-80">
-                {content.intro.body}
-              </p>
-            </div>
           </FadeIn>
 
           {/* Academic curriculum component — 2-col on desktop */}
@@ -102,7 +108,7 @@ export default function CurriculumPage() {
             {/* our-growth-contatiner: blue card */}
             <div className="flex h-full flex-col justify-between gap-12 overflow-hidden rounded-xl border-b-[13px] border-brand-yellow bg-brand-blue p-10 sm:p-[2.8125rem] lg:flex-row lg:gap-20 lg:p-[2.8125rem_2.8125rem_5rem]">
               {/* Left text column */}
-              <div className="w-full lg:max-w-[42.5625rem]">
+              <div className="w-full lg:max-w-[calc(100%-32rem)]">
                 <div className="mb-4">
                   <h2 className="text-white">{content.educators.heading}</h2>
                 </div>
@@ -114,7 +120,7 @@ export default function CurriculumPage() {
               </div>
 
               {/* Educator image — absolute on desktop, inline on tablet/mobile */}
-              <div className="relative w-full overflow-hidden rounded-tl-lg rounded-br-lg lg:absolute lg:bottom-0 lg:right-0 lg:top-0 lg:h-[35rem] lg:w-[30.25rem] lg:rounded-tl-lg lg:rounded-br-lg">
+              <div className="relative w-full overflow-hidden rounded-tl-lg rounded-br-lg lg:absolute lg:right-6 lg:top-1/2 lg:-translate-y-1/2 lg:h-[35rem] lg:w-[30.25rem] lg:rounded-lg">
                 <Image
                   src={content.educators.image.src}
                   alt={content.educators.image.alt}
