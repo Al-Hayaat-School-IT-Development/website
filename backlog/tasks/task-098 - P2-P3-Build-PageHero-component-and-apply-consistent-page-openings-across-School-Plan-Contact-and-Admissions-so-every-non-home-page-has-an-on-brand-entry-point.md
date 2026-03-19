@@ -82,17 +82,17 @@ Sizing rationale: New component is simple (title + subtitle + wrapper), applied 
 
 ## Definition of Done
 <!-- DOD:BEGIN -->
-- [ ] #1 PageHero component created at src/components/layout/PageHero.tsx
-- [ ] #2 PageHero exported from src/components/layout/index.ts
-- [ ] #3 School Plan page: PageHero added with id=school-plan-hero-section, title + subtitle from content JSON
-- [ ] #4 Contact page: generic PageHeader replaced with PageHero using id=contact-hero-section
-- [ ] #5 Admissions page: generic PageHeader replaced with PageHero using id=admissions-hero-section; banner image preserved below in its own Section
-- [ ] #6 src/content/school-plan.json updated with hero.subtitle key
-- [ ] #7 All hero text sourced from content JSON — no hardcoded strings in JSX
-- [ ] #8 No raw img tags introduced — next/image used where needed
-- [ ] #9 No inline styles — Tailwind design tokens only
-- [ ] #10 Audit reference page preserved at public/page-hero-audit.html (accessible at /page-hero-audit.html)
-- [ ] #11 About, Curriculum, Careers, and Donate pages confirmed unchanged (zero regression)
-- [ ] #12 WCAG: one H1 per page, correct heading order verified on all three updated pages
+- [x] #1 PageHero component created at src/components/layout/PageHero.tsx
+- [x] #2 PageHero exported from src/components/layout/index.ts
+- [x] #3 School Plan page: PageHero added with id=school-plan-hero-section, title + subtitle from content JSON
+- [x] #4 Contact page: generic PageHeader replaced with PageHero using id=contact-hero-section
+- [x] #5 Admissions page: generic PageHeader replaced with PageHero using id=admissions-hero-section; banner image preserved below in its own Section
+- [x] #6 src/content/school-plan.json updated with hero.subtitle key
+- [x] #7 All hero text sourced from content JSON — no hardcoded strings in JSX
+- [x] #8 No raw img tags introduced — next/image used where needed
+- [x] #9 No inline styles — Tailwind design tokens only
+- [x] #10 Audit reference page preserved at public/page-hero-audit.html (accessible at /page-hero-audit.html)
+- [x] #11 About, Curriculum, Careers, and Donate pages confirmed unchanged (zero regression)
+- [x] #12 WCAG: one H1 per page, correct heading order verified on all three updated pages
 - [ ] #13 Designer review of live implementation pending — audit canvas shared at /page-hero-audit.html
 <!-- DOD:END -->
