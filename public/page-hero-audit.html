@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Page Opening Audit — Al-Hayaat School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --brand-blue: #1B4FBD;
+    --brand-green: #1D7B5A;
+    --brand-yellow: #F5C842;
+    --brand-black: #1A1A1A;
+    --brand-off-white: #FFFCF9;
+    --brand-gray: #F4F4F4;
+    --ink: #111;
+    --muted: #666;
+    --rule: #E2E2E2;
+    --card-bg: #fff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #F7F6F3;
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 3rem 2rem 5rem;
+  }
+
+  /* ── Header ── */
+  .report-header {
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .report-header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.05;
+    color: var(--ink);
+  }
+  .report-header p {
+    font-size: .95rem;
+    color: var(--muted);
+    max-width: 460px;
+    line-height: 1.6;
+    text-align: right;
+  }
+
+  /* ── Grid ── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto 3.5rem;
+  }
+
+  /* ── Card ── */
+  .card {
+    background: var(--card-bg);
+    border-radius: 1.25rem;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06), 0 0 0 1px rgba(0,0,0,.05);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-mock {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.75rem 1.5rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+    gap: .55rem;
+    text-align: center;
+  }
+
+  /* mock breadcrumb */
+  .mock-breadcrumb {
+    font-size: .68rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    opacity: .45;
+    font-weight: 600;
+    position: absolute;
+    top: 1rem;
+    left: 1.25rem;
+  }
+
+  .mock-h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    line-height: 1.15;
+  }
+  .mock-h1.display {
+    font-size: 3.2rem;
+    line-height: .85;
+    letter-spacing: -.02em;
+  }
+  .mock-p {
+    font-size: .75rem;
+    line-height: 1.5;
+    opacity: .65;
+    max-width: 220px;
+  }
+  .mock-btn {
+    display: inline-block;
+    padding: .3rem .85rem;
+    border-radius: .5rem;
+    font-size: .7rem;
+    font-weight: 600;
+    letter-spacing: .03em;
+    margin-top: .1rem;
+  }
+  .mock-image {
+    width: 100%;
+    height: 42px;
+    border-radius: .5rem;
+    opacity: .3;
+    background: currentColor;
+    margin-top: .25rem;
+  }
+  .mock-image.tall {
+    height: 56px;
+  }
+  .mock-carousel {
+    display: flex;
+    gap: .4rem;
+    margin-top: .2rem;
+  }
+  .mock-carousel span {
+    display: block;
+    height: 34px;
+    width: 56px;
+    border-radius: .35rem;
+    opacity: .2;
+    background: currentColor;
+    flex-shrink: 0;
+  }
+  .mock-verse {
+    font-size: .8rem;
+    font-style: italic;
+    opacity: .7;
+    direction: rtl;
+  }
+  .mock-ref {
+    font-size: .6rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    opacity: .4;
+  }
+  .mock-decor {
+    position: absolute;
+    border-radius: 50%;
+    opacity: .15;
+  }
+
+  /* per-page colors */
+  .about-mock     { background: var(--brand-off-white); color: var(--brand-black); }
+  .curriculum-mock{ background: #fff; color: var(--brand-black); }
+  .schoolplan-mock{ background: var(--brand-off-white); color: var(--brand-black); }
+  .contact-mock   { background: var(--brand-gray); color: var(--brand-black); }
+  .careers-mock   { background: var(--brand-green); color: #fff; }
+  .donate-mock    { background: #fff; color: var(--brand-black); }
+  .admissions-mock{ background: #fff; color: var(--brand-black); }
+
+  /* ── Card body ── */
+  .card-body {
+    padding: 1.25rem 1.35rem 1.5rem;
+    border-top: 1px solid var(--rule);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+  }
+  .card-label {
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+  }
+  .card-label .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .card-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    color: var(--ink);
+  }
+  .pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+    margin-top: .1rem;
+  }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: .3rem;
+    font-size: .68rem;
+    font-weight: 600;
+    padding: .2rem .55rem;
+    border-radius: 99px;
+    letter-spacing: .03em;
+  }
+  .pill.has   { background: #E8F5EE; color: #166534; }
+  .pill.missing { background: #FEF2F2; color: #991B1B; }
+  .pill.partial { background: #FEF3C7; color: #92400E; }
+
+  .card-note {
+    font-size: .78rem;
+    line-height: 1.6;
+    color: #444;
+    margin-top: auto;
+    padding-top: .5rem;
+    border-top: 1px dashed var(--rule);
+  }
+
+  /* ── Score badges ── */
+  .score {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    font-size: .75rem;
+    font-weight: 700;
+    position: absolute;
+    top: .9rem;
+    right: .9rem;
+  }
+  .score-a { background: #DCFCE7; color: #166534; }
+  .score-b { background: #DBEAFE; color: #1e40af; }
+  .score-c { background: #FEF3C7; color: #92400E; }
+  .score-d { background: #FEE2E2; color: #991B1B; }
+
+  /* ── Verdict section ── */
+  .verdict {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .verdict h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+  .option-card {
+    background: #fff;
+    border-radius: 1.1rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06), 0 0 0 1px rgba(0,0,0,.05);
+    position: relative;
+    overflow: hidden;
+  }
+  .option-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    border-radius: 0 2px 2px 0;
+  }
+  .option-a::before { background: var(--brand-green); }
+  .option-b::before { background: var(--brand-blue); }
+  .option-c::before { background: var(--brand-yellow); }
+
+  .option-badge {
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: .6rem;
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+  }
+  .rec-star { font-size: .9rem; }
+  .option-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.25rem;
+    margin-bottom: .65rem;
+  }
+  .option-card p {
+    font-size: .82rem;
+    line-height: 1.65;
+    color: #444;
+    margin-bottom: .7rem;
+  }
+  .pro-con-list {
+    list-style: none;
+    font-size: .78rem;
+    line-height: 1.6;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+  }
+  .pro-con-list li::before {
+    margin-right: .4rem;
+  }
+  .pro-con-list .pro::before { content: '✓'; color: var(--brand-green); font-weight: 700; }
+  .pro-con-list .con::before { content: '✗'; color: #dc2626; font-weight: 700; }
+  .pro-con-list .warn::before { content: '⚠'; color: #d97706; font-weight: 700; }
+
+  .recommendation {
+    background: linear-gradient(135deg, #0F3D2E 0%, #1D7B5A 100%);
+    border-radius: 1.25rem;
+    padding: 2rem 2.5rem;
+    color: #fff;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .rec-icon {
+    font-size: 2.4rem;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .recommendation h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: .5rem;
+  }
+  .recommendation p {
+    font-size: .85rem;
+    line-height: 1.7;
+    opacity: .88;
+  }
+  .rec-steps {
+    list-style: none;
+    margin-top: .85rem;
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+  }
+  .rec-steps li {
+    font-size: .82rem;
+    opacity: .88;
+    display: flex;
+    gap: .5rem;
+    align-items: flex-start;
+  }
+  .rec-steps li span.num {
+    background: rgba(255,255,255,.2);
+    border-radius: 50%;
+    width: 1.3rem;
+    height: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .68rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: .05rem;
+  }
+
+  /* ── inconsistency table ── */
+  .table-wrap {
+    background: #fff;
+    border-radius: 1.1rem;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06), 0 0 0 1px rgba(0,0,0,.05);
+    margin-bottom: 2.5rem;
+  }
+  table { width: 100%; border-collapse: collapse; }
+  thead { background: var(--brand-black); color: #fff; }
+  thead th { padding: .75rem 1rem; font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; text-align: left; font-weight: 600; }
+  tbody tr { border-bottom: 1px solid var(--rule); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody td { padding: .7rem 1rem; font-size: .8rem; vertical-align: middle; }
+  tbody tr:nth-child(even) { background: #FAFAFA; }
+  .td-page { font-weight: 600; color: var(--ink); }
+  .chip {
+    display: inline-block;
+    padding: .15rem .5rem;
+    border-radius: 99px;
+    font-size: .67rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+  }
+  .chip-green  { background: #DCFCE7; color: #166534; }
+  .chip-red    { background: #FEE2E2; color: #991B1B; }
+  .chip-yellow { background: #FEF3C7; color: #92400E; }
+  .chip-blue   { background: #DBEAFE; color: #1e40af; }
+  .chip-gray   { background: #F3F4F6; color: #374151; }
+</style>
+</head>
+<body>
+
+<header class="report-header">
+  <h1>Page Opening<br/>Audit</h1>
+  <p>A UX/UI design review of every non-home page. Mapping hero patterns, inconsistencies, and a recommendation for a unified approach.</p>
+</header>
+
+<!-- ── Page Cards ── -->
+<div class="grid">
+
+  <!-- ABOUT -->
+  <div class="card">
+    <div class="card-mock about-mock" style="position:relative;">
+      <div class="mock-decor" style="width:80px;height:80px;background:var(--brand-blue);top:-20px;right:-20px;"></div>
+      <div class="mock-decor" style="width:50px;height:50px;background:var(--brand-yellow);bottom:-10px;left:-10px;"></div>
+      <div class="score score-a">A</div>
+      <div class="mock-h1">About Al-Hayaat</div>
+      <div class="mock-p">Nurturing Islamic values, academic excellence…</div>
+      <div class="mock-btn" style="background:var(--brand-blue);color:#fff;">Learn More</div>
+      <div class="mock-carousel"><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="card-body">
+      <div class="card-label"><span class="dot" style="background:var(--brand-blue)"></span>About</div>
+      <div class="card-title">Rich hero — the gold standard</div>
+      <div class="pill-row">
+        <span class="pill has">H1 heading</span>
+        <span class="pill has">Subtext</span>
+        <span class="pill has">CTA button</span>
+        <span class="pill has">Carousel</span>
+        <span class="pill has">Decor shapes</span>
+      </div>
+      <div class="card-note">Most complete page opening. Sets the bar for the rest of the site.</div>
+    </div>
+  </div>
+
+  <!-- CURRICULUM -->
+  <div class="card">
+    <div class="card-mock curriculum-mock" style="position:relative;">
+      <div class="score score-a" style="background:#DBEAFE;color:#1e40af;">A-</div>
+      <div class="mock-h1">Our Curriculum</div>
+      <div class="mock-image tall" style="background:var(--brand-blue);"></div>
+      <div class="mock-p" style="align-self:flex-start;">We believe every student deserves…</div>
+    </div>
+    <div class="card-body">
+      <div class="card-label"><span class="dot" style="background:#7C3AED"></span>Curriculum</div>
+      <div class="card-title">Strong hero with image</div>
+      <div class="pill-row">
+        <span class="pill has">H1 heading</span>
+        <span class="pill has">Hero image</span>
+        <span class="pill has">Subtext below</span>
+        <span class="pill missing">No CTA button</span>
+      </div>
+      <div class="card-note">Visual and clear. Slightly weaker for not having a CTA at the top, but the image does the heavy lifting.</div>
+    </div>
+  </div>
+
+  <!-- SCHOOL PLAN -->
+  <div class="card">
+    <div class="card-mock schoolplan-mock" style="position:relative;">
+      <div class="score score-d">D</div>
+      <div class="mock-p" style="font-size:.9rem;opacity:1;max-width:240px;color:var(--brand-black);">
+        Al-Hayaat School is set to open its doors in September 2026, offering a faith-based, high-quality education…
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-label"><span class="dot" style="background:#DC2626"></span>School Plan</div>
+      <div class="card-title">No page header at all</div>
+      <div class="pill-row">
+        <span class="pill missing">No H1</span>
+        <span class="pill missing">No hero</span>
+        <span class="pill missing">No visual</span>
+        <span class="pill partial">Jumps to content</span>
+      </div>
+      <div class="card-note">The page starts mid-sentence with a paragraph. Users have no orientation — no title, no breadcrumb, no visual anchor.</div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="card">
+    <div class="card-mock contact-mock" style="position:relative;">
+      <div class="score score-c">C</div>
+      <div class="mock-h1" style="font-size:1.3rem;">Contact Us</div>
+      <div class="mock-p">We'd love to hear from you. Reach out for any questions…</div>
+    </div>
+    <div class="card-body">
+      <div class="card-label"><span class="dot" style="background:#9CA3AF"></span>Contact</div>
+      <div class="card-title">Generic PageHeader component</div>
+      <div class="pill-row">
+        <span class="pill has">H1 heading</span>
+        <span class="pill has">Subtitle</span>
+        <span class="pill missing">No visual</span>
+        <span class="pill missing">No CTA</span>
+        <span class="pill partial">Gray bg (generic)</span>
+      </div>
+      <div class="card-note">Uses a generic utility component with plain gray background. Doesn't feel like the same brand as About or Careers.</div>
+    </div>
+  </div>
+
+  <!-- CAREERS -->
+  <div class="card">
+    <div class="card-mock careers-mock" style="position:relative;">
+      <div class="score score-a" style="background:rgba(255,255,255,.2);color:#fff;">A</div>
+      <div style="position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.03) 0,rgba(255,255,255,.03) 1px,transparent 1px,transparent 8px);"></div>
+      <div class="mock-h1 display" style="color:#fff;position:relative;">Join</div>
+      <div class="mock-p" style="color:#fff;position:relative;">Al-Hayaat School — Build a career with purpose</div>
+    </div>
+    <div class="card-body">
+      <div class="card-label"><span class="dot" style="background:var(--brand-green)"></span>Careers</div>
+      <div class="card-title">Unique — full-bleed green hero</div>
+      <div class="pill-row">
+        <span class="pill has">Display heading</span>
+        <span class="pill has">BG image overlay</span>
+        <span class="pill has">Brand green</span>
+        <span class="pill partial">Only on this page</span>
+      </div>
+      <div class="card-note">Beautiful and distinctive. The only page with this treatment — which raises the consistency question. Should it be a shared pattern?</div>
+    </div>
+  </div>
+
+  <!-- DONATE -->
+  <div class="card">
+    <div class="card-mock donate-mock" style="position:relative;">
+      <div class="score score-b">B+</div>
+      <div class="mock-h1" style="font-size:1.2rem;">Support the Future of Islamic Education</div>
+      <div class="mock-verse">وَمَا تُنفِقُوا مِنْ خَيْرٍ فَلِأَنفُسِكُمْ</div>
+      <div class="mock-p" style="font-size:.68rem;">And whatever you spend of good — it is for yourselves.</div>
+      <div class="mock-ref">Quran 2:272</div>
+    </div>
+    <div class="card-body">
+      <div class="card-label"><span class="dot" style="background:#F59E0B"></span>Donate</div>
+      <div class="card-title">Unique spiritual opener</div>
+      <div class="pill-row">
+        <span class="pill has">H1 heading</span>
+        <span class="pill has">Quranic verse</span>
+        <span class="pill has">Translation</span>
+        <span class="pill missing">No visual image</span>
+      </div>
+      <div class="card-note">The Quranic verse gives this page a unique emotional weight — intentionally different. This divergence is justified by context.</div>
+    </div>
+  </div>
+
+  <!-- ADMISSIONS -->
+  <div class="card">
+    <div class="card-mock admissions-mock" style="position:relative;">
+      <div class="score score-c">C</div>
+      <div class="mock-h1" style="font-size:1.3rem;">Admissions</div>
+      <div class="mock-p" style="align-self:flex-start;padding-left:.5rem;">Join our community for 2026…</div>
+      <div class="mock-image" style="background:linear-gradient(90deg,var(--brand-yellow),var(--brand-blue),var(--brand-green));opacity:1;height:28px;"></div>
+    </div>
+    <div class="card-body">
+      <div class="card-label"><span class="dot" style="background:#9CA3AF"></span>Admissions</div>
+      <div class="card-title">Generic PageHeader + banner</div>
+      <div class="pill-row">
+        <span class="pill has">H1 heading</span>
+        <span class="pill has">Banner image</span>
+        <span class="pill partial">Generic component</span>
+        <span class="pill missing">No subtext</span>
+      </div>
+      <div class="card-note">Uses the same generic PageHeader as Contact. The colorful banner below saves it visually, but the opening text treatment is inconsistent.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── Inconsistency table ── -->
+<div class="verdict">
+  <h2>Inconsistency Map</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Page</th>
+          <th>H1 / Title</th>
+          <th>Subtext</th>
+          <th>CTA button</th>
+          <th>Visual (image/carousel)</th>
+          <th>Background</th>
+          <th>Hero style</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-page">About</td>
+          <td><span class="chip chip-green">✓ H1</span></td>
+          <td><span class="chip chip-green">✓</span></td>
+          <td><span class="chip chip-green">✓</span></td>
+          <td><span class="chip chip-green">Carousel</span></td>
+          <td><span class="chip chip-gray">Off-white</span></td>
+          <td><span class="chip chip-green">Custom rich</span></td>
+        </tr>
+        <tr>
+          <td class="td-page">Curriculum</td>
+          <td><span class="chip chip-green">✓ H1</span></td>
+          <td><span class="chip chip-yellow">Below image</span></td>
+          <td><span class="chip chip-red">✗</span></td>
+          <td><span class="chip chip-green">Hero image</span></td>
+          <td><span class="chip chip-gray">White</span></td>
+          <td><span class="chip chip-green">Custom rich</span></td>
+        </tr>
+        <tr>
+          <td class="td-page">School Plan</td>
+          <td><span class="chip chip-red">✗ None</span></td>
+          <td><span class="chip chip-red">✗</span></td>
+          <td><span class="chip chip-red">✗</span></td>
+          <td><span class="chip chip-red">✗</span></td>
+          <td><span class="chip chip-gray">Off-white</span></td>
+          <td><span class="chip chip-red">None — jumps to content</span></td>
+        </tr>
+        <tr>
+          <td class="td-page">Contact</td>
+          <td><span class="chip chip-green">✓ H1</span></td>
+          <td><span class="chip chip-green">✓</span></td>
+          <td><span class="chip chip-red">✗</span></td>
+          <td><span class="chip chip-red">✗</span></td>
+          <td><span class="chip chip-gray">Gray #F4F4F4</span></td>
+          <td><span class="chip chip-yellow">Generic PageHeader</span></td>
+        </tr>
+        <tr>
+          <td class="td-page">Careers</td>
+          <td><span class="chip chip-blue">Display "Join"</span></td>
+          <td><span class="chip chip-green">✓</span></td>
+          <td><span class="chip chip-red">✗ (scroll down)</span></td>
+          <td><span class="chip chip-green">BG image overlay</span></td>
+          <td><span class="chip chip-green">Brand green</span></td>
+          <td><span class="chip chip-green">Full-bleed hero</span></td>
+        </tr>
+        <tr>
+          <td class="td-page">Donate</td>
+          <td><span class="chip chip-green">✓ H1</span></td>
+          <td><span class="chip chip-blue">Quranic verse</span></td>
+          <td><span class="chip chip-red">✗</span></td>
+          <td><span class="chip chip-red">✗</span></td>
+          <td><span class="chip chip-gray">White</span></td>
+          <td><span class="chip chip-blue">Unique spiritual</span></td>
+        </tr>
+        <tr>
+          <td class="td-page">Admissions</td>
+          <td><span class="chip chip-green">✓ H1</span></td>
+          <td><span class="chip chip-red">✗</span></td>
+          <td><span class="chip chip-red">✗</span></td>
+          <td><span class="chip chip-yellow">Banner below</span></td>
+          <td><span class="chip chip-gray">White</span></td>
+          <td><span class="chip chip-yellow">Generic PageHeader</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── Options ── -->
+  <h2>Three Approaches</h2>
+  <div class="options-grid">
+
+    <div class="option-card option-a">
+      <div class="option-badge"><span class="rec-star">⭐</span> Recommended</div>
+      <h3>Option A — Shared Page Hero</h3>
+      <p>Create one shared <code>PageHero</code> component: page title, optional subtitle, optional background color or image. Careers keeps its green full-bleed. Donate keeps its verse. Everyone else uses PageHero.</p>
+      <ul class="pro-con-list">
+        <li class="pro">Consistent entry point for every page</li>
+        <li class="pro">School Plan finally gets an identity</li>
+        <li class="pro">Contact + Admissions upgrade from generic gray</li>
+        <li class="pro">Careers and Donate retain their personality</li>
+        <li class="warn">Requires rebuilding 3 pages' openings</li>
+      </ul>
+    </div>
+
+    <div class="option-card option-b">
+      <div class="option-badge">Option B</div>
+      <h3>Adopt the Careers Hero Everywhere</h3>
+      <p>Use the full-bleed green hero (with background image and large display heading) on all pages. Each page gets its own heading text and accent color variant.</p>
+      <ul class="pro-con-list">
+        <li class="pro">Dramatic and brand-forward</li>
+        <li class="pro">Strong visual rhythm across pages</li>
+        <li class="con">Loses the uniqueness of the Careers page</li>
+        <li class="con">Donate's spiritual tone feels forced in a green hero</li>
+        <li class="warn">Heavy — may feel repetitive on utility pages</li>
+      </ul>
+    </div>
+
+    <div class="option-card option-c">
+      <div class="option-badge">Option C</div>
+      <h3>Remove the Careers Hero</h3>
+      <p>Simplify — move Careers to the same plain heading style as the other pages. No full-bleed hero on any page (except About/Curriculum which are already richer).</p>
+      <ul class="pro-con-list">
+        <li class="pro">Lower implementation effort</li>
+        <li class="con">Loses one of the best-designed pages</li>
+        <li class="con">Overall site feels less designed</li>
+        <li class="con">Still doesn't fix School Plan's missing header</li>
+        <li class="warn">A step backward, not forward</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- ── Recommendation ── -->
+  <div class="recommendation">
+    <div class="rec-icon">💡</div>
+    <div>
+      <h3>My Recommendation — Option A</h3>
+      <p>Create a shared <code>PageHero</code> component with a title, optional subtitle, and a light off-white or white background. Apply it to the 3 weakest pages: <strong>School Plan</strong> (needs a title), <strong>Contact</strong> and <strong>Admissions</strong> (upgrade from the generic gray component). Let <strong>Careers</strong> keep its full-bleed green hero, and let <strong>Donate</strong> keep its Quranic verse opener — both are contextually justified and actually strengthen those pages. <strong>About</strong> and <strong>Curriculum</strong> are already strong and need no changes.</p>
+      <ul class="rec-steps">
+        <li><span class="num">1</span>Build a reusable <code>PageHero</code> component (title + subtitle + optional bg colour)</li>
+        <li><span class="num">2</span>Apply to School Plan — add a page title like "School Plan" or "Our Roadmap to 2026"</li>
+        <li><span class="num">3</span>Replace <code>PageHeader</code> on Contact and Admissions with the new <code>PageHero</code></li>
+        <li><span class="num">4</span>Leave Careers, Donate, About, and Curriculum exactly as they are</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

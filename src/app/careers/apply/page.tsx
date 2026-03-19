@@ -229,11 +229,6 @@ export default function JobApplicationPage() {
           <PageHeader
             title="Apply for a Position"
             subtitle="Al-Hayaat School — Join our team"
-            breadcrumbs={[
-              { label: 'Home', href: '/' },
-              { label: 'Careers', href: '/careers' },
-              { label: 'Apply' },
-            ]}
           />
         </Container>
       </Section>

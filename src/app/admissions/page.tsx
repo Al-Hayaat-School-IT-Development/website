@@ -30,7 +30,6 @@ export default function AdmissionsPage() {
           <PageHeader
             title={hero.headline}
             subtitle={hero.subtext}
-            breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Admissions' }]}
             className="pb-4"
           />
           <div className="relative mt-4 overflow-hidden rounded-[1.5rem] border border-black/10 bg-white">

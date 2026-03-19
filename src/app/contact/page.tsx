@@ -20,7 +20,6 @@ export default function ContactPage() {
           <PageHeader
             title={hero.heading}
             subtitle={hero.subtext}
-            breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Contact' }]}
           />
         </Container>
       </Section>

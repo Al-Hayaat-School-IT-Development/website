@@ -22,11 +22,7 @@ export default function ElementaryTeacherPage() {
           <PageHeader
             title={position.title}
             subtitle={`${position.grades} — Al-Hayaat School`}
-            breadcrumbs={[
-              { label: 'Home', href: '/' },
-              { label: 'Careers', href: '/careers' },
-              { label: position.title },
-            ]}
+
           />
         </Container>
       </Section>

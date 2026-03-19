@@ -8,14 +8,36 @@ import homeContent from '@/content/home.json';
 
 type PaymentLogo = { id: string; src: string; alt: string };
 
+export interface SupportMissionContent {
+  heading?: string;
+  points?: string[];
+  cta?: { href: string; label: string };
+  paymentLogos?: PaymentLogo[];
+  image?: { src: string; alt: string };
+  decor?: { main: string };
+}
+
 const { supportMission } = homeContent.sections;
 
 /**
  * Shared support-mission-component — matches Webflow .support-mission-component exactly.
- * Used on: Home page, Careers page (and any future page that needs it).
- * Content is driven by home.json sections.supportMission.
+ * Used on: Home page, Careers page, School Plan page (and any future page that needs it).
+ * Content defaults to home.json sections.supportMission; pass contentOverride to customise per page.
  */
-export function SupportMissionSection({ sectionId = 'support-mission-section' }: { sectionId?: string }) {
+export function SupportMissionSection({
+  sectionId = 'support-mission-section',
+  contentOverride,
+}: Readonly<{
+  sectionId?: string;
+  contentOverride?: SupportMissionContent;
+}>) {
+  const heading = contentOverride?.heading ?? supportMission.heading;
+  const points = contentOverride?.points ?? supportMission.points;
+  const cta = contentOverride?.cta ?? supportMission.cta;
+  const paymentLogos = (contentOverride?.paymentLogos ?? supportMission.paymentLogos) as PaymentLogo[];
+  const image = contentOverride?.image ?? supportMission.image;
+  const decor = contentOverride?.decor ?? supportMission.decor;
+
   return (
     <section id={sectionId} aria-labelledby={`${sectionId}-heading`} className="px-4 pb-24 pt-0 sm:px-6 lg:px-10">
       <div className="relative mx-auto max-w-7xl overflow-hidden rounded-xl bg-brand-blue px-10 py-14">
@@ -26,10 +48,10 @@ export function SupportMissionSection({ sectionId = 'support-mission-section' }:
                 id={`${sectionId}-heading`}
                 className="font-display text-[2rem] font-normal leading-tight text-white"
               >
-                {supportMission.heading}
+                {heading}
               </h3>
               <ul className="mt-6 space-y-4 pl-0 list-none">
-                {supportMission.points.map((point) => (
+                {points.map((point) => (
                   <li
                     key={point}
                     className="relative pl-[2.5rem] text-[1.125rem] leading-relaxed text-white/80"
@@ -45,16 +67,16 @@ export function SupportMissionSection({ sectionId = 'support-mission-section' }:
                 ))}
               </ul>
               <div className="mt-8">
-                <Button render={<Link href={supportMission.cta.href} />} variant="secondary">
-                  {supportMission.cta.label}
+                <Button render={<Link href={cta.href} />} variant="secondary">
+                  {cta.label}
                 </Button>
               </div>
               <div className="mt-8">
                 <p className="mb-3 text-sm font-medium text-white/75">
                   Guaranteed safe &amp; secure checkout:
                 </p>
-                <div className="flex flex-wrap items-center gap-3">
-                  {(supportMission.paymentLogos as PaymentLogo[]).map((logo) => (
+                <div id={`${sectionId}-payment-logos`} className="flex flex-wrap items-center gap-3">
+                  {paymentLogos.map((logo) => (
                     <div key={logo.id} className="rounded-xl border border-white/20 bg-white/10 px-3 py-2">
                       <Image
                         src={logo.src}
@@ -71,12 +93,12 @@ export function SupportMissionSection({ sectionId = 'support-mission-section' }:
           </FadeIn>
 
           <FadeIn delay={120}>
-            <div className="relative mx-auto w-full max-w-[32rem]">
+            <div id={`${sectionId}-image-wrapper`} className="relative mx-auto w-full max-w-[32rem]">
               <div className="relative overflow-hidden rounded-[1.75rem] border border-white/20 bg-white/10 p-3">
                 <div className="relative aspect-[0.92] overflow-hidden rounded-[1.25rem]">
                   <Image
-                    src={supportMission.image.src}
-                    alt={supportMission.image.alt}
+                    src={image.src}
+                    alt={image.alt}
                     fill
                     sizes="(max-width: 1024px) 90vw, 520px"
                     className="object-cover"
@@ -84,11 +106,12 @@ export function SupportMissionSection({ sectionId = 'support-mission-section' }:
                 </div>
               </div>
               <div
+                id={`${sectionId}-decor-shapes`}
                 className="absolute -right-4 top-6 hidden rounded-2xl bg-white p-3 shadow-lg md:block"
                 aria-hidden="true"
               >
                 <Image
-                  src={supportMission.decor.main}
+                  src={decor.main}
                   alt=""
                   width={88}
                   height={88}

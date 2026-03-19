@@ -134,7 +134,7 @@ export default function AboutPage() {
       <Section id="about-why-section" background="white" padding="none">
         <Container maxWidth="7xl">
           <FadeIn>
-            <div className="mx-auto mb-[5.5625rem] max-w-[44.5rem] pt-8 text-center">
+            <div id="about-why-header" className="mx-auto mb-[5.5625rem] max-w-[44.5rem] pt-8 text-center">
               <h2 className="text-brand-black">{why.heading}</h2>
               <p className="mt-4 text-[1.2rem] font-medium leading-[1.3] text-brand-black/80">{why.intro}</p>
             </div>

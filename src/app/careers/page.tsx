@@ -32,13 +32,13 @@ export default function CareersPage() {
         />
         <div className="relative z-10 px-4 sm:px-6 lg:px-10">
           <div className="mx-auto max-w-7xl py-[6rem]">
-            <div className="max-w-[25rem]">
-              <h2 className="font-display text-[5rem] font-normal leading-[0.85] text-white">
+            <div className="max-w-[25rem] xl:mx-auto">
+              <h2 className="font-display text-[5rem] font-normal leading-[0.7] text-white xl:flex xl:justify-center">
                 {hero.join_heading}
               </h2>
             </div>
-            <div className="mt-6 max-w-[25rem]">
-              <p className="text-[1rem] text-white">{hero.headline}</p>
+            <div className="max-w-[25rem] xl:mx-auto">
+              <p className="font-sans text-[1rem] text-white xl:text-center">{hero.headline}</p>
             </div>
           </div>
         </div>
@@ -48,7 +48,7 @@ export default function CareersPage() {
       <Section id="careers-content-section" background="white" padding="none">
         <Container maxWidth="7xl">
           <FadeIn>
-            <div className="mx-auto max-w-[45.25rem] py-[3rem]">
+            <div className="py-[6rem]">
 
               {/* Welcome / Intro */}
               <div id="careers-intro-section" className="mb-[2.0625rem]">
@@ -86,7 +86,7 @@ export default function CareersPage() {
               {openings.positions.length > 0 && (
                 <div id="careers-openings-section" className="mb-[2.0625rem]">
                   <h2 className="mb-[2.0625rem] text-brand-black">{openings.heading}</h2>
-                  <div className="flex flex-col gap-[1.5rem]">
+                  <div className="flex max-w-[45.25rem] flex-col gap-[1.5rem]">
                     {openings.positions.map((position) => (
                       <div
                         key={position.id}

@@ -116,11 +116,6 @@ export default function AdmissionsApplyPage() {
           <Container>
             <PageHeader
               title={apply.heading}
-              breadcrumbs={[
-                { label: 'Home', href: '/' },
-                { label: 'Admissions', href: '/admissions' },
-                { label: 'Apply' },
-              ]}
             />
           </Container>
         </Section>
@@ -156,11 +151,6 @@ export default function AdmissionsApplyPage() {
           <PageHeader
             title={apply.heading}
             subtitle={apply.subtext}
-            breadcrumbs={[
-              { label: 'Home', href: '/' },
-              { label: 'Admissions', href: '/admissions' },
-              { label: 'Apply' },
-            ]}
           />
         </Container>
       </Section>
