@@ -3,10 +3,10 @@ id: TASK-119
 title: >-
   [P2] Build DonateVerseSection component to extract the Donate page Quranic
   verse inline section
-status: In Progress
+status: Done
 assignee: []
 created_date: '2026-03-19 15:21'
-updated_date: '2026-03-19 20:27'
+updated_date: '2026-03-19 20:29'
 labels:
   - UI_COMPONENT
   - section-componentization
