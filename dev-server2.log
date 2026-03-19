@@ -182,3 +182,5 @@ the name `subjectIcons` is defined multiple times
 thread 'tokio-runtime-worker' (24092) panicked at turbopack\crates\turbo-persistence\src\static_sorted_file.rs:387:51:
 range start index 2565684 out of range for slice of length 2565448
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+ GET / 200 in 10.6s (compile: 3.4s, render: 7.3s)
+[?25h

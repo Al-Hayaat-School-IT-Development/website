@@ -32,11 +32,11 @@ export default function AboutPage() {
 
   return (
     <>
-      <section className="overflow-hidden bg-brand-off-white-background">
+      <section id="about-hero-section" className="overflow-hidden bg-brand-off-white-background">
         <Container maxWidth="7xl" className="pb-[4.375rem] pt-[4.375rem]">
           <div className="relative pb-32">
             <FadeIn>
-              <div className="mx-auto max-w-[48.5625rem] text-center">
+              <div id="about-hero-header-wrapper" className="mx-auto max-w-[48.5625rem] text-center">
                 <div className="mb-5">
                   <h1 className="text-brand-black">{hero.headline}</h1>
                 </div>
@@ -48,43 +48,48 @@ export default function AboutPage() {
                 </div>
               </div>
             </FadeIn>
-            <div className="pointer-events-none absolute bottom-4 left-0 hidden lg:block">
-              <Image src={hero.decor.shapeOne} alt="" width={150} height={150} aria-hidden="true" />
+            <div className="pointer-events-none absolute bottom-4 left-0 hidden lg:block" aria-hidden="true">
+              <Image src={hero.decor.shapeOne} alt="" width={150} height={150} />
             </div>
-            <div className="pointer-events-none absolute bottom-0 right-0 hidden lg:block">
-                <Image src={hero.decor.shapeTwo} alt="" width={96} height={74} aria-hidden="true" />
+            <div className="pointer-events-none absolute bottom-0 right-0 hidden lg:block" aria-hidden="true">
+              <Image src={hero.decor.shapeTwo} alt="" width={96} height={74} />
             </div>
           </div>
           <FadeIn delay={80}>
-            <AutoScrollCarousel images={hero.carousel} />
+            <div id="about-hero-carousel">
+              <AutoScrollCarousel images={hero.carousel} />
+            </div>
           </FadeIn>
         </Container>
       </section>
 
-      <Section background="gray" padding="none">
+      {/* background matches Webflow: var(--brand--off-white-background) = #fffcf9 */}
+      <Section id="about-mission-vision-section" background="off-white-bg" padding="none">
         <Container maxWidth="7xl" className="py-16">
           <FadeIn>
-            <div className="mb-[2.0625rem] text-center md:pl-64">
+            <div id="mission-vision-header-wrap" className="mb-[2.0625rem] text-center md:pl-64">
               <h3 className="text-brand-black">{missionVision.heading}</h3>
             </div>
           </FadeIn>
           <FadeIn delay={80}>
-            <TabsPanel tabs={missionTabs} defaultTab={missionTabs[0]?.id} orientation="vertical" variant="webflow" />
+            <div id="mission-vision-tabs-component">
+              <TabsPanel tabs={missionTabs} defaultTab={missionTabs[0]?.id} orientation="vertical" variant="webflow" />
+            </div>
           </FadeIn>
         </Container>
       </Section>
 
-      <Section background="white" padding="none">
+      <Section id="about-team-section" background="white" padding="none">
         <Container maxWidth="7xl" className="py-20">
           <FadeIn>
             <div className="mb-16 text-center">
               <h2 className="text-brand-black">{team.heading}</h2>
             </div>
           </FadeIn>
-          <div className="mb-16 grid gap-12">
+          <div id="about-team-container" className="mb-16 grid gap-12">
             {(team.members as TeamMember[]).map((member, index) => (
               <FadeIn key={member.id} delay={index * 100}>
-                <article className="flex gap-11">
+                <article id={`team-member-${member.id}`} className="flex gap-11">
                   <div className="hidden h-[17.875rem] w-[17.875rem] shrink-0 overflow-hidden rounded-xl">
                     {member.image ? (
                       <Image
@@ -109,7 +114,7 @@ export default function AboutPage() {
           </div>
           {team.boardImage ? (
             <FadeIn delay={300}>
-              <div className="mx-auto w-full max-w-[42.6875rem] text-center">
+              <div id="team-board-image-container" className="mx-auto w-full max-w-[42.6875rem] text-center">
                 <div className="mb-4">
                   <Image
                     src={team.boardImage.src}
@@ -126,7 +131,7 @@ export default function AboutPage() {
         </Container>
       </Section>
 
-      <Section background="white" padding="none">
+      <Section id="about-why-section" background="white" padding="none">
         <Container maxWidth="7xl">
           <FadeIn>
             <div className="mx-auto mb-[5.5625rem] max-w-[44.5rem] pt-8 text-center">
@@ -134,7 +139,7 @@ export default function AboutPage() {
               <p className="mt-4 text-[1.2rem] font-medium leading-[1.3] text-brand-black/80">{why.intro}</p>
             </div>
           </FadeIn>
-          <div className="mx-auto flex max-w-[67.375rem] flex-col gap-[2.375rem] pb-20">
+          <div id="about-why-cards-container" className="mx-auto flex max-w-[67.375rem] flex-col gap-[2.375rem] pb-20">
             {(why.cards as WhyCardItem[]).map((card, index) => (
               <FadeIn key={card.id} delay={index * 100}>
                 <WhyCard
@@ -161,6 +166,7 @@ export default function AboutPage() {
       </Section>
 
       <CTASection
+        id="about-cta-section"
         heading={cta.heading}
         body={cta.body}
         primaryCta={cta.cta}

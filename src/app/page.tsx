@@ -39,7 +39,7 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-white">
+      <section id="home-hero-section" className="relative overflow-hidden bg-white">
         <div className="absolute inset-0">
           <Image
             src={hero.background.glitter}
@@ -66,7 +66,7 @@ export default function HomePage() {
 
         <Container maxWidth="7xl" className="relative z-20 py-24 sm:py-28 lg:py-32">
           <FadeIn>
-            <div className="mx-auto max-w-4xl text-center">
+            <div id="home-hero-content" className="mx-auto max-w-4xl text-center">
               <h1 className="text-brand-black">{hero.headline}</h1>
               <p className="mt-5 text-xl font-medium text-brand-black/75 sm:text-2xl">{hero.subtext}</p>
               <div className="mt-8 flex justify-center">
@@ -80,11 +80,11 @@ export default function HomePage() {
       </section>
 
       {/* Welcome to Al-Hayaat School — hidden to match Webflow (section_home-feature is set to invisible in the designer) */}
-      <Section background="primary" padding="lg" className="hidden">
+      <Section id="home-feature-section" background="primary" padding="lg" className="hidden">
         <Container maxWidth="7xl">
           <div className="grid gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center">
             <FadeIn>
-              <div className="relative">
+              <div id="home-feature-content" className="relative">
                 <h2 className="text-white">{feature.heading}</h2>
                 <p className="mt-4 text-sm font-semibold uppercase tracking-[0.24em] text-white/70">
                   {feature.eyebrow}
@@ -101,7 +101,7 @@ export default function HomePage() {
             </FadeIn>
 
             <FadeIn delay={120}>
-              <div className="relative mx-auto w-full max-w-[34rem]">
+              <div id="home-feature-image-container" className="relative mx-auto w-full max-w-[34rem]">
                 <div className="relative overflow-hidden rounded-[1.75rem] border border-white/15 bg-white/5 p-3 shadow-2xl">
                   <div className="relative aspect-[1.05] overflow-hidden rounded-[1.25rem]">
                     <Image
@@ -123,7 +123,7 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section background="white" padding="lg" className="relative overflow-hidden">
+      <Section id="home-why-section" background="white" padding="lg" className="relative overflow-hidden">
         <div
           className="pointer-events-none absolute -right-52 hidden xl:block"
           style={{ top: '-16rem' }}
@@ -140,12 +140,12 @@ export default function HomePage() {
         </div>
         <Container maxWidth="7xl">
           <FadeIn>
-            <div className="mb-12 text-center">
+            <div id="home-why-header" className="mb-12 text-center">
               <h2 className="text-brand-black">{why.heading}</h2>
               <p className="mx-auto mt-4 max-w-2xl text-lg text-brand-black/65">{why.intro}</p>
             </div>
           </FadeIn>
-          <div className="mx-auto flex max-w-[67rem] flex-col gap-10">
+          <div id="home-why-cards-container" className="mx-auto flex max-w-[67rem] flex-col gap-10">
             {(why.cards as WhyCardItem[]).map((card, index) => (
               <FadeIn key={card.id} delay={index * 100}>
                 <WhyCard
@@ -159,15 +159,15 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section background="white" padding="lg">
+      <Section id="home-curriculum-section" background="white" padding="lg">
         <Container maxWidth="7xl">
           <FadeIn>
             <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-20">
-              <div className="lg:max-w-[32rem] lg:shrink-0">
+              <div id="home-curriculum-header" className="lg:max-w-[32rem] lg:shrink-0">
                 <h2 className="text-brand-black">{curriculum.heading}</h2>
                 <p className="mt-4 text-lg text-brand-black/65">{curriculum.intro}</p>
               </div>
-              <div className="w-full">
+              <div id="home-curriculum-subjects" className="w-full">
                 <ul className="mb-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
                   {curriculum.subjects.map((subject, subjectIdx) => (
                     <li key={subject} className="flex items-center gap-6 text-base font-medium text-brand-black">
@@ -188,7 +188,7 @@ export default function HomePage() {
       </Section>
 
       {/* Growth Plan — hidden to match Webflow (display: none in .padding-section-our-growth-plan) */}
-      <Section background="gray" padding="lg" className="hidden">
+      <Section id="home-growth-plan-section" background="gray" padding="lg" className="hidden">
         <Container maxWidth="7xl">
           <FadeIn>
             <div className="mb-12 text-center">
@@ -226,7 +226,7 @@ export default function HomePage() {
       </Section>
 
       {/* Collaborators — hidden to match Webflow (display: none in .padding-section-collaborator) */}
-      <Section background="white" padding="lg" className="hidden">
+      <Section id="home-collaborators-section" background="white" padding="lg" className="hidden">
         <Container maxWidth="7xl">
           <FadeIn>
             <div className="mb-12 text-center">
@@ -237,7 +237,7 @@ export default function HomePage() {
           <div className="grid gap-6 lg:grid-cols-3">
             {(collaborators.items as Collaborator[]).map((item, index) => (
               <FadeIn key={item.id} delay={index * 120}>
-                <article className="overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm">
+                <article id={`collaborator-${item.id}`} className="overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm">
                   <div className="flex min-h-36 items-center justify-center bg-white px-8 py-6">
                     <Image
                       src={item.logo.src}
@@ -260,12 +260,12 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section background="white" padding="none">
+      <Section id="home-support-mission-section" background="white" padding="none">
         <Container maxWidth="7xl" className="pb-24 pt-0">
           <div className="relative overflow-hidden rounded-xl bg-brand-blue px-10 py-14">
             <div className="grid gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-center">
               <FadeIn>
-                <div className="relative">
+                <div id="support-mission-content">
                   <h2 className="text-white">{supportMission.heading}</h2>
                   <ul className="mt-6 space-y-4">
                     {supportMission.points.map((point) => (
@@ -284,7 +284,7 @@ export default function HomePage() {
                     <p className="mb-3 text-sm font-medium text-white/75">
                       Guaranteed safe &amp; secure checkout:
                     </p>
-                    <div className="flex flex-wrap items-center gap-3">
+                    <div id="home-support-payment-logos" className="flex flex-wrap items-center gap-3">
                       {(supportMission.paymentLogos as PaymentLogo[]).map((logo) => (
                         <div key={logo.id} className="rounded-xl border border-white/20 bg-white/10 px-3 py-2">
                           <Image src={logo.src} alt={logo.alt} width={58} height={30} className="h-6 w-auto object-contain" />
@@ -296,7 +296,7 @@ export default function HomePage() {
               </FadeIn>
 
               <FadeIn delay={120}>
-                <div className="relative mx-auto w-full max-w-[32rem]">
+                <div id="support-mission-image-wrapper" className="relative mx-auto w-full max-w-[32rem]">
                   <div className="relative overflow-hidden rounded-[1.75rem] border border-white/20 bg-white/10 p-3">
                     <div className="relative aspect-[0.92] overflow-hidden rounded-[1.25rem]">
                       <Image
@@ -308,8 +308,12 @@ export default function HomePage() {
                       />
                     </div>
                   </div>
-                  <div className="absolute -right-4 top-6 hidden rounded-2xl bg-white p-3 shadow-lg md:block">
-                    <Image src={supportMission.decor.main} alt="" width={88} height={88} aria-hidden="true" />
+                  {/* Triangle, square, and circle decorative shapes container */}
+                  <div
+                    id="support-mission-decor-shapes"
+                    className="absolute -right-4 top-6 hidden rounded-2xl bg-white p-3 shadow-lg md:block"
+                  >
+                    <Image src={supportMission.decor.main} alt="Abstract shapes including a triangle, square, and circle." width={88} height={88} />
                   </div>
                   <span className="absolute -left-2 bottom-10 h-4 w-4 rotate-45 bg-brand-yellow" aria-hidden="true" />
                   <span className="absolute right-8 top-full mt-3 h-4 w-4 rotate-12 bg-brand-orange-light" aria-hidden="true" />
@@ -321,7 +325,7 @@ export default function HomePage() {
       </Section>
 
       {/* News & Announcements — hidden to match Webflow (.section_home-news-announcement has class "hide") */}
-      <Section background="gray" padding="lg" className="hidden">
+      <Section id="home-news-section" background="gray" padding="lg" className="hidden">
         <Container maxWidth="7xl">
           <FadeIn>
             <div className="mb-12 text-center">
@@ -331,7 +335,7 @@ export default function HomePage() {
           <div className="grid gap-6 md:grid-cols-3">
             {(homeContent.sections.news.articles as NewsArticle[]).map((article, index) => (
               <FadeIn key={article.id} delay={index * 120}>
-                <article className="flex h-full flex-col overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm">
+                <article id={`news-article-${article.id}`} className="flex h-full flex-col overflow-hidden rounded-xl border border-black/10 bg-white shadow-sm">
                   <div className="flex flex-1 flex-col p-6">
                     <p className="mb-3 text-xs font-medium uppercase tracking-widest text-brand-blue">
                       {new Date(article.date).toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' })}
@@ -355,6 +359,7 @@ export default function HomePage() {
       </Section>
 
       <CTASection
+        id="home-final-cta-section"
         heading={finalCta.heading}
         body={finalCta.body}
         primaryCta={finalCta.cta}

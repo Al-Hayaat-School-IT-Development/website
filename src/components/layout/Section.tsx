@@ -5,6 +5,7 @@ export interface SectionProps {
   background?: 'white' | 'gray' | 'off-white-bg' | 'primary' | 'transparent';
   padding?: 'sm' | 'md' | 'lg' | 'none';
   className?: string;
+  id?: string;
 }
 
 const backgroundMap: Record<NonNullable<SectionProps['background']>, string> = {
@@ -27,9 +28,10 @@ export function Section({
   background = 'white',
   padding = 'md',
   className,
+  id,
 }: SectionProps) {
   return (
-    <section className={cn(backgroundMap[background], paddingMap[padding], className)}>
+    <section id={id} className={cn(backgroundMap[background], paddingMap[padding], className)}>
       {children}
     </section>
   );

@@ -11,6 +11,7 @@ export interface CTASectionProps {
   secondaryCta?: { label: string; href: string };
   variant?: 'primary' | 'secondary' | 'green';
   className?: string;
+  id?: string;
 }
 
 export function CTASection({
@@ -20,12 +21,14 @@ export function CTASection({
   secondaryCta,
   variant = 'green',
   className,
+  id,
 }: CTASectionProps) {
   const isPrimary = variant === 'primary';
   const isGreen = variant === 'green';
 
   return (
     <section
+      id={id}
       className={cn(
         'relative w-full overflow-hidden px-6 py-20',
         isPrimary && 'bg-primary text-primary-foreground',
