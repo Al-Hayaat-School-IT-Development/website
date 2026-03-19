@@ -3,9 +3,10 @@ id: TASK-113
 title: >-
   [P2] Build AdmissionsFeesTableSection component to extract the Admissions fees
   table inline section
-status: To Do
+status: In Progress
 assignee: []
 created_date: '2026-03-19 15:19'
+updated_date: '2026-03-19 20:21'
 labels:
   - UI_COMPONENT
   - section-componentization
@@ -54,14 +55,18 @@ The fees section is a `<table>` with academic year fee schedule. Currently inlin
 *Sizing rationale: Accessible table structure + content JSON extraction.*
 
 ## Definition of Done
-- [ ] `src/components/sections/AdmissionsFeesTableSection.tsx` created
-- [ ] Added to `src/components/sections/index.ts`
-- [ ] Inline fees table JSX removed from `src/app/admissions/page.tsx`
-- [ ] Fee data sourced from `src/content/admissions.json`
-- [ ] Table uses `<thead>`, `<tbody>`, `scope` attributes
-- [ ] No inline styles
-- [ ] Code reviewed and merged to `develop`
+<!-- DOD:BEGIN -->
+- [ ] #1 `src/components/sections/AdmissionsFeesTableSection.tsx` created
+- [ ] #2 Added to `src/components/sections/index.ts`
+- [ ] #3 Inline fees table JSX removed from `src/app/admissions/page.tsx`
+- [ ] #4 Fee data sourced from `src/content/admissions.json`
+- [ ] #5 Table uses `<thead>`, `<tbody>`, `scope` attributes
+- [ ] #6 No inline styles
+- [ ] #7 Code reviewed and merged to `develop`
 <!-- SECTION:DESCRIPTION:END -->
+<!-- DOD:END -->
+
+
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
