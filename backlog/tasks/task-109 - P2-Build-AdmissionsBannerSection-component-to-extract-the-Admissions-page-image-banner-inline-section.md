@@ -3,10 +3,10 @@ id: TASK-109
 title: >-
   [P2] Build AdmissionsBannerSection component to extract the Admissions page
   image banner inline section
-status: In Progress
+status: Done
 assignee: []
 created_date: '2026-03-19 15:18'
-updated_date: '2026-03-19 20:16'
+updated_date: '2026-03-19 20:18'
 labels:
   - UI_COMPONENT
   - section-componentization
@@ -64,9 +64,8 @@ The Admissions page has a standalone `<Image>` wrapped in a rounded container as
 - [ ] #5 Uses `next/image` with non-empty alt
 - [ ] #6 Code reviewed and merged to `develop`
 <!-- SECTION:DESCRIPTION:END -->
+
 <!-- DOD:END -->
-
-
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
@@ -74,3 +73,9 @@ The Admissions page has a standalone `<Image>` wrapped in a rounded container as
 - [ ] #2 Given the image prop is provided, When AdmissionsBannerSection renders, Then next/image is used with a non-empty alt attribute
 - [ ] #3 Given the user is on a 375px wide screen, When AdmissionsBannerSection renders, Then the banner image is fully contained with no horizontal scroll
 <!-- AC:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+Created AdmissionsBannerSection.tsx with props { id?, image: { src, alt }, className? }. Added banner key to admissions.json with src and alt from Webflow HTML. Replaced 11-line inline Section block in admissions/page.tsx with single component call. Image import retained (still used in requirements section). Barrel updated. Zero TS errors.
+<!-- SECTION:FINAL_SUMMARY:END -->
