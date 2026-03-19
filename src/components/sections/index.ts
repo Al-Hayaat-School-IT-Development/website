@@ -2,6 +2,8 @@ export { AboutHeroCarouselSection } from './AboutHeroCarouselSection';
 export type { AboutHeroCarouselSectionProps } from './AboutHeroCarouselSection';
 export { AboutMissionVisionSection } from './AboutMissionVisionSection';
 export type { AboutMissionVisionSectionProps } from './AboutMissionVisionSection';
+export { AboutTeamSection } from './AboutTeamSection';
+export type { AboutTeamSectionProps, TeamMember } from './AboutTeamSection';
 export { HomeCurriculumSection } from './HomeCurriculumSection';
 export type { HomeCurriculumSectionProps } from './HomeCurriculumSection';
 export { HomeFeatureSection } from './HomeFeatureSection';
