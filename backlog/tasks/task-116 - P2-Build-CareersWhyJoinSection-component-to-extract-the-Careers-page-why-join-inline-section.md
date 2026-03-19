@@ -3,9 +3,10 @@ id: TASK-116
 title: >-
   [P2] Build CareersWhyJoinSection component to extract the Careers page
   why-join inline section
-status: To Do
+status: In Progress
 assignee: []
 created_date: '2026-03-19 15:20'
+updated_date: '2026-03-19 20:24'
 labels:
   - UI_COMPONENT
   - section-componentization
@@ -55,13 +56,17 @@ The why-join section uses a heading and a bullet list with custom bullet image b
 *Sizing rationale: Styled list with custom bullets + content JSON extraction.*
 
 ## Definition of Done
-- [ ] `src/components/sections/CareersWhyJoinSection.tsx` created
-- [ ] Added to `src/components/sections/index.ts`
-- [ ] Inline section JSX removed from `src/app/careers/page.tsx`
-- [ ] Items sourced from `src/content/careers.json`
-- [ ] No inline styles
-- [ ] Code reviewed and merged to `develop`
+<!-- DOD:BEGIN -->
+- [ ] #1 `src/components/sections/CareersWhyJoinSection.tsx` created
+- [ ] #2 Added to `src/components/sections/index.ts`
+- [ ] #3 Inline section JSX removed from `src/app/careers/page.tsx`
+- [ ] #4 Items sourced from `src/content/careers.json`
+- [ ] #5 No inline styles
+- [ ] #6 Code reviewed and merged to `develop`
 <!-- SECTION:DESCRIPTION:END -->
+<!-- DOD:END -->
+
+
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
