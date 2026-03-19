@@ -1,9 +1,5 @@
-import Link from 'next/link';
-import { CheckCircle2 } from 'lucide-react';
-import { Container, GreenHero, Section } from '@/components/layout';
-import { ColoredBorderCard, FadeIn } from '@/components/ui';
-import { CTASection, PageIntroSection, SupportMissionSection } from '@/components/sections';
-import { Button } from '@/components/ui/button';
+import { GreenHero } from '@/components/layout';
+import { CTASection, PageIntroSection, SchoolPlanCardsSection, SupportMissionSection } from '@/components/sections';
 import content from '@/content/school-plan.json';
 
 export const metadata = {
@@ -31,46 +27,26 @@ export default function SchoolPlanPage() {
         body={content.intro.body}
       />
 
-      {/* Section matches Webflow section_school-plans: bg #fffcf9 */}
-      <Section id="school-plans-cards-section" background="off-white-bg" padding="none" className="pt-[3.9375rem] pb-[3.125rem]">
-        <Container maxWidth="7xl">
-          <div id="school-plans-card-container" className="grid gap-[3.125rem] lg:grid-cols-2">
-            <FadeIn>
-              <ColoredBorderCard
-                accent="yellow"
-                className="h-full rounded-[1.5rem] border-0 bg-brand-off-white"
-              >
-                <h3 className="text-[2rem] text-brand-black">{content.openingPlan.heading}</h3>
-                <ul className="space-y-4">
-                  {openingItems.map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand-blue" />
-                      <span className="text-base leading-relaxed text-brand-black/75">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </ColoredBorderCard>
-            </FadeIn>
-
-            <FadeIn delay={120}>
-              <ColoredBorderCard
-                accent="blue"
-                className="h-full rounded-[1.5rem] border-0 bg-white shadow-sm"
-              >
-                <h3 className="text-[2rem] text-brand-black">{content.community.heading}</h3>
-                <p className="text-base leading-relaxed text-brand-black/75">
-                  {content.community.body}
-                </p>
-                <div className="pt-2">
-                  <Button render={<Link href={content.community.cta.href} />}>
-                    {content.community.cta.label}
-                  </Button>
-                </div>
-              </ColoredBorderCard>
-            </FadeIn>
-          </div>
-        </Container>
-      </Section>
+      <SchoolPlanCardsSection
+        id="school-plans-cards-section"
+        cards={[
+          {
+            type: 'checklist',
+            accent: 'yellow',
+            className: 'bg-brand-off-white',
+            heading: content.openingPlan.heading,
+            items: openingItems,
+          },
+          {
+            type: 'body',
+            accent: 'blue',
+            className: 'bg-white shadow-sm',
+            heading: content.community.heading,
+            body: content.community.body,
+            cta: content.community.cta,
+          },
+        ]}
+      />
 
       {/* Support Our Mission — uses shared component with blue background matching Webflow .support-mission-component */}
       <SupportMissionSection

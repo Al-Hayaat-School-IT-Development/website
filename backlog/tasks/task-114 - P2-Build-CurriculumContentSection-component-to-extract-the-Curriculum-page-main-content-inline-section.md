@@ -3,10 +3,10 @@ id: TASK-114
 title: >-
   [P2] Build CurriculumContentSection component to extract the Curriculum page
   main content inline section
-status: In Progress
+status: Done
 assignee: []
 created_date: '2026-03-19 15:19'
-updated_date: '2026-03-19 20:24'
+updated_date: '2026-03-19 20:27'
 labels:
   - UI_COMPONENT
   - section-componentization

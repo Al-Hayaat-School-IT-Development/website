@@ -1,6 +1,5 @@
-import Image from 'next/image';
-import { Container, GreenHero, Section } from '@/components/layout';
-import { FadeIn, homeWhyIcons } from '@/components/ui';
+import { GreenHero } from '@/components/layout';
+import { homeWhyIcons } from '@/components/ui';
 import { AboutHeroCarouselSection, AboutMissionVisionSection, AboutTeamSection, CTASection, PageIntroSection, WhySection } from '@/components/sections';
 import type { WhySectionCard } from '@/components/sections';
 import aboutContent from '@/content/about.json';
@@ -13,7 +12,7 @@ export const metadata = {
 };
 
 export default function AboutPage() {
-  const { hero, team, why, office, cta } = aboutContent.sections;
+  const { hero, team, why, cta } = aboutContent.sections;
 
   return (
     <>
@@ -55,18 +54,6 @@ export default function AboutPage() {
         icons={WHY_ICONS}
         cardsClassName="flex flex-col gap-[2.375rem] pb-20"
       />
-
-      <Section background="white" padding="lg" className="hidden">
-        <Container maxWidth="7xl">
-          <FadeIn>
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-brand-black">{office.heading}</h2>
-              <p className="mt-4 text-lg font-medium text-brand-blue">{office.address}</p>
-              <p className="mt-4 text-lg leading-relaxed text-brand-black/70">{office.description}</p>
-            </div>
-          </FadeIn>
-        </Container>
-      </Section>
 
       <CTASection
         id="about-cta-section"

@@ -3,10 +3,10 @@ id: TASK-111
 title: >-
   [P2] Build AdmissionsHowToApplySection component to extract the Admissions
   how-to-apply inline section
-status: In Progress
+status: Done
 assignee: []
 created_date: '2026-03-19 15:18'
-updated_date: '2026-03-19 20:21'
+updated_date: '2026-03-19 20:23'
 labels:
   - UI_COMPONENT
   - section-componentization
