@@ -3,9 +3,10 @@ id: TASK-120
 title: >-
   [P2] Build DonateInfoSection component to extract the Donate page info and
   form inline section
-status: To Do
+status: In Progress
 assignee: []
 created_date: '2026-03-19 15:22'
+updated_date: '2026-03-19 20:27'
 labels:
   - UI_COMPONENT
   - section-componentization
@@ -57,13 +58,17 @@ The donate info section is a two-column layout: donation info text and alternati
 *Sizing rationale: Two-column layout + other methods cards + Stripe form composition.*
 
 ## Definition of Done
-- [ ] `src/components/sections/DonateInfoSection.tsx` created
-- [ ] Added to `src/components/sections/index.ts`
-- [ ] Inline section JSX removed from `src/app/donate/page.tsx`
-- [ ] Info content sourced from `src/content/donate.json`
-- [ ] No inline styles
-- [ ] Code reviewed and merged to `develop`
+<!-- DOD:BEGIN -->
+- [ ] #1 `src/components/sections/DonateInfoSection.tsx` created
+- [ ] #2 Added to `src/components/sections/index.ts`
+- [ ] #3 Inline section JSX removed from `src/app/donate/page.tsx`
+- [ ] #4 Info content sourced from `src/content/donate.json`
+- [ ] #5 No inline styles
+- [ ] #6 Code reviewed and merged to `develop`
 <!-- SECTION:DESCRIPTION:END -->
+<!-- DOD:END -->
+
+
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
