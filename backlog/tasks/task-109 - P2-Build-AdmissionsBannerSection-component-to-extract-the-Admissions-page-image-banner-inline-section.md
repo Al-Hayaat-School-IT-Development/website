@@ -3,9 +3,10 @@ id: TASK-109
 title: >-
   [P2] Build AdmissionsBannerSection component to extract the Admissions page
   image banner inline section
-status: To Do
+status: In Progress
 assignee: []
 created_date: '2026-03-19 15:18'
+updated_date: '2026-03-19 20:16'
 labels:
   - UI_COMPONENT
   - section-componentization
@@ -55,13 +56,17 @@ The Admissions page has a standalone `<Image>` wrapped in a rounded container as
 *Sizing rationale: Single image wrapper component.*
 
 ## Definition of Done
-- [ ] `src/components/sections/AdmissionsBannerSection.tsx` created
-- [ ] Added to `src/components/sections/index.ts`
-- [ ] Inline banner JSX removed from `src/app/admissions/page.tsx`
-- [ ] Image sourced from `src/content/admissions.json`
-- [ ] Uses `next/image` with non-empty alt
-- [ ] Code reviewed and merged to `develop`
+<!-- DOD:BEGIN -->
+- [ ] #1 `src/components/sections/AdmissionsBannerSection.tsx` created
+- [ ] #2 Added to `src/components/sections/index.ts`
+- [ ] #3 Inline banner JSX removed from `src/app/admissions/page.tsx`
+- [ ] #4 Image sourced from `src/content/admissions.json`
+- [ ] #5 Uses `next/image` with non-empty alt
+- [ ] #6 Code reviewed and merged to `develop`
 <!-- SECTION:DESCRIPTION:END -->
+<!-- DOD:END -->
+
+
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
