@@ -3,10 +3,10 @@ id: TASK-009
 title: >-
   [P0] Verify CI/CD workflows so the team confirms automated pipelines run
   end-to-end
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-03-15 10:52'
-updated_date: '2026-03-15 12:57'
+updated_date: '2026-04-11 12:33'
 labels:
   - phase-0
   - cicd
@@ -69,6 +69,12 @@ Then the run pauses at the approval step and does not deploy without manual appr
 When ci.yml runs
 Then the workflow fails and the PR status check blocks merging
 <!-- AC:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+All CI/CD workflows verified working. deploy-prod.yml succeeded and site returns HTTP 200 at al-hayaat-prod.azurewebsites.net. Workflows migrated to OIDC (no stored Azure credentials). Build cache, telemetry disable, and Node.js 24 opt-in added. Branch references corrected to master.
+<!-- SECTION:FINAL_SUMMARY:END -->
 
 ## Definition of Done
 <!-- DOD:BEGIN -->
