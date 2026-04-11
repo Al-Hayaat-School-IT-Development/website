@@ -3,10 +3,10 @@ id: TASK-005
 title: >-
   [P0] Set up GitHub repository so the team has a secure, structured codebase
   with branch protection
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-03-15 10:51'
-updated_date: '2026-03-15 12:56'
+updated_date: '2026-04-11 12:32'
 labels:
   - phase-0
   - setup
@@ -79,6 +79,12 @@ Then the push is rejected with a protection rule error
 5. Configure branch protection on `develop`
 6. Add repository secrets: AZURE_CREDENTIALS, AZURE_WEBAPP_NAME_DEV/STAGING/PROD
 <!-- SECTION:PLAN:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+Repo transferred from Mohamed-Jeafer/alhayaat-school to Al-Hayaat-School-IT-Development/website. GitHub org created for school IT team. Repo renamed from alhayaat-school to website. Local git remote updated. Default branch is master.
+<!-- SECTION:FINAL_SUMMARY:END -->
 
 ## Definition of Done
 <!-- DOD:BEGIN -->
