@@ -3,10 +3,10 @@ id: TASK-008
 title: >-
   [P0] Verify Azure infrastructure so the team confirms all cloud resources are
   correctly provisioned
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-03-15 10:52'
-updated_date: '2026-03-15 12:57'
+updated_date: '2026-04-11 12:33'
 labels:
   - phase-0
   - infrastructure
@@ -70,6 +70,12 @@ Then it reports FAIL for Application Insights with the expected resource name
 When the verification script runs
 Then it reports FAIL with a link to App Service logs in Azure Portal
 <!-- AC:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+All Azure resources verified present and in Succeeded state. App Service al-hayaat-prod returns HTTP 200. PostgreSQL al-hayaat-prod-psql provisioned. Key Vault al-hayaat-prod-kv populated with NEXTAUTH-SECRET, DATABASE-URL, STRIPE-SECRET-KEY, STRIPE-PUBLISHABLE-KEY, STRIPE-WEBHOOK-SECRET. Managed identity granted Key Vault Secrets User and Mail.Send (Microsoft Graph) roles.
+<!-- SECTION:FINAL_SUMMARY:END -->
 
 ## Definition of Done
 <!-- DOD:BEGIN -->
