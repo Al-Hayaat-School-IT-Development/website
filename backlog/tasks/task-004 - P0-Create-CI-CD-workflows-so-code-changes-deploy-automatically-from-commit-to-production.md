@@ -6,7 +6,7 @@ title: >-
 status: Done
 assignee: []
 created_date: '2026-03-15 10:51'
-updated_date: '2026-03-15 21:21'
+updated_date: '2026-04-11 12:33'
 labels:
   - phase-0
   - cicd
@@ -100,6 +100,8 @@ AZURE_CREDENTIALS, AZURE_WEBAPP_NAME_DEV, AZURE_WEBAPP_NAME_STAGING, AZURE_WEBAP
 
 <!-- SECTION:FINAL_SUMMARY:BEGIN -->
 4 GitHub Actions workflows created: ci.yml (PR lint/typecheck/build), deploy-dev.yml (develop push + Stripe secret check), deploy-staging.yml (manual dispatch with confirmation gate), deploy-prod.yml (main push + manual approval environment + dual Stripe secret verification).
+
+April 2026 improvements: Migrated all 7 workflows from AZURE_CREDENTIALS JSON secret to OIDC federated credentials (AZURE_CLIENT_ID/TENANT_ID/SUBSCRIPTION_ID). Removed publish-profile auth. Added Next.js build cache (.next/cache), NEXT_TELEMETRY_DISABLED=1, FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true. Fixed branch references main->master. Added paths-ignore and workflow_dispatch to deploy-prod.yml. deploy-dev/staging/prod now use hardcoded app names, not secrets.
 <!-- SECTION:FINAL_SUMMARY:END -->
 
 ## Definition of Done
