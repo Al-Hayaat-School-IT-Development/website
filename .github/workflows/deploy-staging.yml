@@ -9,6 +9,8 @@ on:
         description: 'Type "staging" to confirm deployment'
         required: true
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 jobs:
   deploy:
     name: Build & Deploy Next.js → al-hayaat-staging

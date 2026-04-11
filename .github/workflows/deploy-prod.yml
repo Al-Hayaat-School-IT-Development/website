@@ -6,6 +6,8 @@ on:
   push:
     branches: [master]
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 jobs:
   approve:
     name: Manual Approval Gate

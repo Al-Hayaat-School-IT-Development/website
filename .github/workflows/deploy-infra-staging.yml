@@ -7,6 +7,8 @@ on:
         description: 'Type "staging" to confirm infrastructure deployment'
         required: true
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 jobs:
   deploy-infra:
     name: Deploy Infra Stack → rg-alhayaat-infra-staging

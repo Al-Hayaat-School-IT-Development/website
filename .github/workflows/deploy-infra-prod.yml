@@ -7,6 +7,8 @@ on:
         description: 'Type "prod" to confirm PRODUCTION infrastructure deployment'
         required: true
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 jobs:
   approve:
     name: Manual Approval Gate
