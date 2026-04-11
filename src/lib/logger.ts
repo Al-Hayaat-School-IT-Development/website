@@ -7,10 +7,17 @@ interface LogEntry {
   data?: unknown;
 }
 
+function serializeData(data: unknown): string {
+  if (data instanceof Error) {
+    return JSON.stringify({ message: data.message, name: data.name, code: (data as NodeJS.ErrnoException).code });
+  }
+  return JSON.stringify(data);
+}
+
 function formatMessage({ message, context, data }: LogEntry): string {
   const prefix = context ? `[${context}]` : '';
   const parts = [prefix, message].filter(Boolean).join(' ');
-  return data !== undefined ? `${parts} ${JSON.stringify(data)}` : parts;
+  return data !== undefined ? `${parts} ${serializeData(data)}` : parts;
 }
 
 function log(entry: LogEntry): void {
