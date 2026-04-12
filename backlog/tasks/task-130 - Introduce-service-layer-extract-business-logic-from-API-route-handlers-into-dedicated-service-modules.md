@@ -3,10 +3,10 @@ id: TASK-130
 title: >-
   Introduce service layer: extract business logic from API route handlers into
   dedicated service modules
-status: In Progress
+status: Done
 assignee: []
 created_date: '2026-04-12 16:05'
-updated_date: '2026-04-12 16:06'
+updated_date: '2026-04-12 16:10'
 labels: []
 dependencies: []
 ---
