@@ -3,7 +3,7 @@ id: TASK-031
 title: >-
   [P5] View and manage job applications so the admin can track the hiring
   pipeline and candidate status
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-03-15 13:17'
 labels:

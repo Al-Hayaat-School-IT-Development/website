@@ -285,3 +285,77 @@ export async function createJobApplication(
   );
   return rows[0] ?? null;
 }
+
+
+
+export interface ListContactSubmissionsInput {
+  page: number;
+  perPage: number;
+  search?: string;
+}
+
+export interface ContactSubmission {
+  id: string;
+  name: string;
+  email: string;
+  phone: string | null;
+  message: string;
+  createdAt: Date;
+  readAt: Date | null;
+}
+
+export interface ListContactSubmissionsResult {
+  contacts: ContactSubmission[];
+  total: number;
+  page: number;
+  perPage: number;
+  totalPages: number;
+}
+
+export async function listContactSubmissions(input: ListContactSubmissionsInput): Promise<ListContactSubmissionsResult> {
+  const { page, perPage, search } = input;
+  const offset = (page - 1) * perPage;
+  const searchParam = search ?? null;
+
+  const [dataResult, countResult] = await Promise.all([
+    db.query<ContactSubmission>(
+      `SELECT id, name, email, phone, message, created_at AS "createdAt", read_at AS "readAt"
+       FROM contact_submissions
+       WHERE ($3::text IS NULL OR name ILIKE '%' || $3 || '%' OR email ILIKE '%' || $3 || '%')
+       ORDER BY created_at DESC
+       LIMIT $1 OFFSET $2`,
+      [perPage, offset, searchParam]
+    ),
+    db.query<{ count: string }>(
+      `SELECT COUNT(*)::text AS count
+       FROM contact_submissions
+       WHERE ($1::text IS NULL OR name ILIKE '%' || $1 || '%' OR email ILIKE '%' || $1 || '%')`,
+      [searchParam]
+    ),
+  ]);
+
+  const total = Number.parseInt(countResult.rows[0].count, 10);
+  return {
+    contacts: dataResult.rows,
+    total,
+    page,
+    perPage,
+    totalPages: Math.ceil(total / perPage),
+  };
+}
+
+export async function markContactSubmissionAsRead(id: string): Promise<void> {
+  await db.query(
+    `UPDATE contact_submissions SET read_at = NOW() WHERE id = $1`,
+    [id]
+  );
+}
+
+export async function getAllContactSubmissions(): Promise<ContactSubmission[]> {
+  const { rows } = await db.query<ContactSubmission>(
+    `SELECT id, name, email, phone, message, created_at AS "createdAt", read_at AS "readAt"
+     FROM contact_submissions
+     ORDER BY created_at DESC`
+  );
+  return rows;
+}

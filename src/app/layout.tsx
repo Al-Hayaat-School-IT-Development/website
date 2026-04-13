@@ -13,14 +13,14 @@ import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
 import { Toaster } from "@/components/ui/ToastProvider";
 
-const bodyFont = Nunito({
+const bodyFont = IBM_Plex_Sans({
   variable: "--font-body",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
 
-const baseFont = IBM_Plex_Sans({
-  variable: "--font-base",
+const nunitoFont = Nunito({
+  variable: "--font-nunito",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
@@ -70,7 +70,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${bodyFont.variable} ${baseFont.variable} ${displayFont.variable} ${headingFont.variable} ${buttonFont.variable} ${arabicFont.variable} ${geistMono.variable} antialiased`}
+        className={`${bodyFont.variable} ${nunitoFont.variable} ${displayFont.variable} ${headingFont.variable} ${buttonFont.variable} ${arabicFont.variable} ${geistMono.variable} antialiased`}
       >
         <Navigation />
         <main>{children}</main>

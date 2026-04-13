@@ -39,7 +39,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-body)", "sans-serif"],
-        base: ["var(--font-base)", "sans-serif"],
+        nunito: ["var(--font-nunito)", "sans-serif"],
         display: ["var(--font-display)", "sans-serif"],
         heading: ["var(--font-heading)", "sans-serif"],
         button: ["var(--font-button)", "sans-serif"],

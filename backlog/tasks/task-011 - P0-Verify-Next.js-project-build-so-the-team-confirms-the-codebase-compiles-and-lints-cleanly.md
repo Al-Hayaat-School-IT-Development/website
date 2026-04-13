@@ -3,7 +3,7 @@ id: TASK-011
 title: >-
   [P0] Verify Next.js project build so the team confirms the codebase compiles
   and lints cleanly
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-03-15 10:53'
 updated_date: '2026-03-15 12:57'

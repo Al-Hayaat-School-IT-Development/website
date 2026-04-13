@@ -3,7 +3,7 @@ id: TASK-029
 title: >-
   [P5] View and manage contact submissions so the admin can track and respond to
   all inquiries
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-03-15 13:16'
 labels:

@@ -4,7 +4,6 @@ import { FadeIn } from '@/components/ui';
 import {
   CareersOpeningsSection,
   CareersWhyJoinSection,
-  PageIntroSection,
   SupportMissionSection,
 } from '@/components/sections';
 import careersContent from '@/content/careers.json';

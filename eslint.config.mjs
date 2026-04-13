@@ -18,8 +18,18 @@ const eslintConfig = defineConfig([
   {
     rules: {
       "no-console": "warn",
-      "@typescript-eslint/no-unused-vars": "error",
+      "@typescript-eslint/no-unused-vars": ["error", { 
+        "argsIgnorePattern": "^_", 
+        "varsIgnorePattern": "^_", 
+        "caughtErrorsIgnorePattern": "^_" 
+      }],
       "@typescript-eslint/no-explicit-any": "error",
+    },
+  },
+  {
+    files: ["tests/**/*.ts", "scripts/**/*.ts"],
+    rules: {
+      "no-console": "off",
     },
   },
 ]);

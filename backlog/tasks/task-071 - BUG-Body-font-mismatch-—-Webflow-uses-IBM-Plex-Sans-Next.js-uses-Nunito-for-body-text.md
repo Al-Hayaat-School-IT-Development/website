@@ -3,7 +3,7 @@ id: TASK-071
 title: >-
   [BUG] Body font mismatch — Webflow uses IBM Plex Sans, Next.js uses Nunito for
   body text
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-03-17 22:22'
 labels: []

@@ -7,12 +7,12 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-base);
+  --font-sans: var(--font-body);
   --font-mono: var(--font-geist-mono);
   --font-display: var(--font-display);
   --font-heading: var(--font-heading);
   --font-button: var(--font-button);
-  --font-base: var(--font-base);
+  --font-nunito: var(--font-nunito);
   --font-arabic: var(--font-arabic);
   --color-brand-blue: var(--brand--blue);
   --color-brand-yellow: var(--brand--yellow);
@@ -154,11 +154,11 @@
     @apply border-border outline-ring/50;
   }
   html {
-    font-family: var(--font-base), sans-serif;
+    font-family: var(--font-body), sans-serif;
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-base), sans-serif;
+    font-family: var(--font-body), sans-serif;
   }
   h1,
   h2,
@@ -204,7 +204,10 @@
 }
 
 .text-size-large,
-.text-size-medium,
+.text-size-medium {
+  font-family: var(--font-nunito), sans-serif;
+}
+
 .text-size-regular,
 .text-size-small,
 .text-size-tiny {

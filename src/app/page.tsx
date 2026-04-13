@@ -4,7 +4,6 @@ import { Container, Section } from '@/components/layout';
 import { FadeIn, AnimatedCounter, homeWhyIcons } from '@/components/ui';
 import { CTASection, HomeCurriculumSection, HomeFeatureSection, HomeHeroSection, SupportMissionSection, WhySection } from '@/components/sections';
 import type { WhySectionCard } from '@/components/sections';
-import { Button } from '@/components/ui/button';
 import homeContent from '@/content/home.json';
 type Stat = { value: number; suffix: string; label: string };
 type Collaborator = {

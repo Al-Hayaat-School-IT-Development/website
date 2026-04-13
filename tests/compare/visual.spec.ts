@@ -15,7 +15,7 @@ test.beforeAll(() => {
 });
 
 for (const entry of PAGES) {
-  test(`[Visual] ${entry.name}`, async ({ page, browserName }, testInfo) => {
+  test(`[Visual] ${entry.name}`, async ({ page }, testInfo) => {
     const viewportLabel = testInfo.project.name; // 'desktop' or 'mobile'
     const slug = entry.name.toLowerCase().replace(/\s+/g, '-');
 

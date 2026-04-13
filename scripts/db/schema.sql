@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS contact_submissions (
   email       VARCHAR(255) NOT NULL,
   phone       VARCHAR(50),
   message     TEXT NOT NULL,
+  read_at     TIMESTAMPTZ,
   created_at  TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
