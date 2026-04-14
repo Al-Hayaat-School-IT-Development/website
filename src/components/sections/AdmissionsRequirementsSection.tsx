@@ -1,11 +1,15 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { Container, Section } from '@/components/layout';
 import { FadeIn } from '@/components/ui';
 import { CheckCircle2 } from 'lucide-react';
+import { registrationFormHref } from '@/lib/registration-forms';
 
 export interface RequirementsForm {
   id: string;
   label: string;
+  /** PDF filename under `public/assets/registration/` or Azure/CDN base — see `registrationFormHref`. */
+  file: string;
 }
 
 export interface RequirementsFees {
@@ -16,6 +20,8 @@ export interface RequirementsFees {
 export interface AdmissionsRequirementsSectionProps {
   id?: string;
   heading: string;
+  /** Explains manual download / email workflow. */
+  intro?: string;
   forms: RequirementsForm[];
   documents: string[];
   fees: RequirementsFees;
@@ -25,30 +31,39 @@ export interface AdmissionsRequirementsSectionProps {
 export function AdmissionsRequirementsSection({
   id,
   heading,
+  intro,
   forms,
   documents,
   fees,
   className,
-}: AdmissionsRequirementsSectionProps) {
+}: Readonly<AdmissionsRequirementsSectionProps>) {
   return (
     <Section id={id} background="gray" padding="lg" className={className}>
       <Container>
-        <FadeIn>
-          <div className="mb-8 max-w-3xl">
+        <FadeIn className="flex w-full max-w-none flex-col">
+          <div className="mb-8 w-full max-w-3xl">
             <h2 className="text-brand-black">{heading}</h2>
+            {intro ? (
+              <p className="mt-4 text-lg leading-relaxed text-brand-black/70">{intro}</p>
+            ) : null}
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
+          <div className="grid w-full gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
             <div className="grid gap-4 sm:grid-cols-2">
               {forms.map((form, index) => {
                 const isFirst = index === 0;
+                const href = registrationFormHref(form.file);
+                const isSameOriginPath = href.startsWith('/');
                 return (
-                  <button
+                  <Link
                     key={form.id}
-                    type="button"
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    {...(isSameOriginPath ? { download: true } : {})}
                     className="group flex min-h-40 flex-col justify-between rounded-[1.25rem] border border-black/10 bg-white p-5 shadow-sm transition-transform duration-200 hover:-translate-y-1 text-left w-full"
                   >
-                    <CheckCircle2 className="h-5 w-5 text-brand-blue" />
+                    <CheckCircle2 className="h-5 w-5 text-brand-blue" aria-hidden />
                     <p className="text-base font-medium leading-relaxed text-brand-black/80">
                       Download {form.label}
                     </p>
@@ -62,7 +77,7 @@ export function AdmissionsRequirementsSection({
                         className="h-14 w-14 object-contain"
                       />
                     </div>
-                  </button>
+                  </Link>
                 );
               })}
             </div>
@@ -81,12 +96,13 @@ export function AdmissionsRequirementsSection({
                 Download, sign, and email completed forms to{' '}
                 <a href="mailto:admin@alhayaat.ca" className="font-medium text-brand-blue hover:underline">
                   admin@alhayaat.ca
-                </a>.
+                </a>
+                .
               </p>
             </div>
           </div>
 
-          <div className="mt-8 rounded-[1.5rem] border border-black/10 bg-brand-off-white p-6">
+          <div className="mt-8 rounded-[1.5rem] border border-black/10 border-l-4 border-l-brand-blue bg-white p-6 shadow-sm">
             <h4 className="text-[1.8rem] text-brand-black">{fees.heading}</h4>
             <ul className="mt-4 space-y-3">
               {fees.items.map((item) => (

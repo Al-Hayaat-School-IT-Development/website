@@ -1,0 +1,9 @@
+Planned PDF filenames (upload matching files here or set NEXT_PUBLIC_REGISTRATION_FORMS_BASE_URL to Azure/CDN):
+
+  al-hayaat-registration-form_2026-2027.pdf
+  al-hayaat-pad-agreement_2026-2027.pdf
+  al-hayaat-financial-agreement_2026-2027.pdf
+  al-hayaat-parental-agreement_2026-2027.pdf
+  al-hayaat-liability-waiver_2026-2027.pdf
+
+Pattern: al-hayaat-<slug>_2026-2027.pdf (kebab-case slug, academic year suffix).

@@ -3,17 +3,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { HandCoins, Search } from 'lucide-react';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import sharedData from '@/content/_shared.json';
-
-type NavLink = (typeof sharedData.nav.links)[number];
+import { isNavPathActive } from '@/lib/navigation';
 
 export function MobileNav() {
   const pathname = usePathname();
   const { links, cta, logo } = sharedData.nav;
+  const ctaActive = isNavPathActive(pathname, cta.href);
 
   return (
     <Sheet>
@@ -51,8 +50,8 @@ export function MobileNav() {
           </SheetTitle>
         </SheetHeader>
         <nav className="flex flex-col gap-2 px-4 py-6" aria-label="Mobile navigation">
-          {links.map((link: NavLink) => {
-            const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
+          {links.map((link) => {
+            const isActive = isNavPathActive(pathname, link.href);
             return (
               <Link
                 key={link.id}
@@ -61,28 +60,19 @@ export function MobileNav() {
                   'rounded-xl px-4 py-3 text-base transition-colors',
                   isActive
                     ? 'bg-brand-yellow text-brand-black'
-                    : 'text-brand-black/70 hover:bg-black/5 hover:text-brand-blue'
+                    : 'text-brand-black/70 hover:bg-black/5 hover:text-brand-blue',
                 )}
               >
                 {link.label}
               </Link>
             );
           })}
-          <button
-            type="button"
-            aria-label="Search"
-            className="flex items-center gap-3 rounded-xl px-4 py-3 text-base text-brand-black/70 transition-colors hover:bg-black/5 hover:text-brand-blue"
-          >
-            <Search className="size-5" />
-            Search
-          </button>
           <div className="mt-4 px-4">
             <Button
               render={<Link href={cta.href} />}
-              variant="secondary"
-              className="w-full"
+              variant="default"
+              className={cn('w-full', ctaActive && 'ring-2 ring-brand-blue/50')}
             >
-              <HandCoins className="size-4" />
               {cta.label}
             </Button>
           </div>

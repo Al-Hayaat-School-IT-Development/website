@@ -1,5 +1,5 @@
 import { Container, Section } from '@/components/layout';
-import { EnrollNowButton, FadeIn } from '@/components/ui';
+import { FadeIn } from '@/components/ui';
 
 export interface AdmissionsHowToApplySectionProps {
   id?: string;
@@ -15,7 +15,7 @@ export function AdmissionsHowToApplySection({
   intro,
   steps,
   className,
-}: AdmissionsHowToApplySectionProps) {
+}: Readonly<AdmissionsHowToApplySectionProps>) {
   return (
     <Section id={id} background="white" padding="lg" className={className}>
       <Container>
@@ -24,9 +24,6 @@ export function AdmissionsHowToApplySection({
             <div className="max-w-xl">
               <h2 className="text-brand-black">{heading}</h2>
               <p className="mt-4 text-lg leading-relaxed text-brand-black/70">{intro}</p>
-              <div className="mt-8">
-                <EnrollNowButton size="lg" />
-              </div>
             </div>
           </FadeIn>
           <FadeIn delay={120}>

@@ -95,6 +95,8 @@ for (const entry of PAGES) {
     for (const wfLink of wfLinks) {
       if (!wfLink.text) continue;
       const wfNorm = normalize(wfLink.text);
+      // Next.js omits inactive search; Webflow keeps a hidden search control on some pages.
+      if (wfNorm === 'search') continue;
       const found = njTexts.some(t => t.includes(wfNorm));
       expect(
         found,

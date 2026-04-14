@@ -12,7 +12,7 @@
       "id": "home-hero",
       "headline": "Al-Hayaat School",
       "subtext": "Bridging education and values",
-      "cta": { "label": "Enroll now", "href": "/admissions" },
+      "cta": { "label": "Enroll Now", "href": "/admissions" },
       "backgroundVariant": "primary",
       "background": {
         "glitter": "/images/glitter-bg.webp",
@@ -188,7 +188,7 @@
       "id": "home-final-cta",
       "heading": "Join our community",
       "body": "Together, we're building a brighter future for our children and the community.",
-      "cta": { "label": "Enroll now", "href": "/admissions" }
+      "cta": { "label": "Enroll Now", "href": "/admissions" }
     }
   }
 }

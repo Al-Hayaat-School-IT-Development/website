@@ -12,13 +12,13 @@
       { "id": "nav-about", "label": "About Us", "href": "/about" },
       { "id": "nav-school-plan", "label": "School Plan", "href": "/school-plan" },
       { "id": "nav-curriculum", "label": "Curriculum", "href": "/curriculum" },
-      { "id": "nav-careers", "label": "Careers", "href": "/careers" },
+      { "id": "nav-donate", "label": "Donate", "href": "/donate" },
       { "id": "nav-contact", "label": "Contact", "href": "/contact" }
     ],
     "cta": {
-      "id": "nav-cta-donate",
-      "label": "Donate",
-      "href": "/donate"
+      "id": "nav-cta-enroll",
+      "label": "Enroll Now",
+      "href": "/admissions"
     }
   },
   "footer": {
@@ -36,6 +36,8 @@
     "quick_links": [
       { "id": "footer-link-home", "label": "Home", "href": "/" },
       { "id": "footer-link-about", "label": "About Us", "href": "/about" },
+      { "id": "footer-link-contact", "label": "Contact", "href": "/contact" },
+      { "id": "footer-link-admissions", "label": "Admissions", "href": "/admissions" },
       { "id": "footer-link-school-plan", "label": "School Plan", "href": "/school-plan" },
       { "id": "footer-link-curriculum", "label": "Curriculum", "href": "/curriculum" },
       { "id": "footer-link-careers", "label": "Careers", "href": "/careers" },

@@ -2,15 +2,17 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { HandCoins, Search } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { MobileNav } from './MobileNav';
 import sharedData from '@/content/_shared.json';
+import { cn } from '@/lib/utils';
+import { isNavPathActive } from '@/lib/navigation';
 
 export function Navigation() {
   const pathname = usePathname();
   const { links, cta, logo } = sharedData.nav;
+  const ctaActive = isNavPathActive(pathname, cta.href);
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-black/10 shadow-sm text-brand-black">
@@ -36,18 +38,9 @@ export function Navigation() {
                 key={link.id}
                 href={link.href}
                 label={link.label}
-                isActive={pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href))}
+                isActive={isNavPathActive(pathname, link.href)}
               />
             ))}
-            <button
-              type="button"
-              aria-label="Search"
-              className="flex items-center gap-1.5 rounded-full px-3 py-2 text-brand-black/75 transition-colors hover:bg-black/5 hover:text-brand-blue"
-              onClick={() => {/* search handler – future implementation */}}
-            >
-              <Search className="size-4" />
-              <span className="text-lg">Search</span>
-            </button>
           </nav>
 
           <div className="flex items-center gap-3">
@@ -55,9 +48,8 @@ export function Navigation() {
               render={<Link href={cta.href} />}
               variant="default"
               size="sm"
-              className="hidden md:inline-flex"
+              className={cn('hidden md:inline-flex', ctaActive && 'ring-2 ring-brand-blue/50')}
             >
-              <HandCoins className="size-4" />
               {cta.label}
             </Button>
             <MobileNav />
@@ -72,9 +64,10 @@ function NavLink({ href, label, isActive }: Readonly<{ href: string; label: stri
   return (
     <Link
       href={href}
-      className={`rounded-full px-3 py-2 text-lg transition-all duration-300 ${
-        isActive ? 'font-medium text-brand-blue' : 'text-brand-black/75 hover:text-brand-blue'
-      }`}
+      className={cn(
+        'rounded-full px-3 py-2 text-lg transition-all duration-300',
+        isActive ? 'font-medium text-brand-blue' : 'text-brand-black/75 hover:text-brand-blue',
+      )}
     >
       {label}
     </Link>

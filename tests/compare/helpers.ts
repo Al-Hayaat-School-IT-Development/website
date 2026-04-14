@@ -20,7 +20,7 @@ export const PAGES: PageEntry[] = [
   { name: 'Donate',      webflow: '/donate.html',                   nextjs: '/donate' },
   { name: 'SchoolPlans', webflow: '/school-plans.html',             nextjs: '/school-plan' },
 ];
-// Note: /admissions/apply has no Webflow HTML baseline and is therefore not included in PAGES.
+// Note: Student enrollment PDFs are on /admissions; /admissions/apply redirects to /admissions.
 
 /** Extract all visible text from headings on a page */
 export async function extractHeadings(page: Page) {
@@ -32,13 +32,19 @@ export async function extractHeadings(page: Page) {
   );
 }
 
-/** Extract all nav links and nav buttons (e.g. Search) */
+/** Extract header nav links/buttons plus footer quick links (some labels e.g. Careers may only appear in the footer). */
 export async function extractNavLinks(page: Page) {
   return page.evaluate(() =>
-    Array.from(document.querySelectorAll('nav a, nav button, header a')).map(el => ({
-      text: (el as HTMLElement).innerText.trim(),
-      href: (el as HTMLAnchorElement).getAttribute('href') ?? '',
-    })).filter(item => item.text.length > 0)
+    Array.from(
+      document.querySelectorAll(
+        'header nav a, header nav button, header a, #footer-menu-list a',
+      ),
+    )
+      .map((el) => ({
+        text: (el as HTMLElement).innerText.trim(),
+        href: (el as HTMLAnchorElement).getAttribute('href') ?? '',
+      }))
+      .filter((item) => item.text.length > 0),
   );
 }
 

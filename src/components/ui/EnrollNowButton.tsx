@@ -10,8 +10,8 @@ interface EnrollNowButtonProps {
 }
 
 export function EnrollNowButton({
-  href = '/admissions/apply',
-  label = 'Enroll now',
+  href = '/admissions',
+  label = 'Enroll Now',
   size = 'default',
   variant = 'default',
   className,

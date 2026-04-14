@@ -47,6 +47,7 @@ export default function AdmissionsPage() {
 
       <AdmissionsRequirementsSection
         heading={requirements.heading}
+        intro={requirements.intro}
         forms={requirements.forms}
         documents={requirements.documents}
         fees={requirements.fees}

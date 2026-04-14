@@ -1,5 +1,5 @@
-import { Container, Grid, Section } from '@/components/layout';
-import { ColoredBorderCard, EnrollNowButton, FadeIn } from '@/components/ui';
+import { Container, Section } from '@/components/layout';
+import { ColoredBorderCard, FadeIn } from '@/components/ui';
 import { BookOpen, GraduationCap, Heart } from 'lucide-react';
 
 export interface WhyChooseCard {
@@ -26,37 +26,36 @@ export function AdmissionsWhyChooseSection({
   className,
   heading,
   cards,
-}: AdmissionsWhyChooseSectionProps) {
+}: Readonly<AdmissionsWhyChooseSectionProps>) {
   return (
     <Section id={id} background="gray" padding="lg" className={className}>
       <Container>
-        <FadeIn>
-          <div className="mb-8 max-w-3xl">
-            <h2 className="text-brand-black">{heading}</h2>
+        <FadeIn className="flex w-full max-w-none flex-col">
+          <div className="mb-8 w-full shrink-0">
+            <h2 className="w-full text-brand-black">{heading}</h2>
           </div>
-          <Grid columns={3} gap="lg">
-            {cards.map((card, index) => (
-              <ColoredBorderCard
-                key={card.id}
-                accent="blue"
-                className="h-full rounded-[1.5rem] bg-white"
-              >
-                <div className="flex items-center justify-between gap-4">
-                  <h3 className="text-[1.75rem] text-brand-black">{card.title}</h3>
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-off-white">
-                    {ICONS[index]}
-                  </div>
-                </div>
-                <p className="text-base leading-relaxed text-brand-black/70">{card.description}</p>
-                <div className="pt-2">
-                  <EnrollNowButton
-                    variant="ghost"
-                    className="px-0 text-brand-blue hover:bg-transparent hover:text-brand-blue/80"
-                  />
-                </div>
-              </ColoredBorderCard>
-            ))}
-          </Grid>
+          <div className="w-full min-w-0 shrink-0">
+            <ColoredBorderCard accent="blue" className="w-full rounded-[1.5rem] bg-white">
+              <ul className="m-0 list-none p-0">
+                {cards.map((card, index) => (
+                  <li
+                    key={card.id}
+                    className={index > 0 ? 'mt-8 border-t border-black/10 pt-8' : undefined}
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="min-w-0 flex-1">
+                        <h3 className="text-[1.75rem] text-brand-black">{card.title}</h3>
+                        <p className="mt-2 text-base leading-relaxed text-brand-black/70">{card.description}</p>
+                      </div>
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-off-white">
+                        {ICONS[index]}
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </ColoredBorderCard>
+          </div>
         </FadeIn>
       </Container>
     </Section>

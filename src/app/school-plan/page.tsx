@@ -1,5 +1,5 @@
 import { GreenHero } from '@/components/layout';
-import { CTASection, PageIntroSection, SchoolPlanCardsSection, SupportMissionSection } from '@/components/sections';
+import { CTASection, SchoolPlanCardsSection, SupportMissionSection } from '@/components/sections';
 import content from '@/content/school-plan.json';
 
 export const metadata = {
@@ -21,26 +21,23 @@ export default function SchoolPlanPage() {
         title={content.hero.title}
       />
 
-      <PageIntroSection
-        id="school-plan-intro-section"
-        headline={content.intro.heading}
-        body={content.intro.body}
-      />
-
       <SchoolPlanCardsSection
         id="school-plans-cards-section"
+        intro={{
+          id: 'school-plan-intro-section',
+          headline: content.intro.heading,
+          body: content.intro.body,
+        }}
         cards={[
           {
             type: 'checklist',
             accent: 'yellow',
-            className: 'bg-brand-off-white',
             heading: content.openingPlan.heading,
             items: openingItems,
           },
           {
             type: 'body',
             accent: 'blue',
-            className: 'bg-white shadow-sm',
             heading: content.community.heading,
             body: content.community.body,
             cta: content.community.cta,
@@ -51,6 +48,7 @@ export default function SchoolPlanPage() {
       {/* Support Our Mission — uses shared component with blue background matching Webflow .support-mission-component */}
       <SupportMissionSection
         sectionId="school-plan-support-mission-section"
+        className="mb-5 pt-[3.125rem]"
         contentOverride={{
           heading: content.mission.heading,
           points: content.mission.points,

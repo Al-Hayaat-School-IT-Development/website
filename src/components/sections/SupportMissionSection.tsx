@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { Button } from '@/components/ui/button';
 import homeContent from '@/content/home.json';
+import { cn } from '@/lib/utils';
 
 type PaymentLogo = { id: string; src: string; alt: string };
 
@@ -27,9 +28,12 @@ const { supportMission } = homeContent.sections;
 export function SupportMissionSection({
   sectionId = 'support-mission-section',
   contentOverride,
+  className,
 }: Readonly<{
   sectionId?: string;
   contentOverride?: SupportMissionContent;
+  /** Merged onto the outer section; use to match page-specific Webflow padding (e.g. school plan `.padding-section-ourmission`). */
+  className?: string;
 }>) {
   const heading = contentOverride?.heading ?? supportMission.heading;
   const points = contentOverride?.points ?? supportMission.points;
@@ -39,7 +43,14 @@ export function SupportMissionSection({
   const decor = contentOverride?.decor ?? supportMission.decor;
 
   return (
-    <section id={sectionId} aria-labelledby={`${sectionId}-heading`} className="px-4 pb-24 pt-0 sm:px-6 lg:px-10">
+    <section
+      id={sectionId}
+      aria-labelledby={`${sectionId}-heading`}
+      className={cn(
+        'px-4 pt-[4.0625rem] pb-[3.125rem] sm:px-6 lg:px-10',
+        className,
+      )}
+    >
       <div className="relative mx-auto max-w-7xl overflow-hidden rounded-xl bg-brand-blue px-10 py-14">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-center">
           <FadeIn>

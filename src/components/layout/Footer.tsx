@@ -131,11 +131,11 @@ export function Footer() {
           </div>
 
           <div id="footer-contact">
-            <h3 className="mb-6 text-[1.125rem] font-bold text-brand-black">
+            <h3 className="mb-6 text-[26px] leading-[15px] font-bold text-brand-black">
               Contact
             </h3>
             <ul id="footer-contact-list" className="space-y-3">
-              <li className="flex items-start gap-2 text-[1.125rem] text-brand-black/80">
+              <li className="flex items-start gap-2 text-base text-brand-black/80">
                 <a
                   href={`mailto:${email}`}
                   className="flex items-center gap-2 break-all transition-colors duration-300 hover:text-brand-blue"
@@ -146,7 +146,7 @@ export function Footer() {
                   {email}
                 </a>
               </li>
-              <li className="flex items-center gap-2 text-[1.125rem] text-brand-black/80">
+              <li className="flex items-center gap-2 text-base text-brand-black/80">
                 <a href={`tel:${phone}`} className="flex items-center gap-2 transition-colors duration-300 hover:text-brand-blue">
                   <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none" aria-hidden="true" className="h-4 w-4 shrink-0 text-brand-black/50 flex-shrink-0">
                     <path d="M11.5253 1.30575C11.5508 1.21057 11.5947 1.12133 11.6547 1.04315C11.7147 0.96496 11.7894 0.899354 11.8748 0.850077C11.9601 0.8008 12.0543 0.768817 12.152 0.755956C12.2496 0.743095 12.3489 0.749608 12.4441 0.775123C13.8344 1.13789 15.103 1.86473 16.119 2.88078C17.1351 3.89684 17.8619 5.16538 18.2247 6.55575C18.2502 6.65092 18.2567 6.75018 18.2439 6.84786C18.231 6.94555 18.199 7.03974 18.1497 7.12506C18.1005 7.21039 18.0349 7.28516 17.9567 7.34512C17.8785 7.40508 17.7893 7.44904 17.6941 7.4745C17.6307 7.49114 17.5655 7.49964 17.5 7.49981C17.3347 7.49981 17.1741 7.44521 17.043 7.34451C16.912 7.2438 16.8179 7.10263 16.7753 6.94293C16.4795 5.80792 15.8863 4.77235 15.0569 3.94296C14.2275 3.11356 13.1919 2.52036 12.0569 2.2245C11.9616 2.19914 11.8723 2.15525 11.794 2.09533C11.7157 2.03542 11.65 1.96066 11.6006 1.87533C11.5513 1.79 11.5192 1.69577 11.5063 1.59803C11.4933 1.5003 11.4998 1.40098 11.5253 1.30575ZM11.3069 5.2245C12.5997 5.5695 13.4303 6.40012 13.7753 7.69293C13.8179 7.85263 13.912 7.9938 14.043 8.09451C14.1741 8.19521 14.3347 8.24981 14.5 8.24981C14.5655 8.24964 14.6307 8.24114 14.6941 8.2245C14.7893 8.19904 14.8785 8.15508 14.9567 8.09512C15.0349 8.03516 15.1005 7.96039 15.1497 7.87506C15.199 7.78974 15.231 7.69555 15.2439 7.59786C15.2567 7.50018 15.2502 7.40092 15.2247 7.30575C14.7447 5.5095 13.4903 4.25512 11.6941 3.77512C11.5019 3.72378 11.2971 3.75089 11.1249 3.85049C10.9527 3.95009 10.8271 4.11402 10.7758 4.30622C10.7244 4.49842 10.7516 4.70314 10.8512 4.87535C10.9508 5.04756 11.1147 5.17315 11.3069 5.2245ZM18.9888 14.1636C18.8216 15.4339 18.1977 16.6 17.2337 17.4439C16.2696 18.2879 15.0313 18.7521 13.75 18.7498C6.30626 18.7498 0.250008 12.6936 0.250008 5.24981C0.247712 3.96852 0.711903 2.73021 1.55588 1.76615C2.39986 0.802093 3.56592 0.178223 4.83626 0.0110603C5.1575 -0.0281639 5.4828 0.037556 5.76362 0.198409C6.04444 0.359262 6.2657 0.606621 6.39438 0.90356L8.37438 5.32387V5.33512C8.4729 5.56242 8.51359 5.81059 8.49282 6.05744C8.47204 6.3043 8.39044 6.54217 8.25532 6.74981C8.23845 6.77512 8.22063 6.79856 8.20188 6.822L6.25001 9.13575C6.9522 10.5626 8.4447 12.042 9.89032 12.7461L12.1722 10.8045C12.1946 10.7857 12.2181 10.7681 12.2425 10.752C12.45 10.6136 12.6887 10.5292 12.937 10.5062C13.1853 10.4833 13.4354 10.5227 13.6647 10.6207L13.6769 10.6264L18.0934 12.6054C18.3909 12.7337 18.6389 12.9547 18.8003 13.2356C18.9616 13.5164 19.0278 13.842 18.9888 14.1636Z" fill="currentColor" fillOpacity="0.8" />
@@ -154,7 +154,7 @@ export function Footer() {
                   {phone}
                 </a>
               </li>
-              <li className="text-[1.125rem] leading-relaxed text-brand-black/80">{address}</li>
+              <li className="text-base leading-relaxed text-brand-black/80">{address}</li>
             </ul>
           </div>
 
@@ -167,7 +167,7 @@ export function Footer() {
                 <li key={link.id}>
                   <Link
                     href={link.href}
-                    className="text-[1.125rem] text-brand-black/80 transition-all duration-300 hover:text-brand-blue"
+                    className="text-base text-brand-black/80 transition-all duration-300 hover:text-brand-blue"
                   >
                     {link.label}
                   </Link>
