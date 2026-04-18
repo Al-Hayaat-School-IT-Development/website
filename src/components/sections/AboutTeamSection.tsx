@@ -55,7 +55,15 @@ export function AboutTeamSection({
                     <h4 className="text-brand-black">{member.name}</h4>
                     <div className="text-[1rem]">{member.role}</div>
                   </div>
-                  <p className="text-[1rem] leading-[1.5] text-brand-black/80">{member.bio}</p>
+                  <div className="space-y-4 text-[1rem] leading-[1.5] text-brand-black/80">
+                    {member.bio
+                      .split(/\n\n+/)
+                      .map((paragraph) => paragraph.trim())
+                      .filter(Boolean)
+                      .map((paragraph, i) => (
+                        <p key={i}>{paragraph}</p>
+                      ))}
+                  </div>
                 </div>
               </article>
             </FadeIn>
