@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { LogOut, LayoutDashboard, HandCoins, Mail, Briefcase, Users } from 'lucide-react';
+import sharedData from '@/content/_shared.json';
 
 export const metadata: Metadata = {
   title: { default: 'Admin — Al-Hayaat School', template: '%s | Admin — Al-Hayaat School' },
@@ -23,8 +24,8 @@ export default function AdminLayout({ children }: Readonly<{ children: React.Rea
       <aside className="hidden w-60 shrink-0 flex-col border-r border-gray-200 bg-white lg:flex">
         <div className="flex h-16 items-center gap-2.5 border-b border-gray-200 px-5">
           <Image
-            src="/images/logo.png"
-            alt="Al-Hayaat School"
+            src={sharedData.nav.logo.src}
+            alt={sharedData.nav.logo.alt}
             width={32}
             height={32}
             className="h-8 w-8 object-contain"

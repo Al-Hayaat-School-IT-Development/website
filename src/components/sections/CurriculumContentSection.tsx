@@ -33,7 +33,7 @@ export function CurriculumContentSection({
           {/* Full-width hero image */}
           <div className="relative mb-10 overflow-hidden rounded-lg" style={{ aspectRatio: '2.39' }}>
             <Image
-              src="/images/MUN03200-1.png"
+              src="/images/photos/about/hero-carousel/01.png"
               alt="Students sitting at desks in a classroom, with two raising their hands, and a teacher standing near a whiteboard."
               fill
               sizes="(max-width: 834px) 100vw, 834px"
@@ -42,7 +42,7 @@ export function CurriculumContentSection({
             />
             <div className="absolute bottom-[-3rem] right-6 hidden md:block">
               <Image
-                src="/images/Frame-1362791621.webp"
+                src="/images/overlays/Frame-1362791621.webp"
                 alt="Abstract shapes including an orange square, yellow triangle pointing right, and a dark green circle."
                 width={110}
                 height={118}

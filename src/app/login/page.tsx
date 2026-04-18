@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { LoginForm } from '@/components/admin/LoginForm';
+import sharedData from '@/content/_shared.json';
 
 export const metadata: Metadata = {
   title: 'Admin Sign In | Al-Hayaat School',
@@ -15,8 +16,8 @@ export default function LoginPage() {
         {/* Logo */}
         <div className="mb-8 flex flex-col items-center gap-3 text-center">
           <Image
-            src="/images/logo.png"
-            alt="Al-Hayaat School"
+            src={sharedData.nav.logo.src}
+            alt={sharedData.nav.logo.alt}
             width={64}
             height={64}
             className="h-16 w-16 object-contain"

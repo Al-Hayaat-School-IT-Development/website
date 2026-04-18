@@ -15,16 +15,16 @@
       "cta": { "label": "Enroll Now", "href": "/admissions" },
       "backgroundVariant": "primary",
       "background": {
-        "glitter": "/images/glitter-bg.webp",
-        "dashlines": "/images/dashlines.webp",
-        "dots": "/images/Framedots.webp"
+        "glitter": "/images/shared/backgrounds/glitter-bg.webp",
+        "dashlines": "/images/shared/backgrounds/dashlines.webp",
+        "dots": "/images/shared/decor/Framedots.webp"
       }
     },
     "feature": {
       "id": "home-feature",
-      "writtenImage": "/images/islam-written.webp",
+      "writtenImage": "/images/home/islam-written.webp",
       "featureImage": {
-        "src": "/images/MUN03197-3241.png",
+        "src": "/images/home/MUN03197-3241.png",
         "alt": "Female teacher wearing a hijab writing Arabic letters on a whiteboard in a classroom with students."
       },
       "paragraphs": [
@@ -95,22 +95,22 @@
       "id": "home-support-mission",
       "heading": "Support Our Mission",
       "image": {
-        "src": "/images/MUN03216-1.png",
+        "src": "/images/home/classroom-whiteboard-student.png",
         "alt": "Child in an orange hoodie drawing smiley faces on a whiteboard in a classroom."
       },
       "decor": {
-        "main": "/images/support-mission.webp"
+        "main": "/images/home/support-mission.webp"
       },
       "paymentLogos": [
-        { "id": "visa", "src": "/images/visa.webp", "alt": "Visa credit card company logo." },
-        { "id": "mastercard", "src": "/images/master-card.webp", "alt": "Mastercard logo with overlapping red and yellow circles." },
-        { "id": "paypal", "src": "/images/paypal.webp", "alt": "PayPal logo with stylized blue letter P." },
-        { "id": "apple-pay", "src": "/images/apple-pay.webp", "alt": "Apple Pay logo." },
-        { "id": "google-pay", "src": "/images/g-pay.webp", "alt": "Google Pay logo." },
-        { "id": "shop", "src": "/images/shop.webp", "alt": "Shop Pay logo." },
-        { "id": "amex", "src": "/images/am-ex.webp", "alt": "American Express logo." },
-        { "id": "klarna", "src": "/images/klarna.webp", "alt": "Klarna logo." },
-        { "id": "code", "src": "/images/code.webp", "alt": "Crypto checkout logo." }
+        { "id": "visa", "src": "/images/payments/visa.webp", "alt": "Visa credit card company logo." },
+        { "id": "mastercard", "src": "/images/payments/master-card.webp", "alt": "Mastercard logo with overlapping red and yellow circles." },
+        { "id": "paypal", "src": "/images/payments/paypal.webp", "alt": "PayPal logo with stylized blue letter P." },
+        { "id": "apple-pay", "src": "/images/payments/apple-pay.webp", "alt": "Apple Pay logo." },
+        { "id": "google-pay", "src": "/images/payments/g-pay.webp", "alt": "Google Pay logo." },
+        { "id": "shop", "src": "/images/payments/shop.webp", "alt": "Shop Pay logo." },
+        { "id": "amex", "src": "/images/payments/am-ex.webp", "alt": "American Express logo." },
+        { "id": "klarna", "src": "/images/payments/klarna.webp", "alt": "Klarna logo." },
+        { "id": "code", "src": "/images/payments/code.webp", "alt": "Crypto checkout logo." }
       ],
       "points": [
         "Covering essential school costs and daily learning",
@@ -128,7 +128,7 @@
           "title": "Wali ul Asr Learning Institute",
           "description": "Al-Hayaat School is honored to collaborate with esteemed educational institutions that share our commitment to holistic development and academic excellence. These partnerships enhance our educational offerings and strengthen our community ties.",
           "logo": {
-            "src": "/images/Logo-332x92-2.svg",
+            "src": "/images/home/Logo-332x92-2.svg",
             "alt": "Wali ul Asr Learning Institute logo."
           },
           "accent": "cyan-light"
@@ -137,7 +137,7 @@
           "id": "collaborator-selm",
           "title": "Selm Academy",
           "logo": {
-            "src": "/images/cropped-Selm-21-95x57-1.webp",
+            "src": "/images/home/cropped-Selm-21-95x57-1.webp",
             "alt": "Selm Academy logo."
           },
           "accent": "yellow"
@@ -147,7 +147,7 @@
           "title": "Al Haadi School",
           "description": "Under the guidance of Dr. Mohammadreza Ardehali, Selm Academy is dedicated to offering a balanced education that integrates academic excellence with spiritual growth, mentoring students to become mindful, compassionate individuals.",
           "logo": {
-            "src": "/images/Group-7-2-1.webp",
+            "src": "/images/home/Group-7-2-1.webp",
             "alt": "Logo featuring a stylized crown above two red wings with the text NUMUZ."
           },
           "accent": "green-2"

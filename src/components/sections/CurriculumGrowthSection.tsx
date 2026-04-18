@@ -63,7 +63,7 @@ export function CurriculumGrowthSection({
           </div>
           <div className="absolute -bottom-[4.5rem] left-8 hidden lg:block" aria-hidden="true">
             <Image
-              src="/images/Frame-1362791622.webp"
+              src="/images/overlays/Frame-1362791622.webp"
               alt="Three overlapping shapes: an orange semicircle, a light blue triangle, and a teal hexagon."
               width={80}
               height={80}

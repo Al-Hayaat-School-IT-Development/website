@@ -66,14 +66,14 @@ export default function HomePage() {
               style={{ top: '-16rem' }}
               aria-hidden="true"
             >
-              <Image src="/images/circle-light-green.webp" alt="" width={467} height={467} />
+              <Image src="/images/shared/decor/circle-light-green.webp" alt="" width={467} height={467} />
             </div>
             <div
               className="pointer-events-none absolute -left-52 hidden xl:block"
               style={{ bottom: '-7rem', zIndex: -1 }}
               aria-hidden="true"
             >
-              <Image src="/images/circle-light-orange.webp" alt="" width={467} height={467} />
+              <Image src="/images/shared/decor/circle-light-orange.webp" alt="" width={467} height={467} />
             </div>
           </>
         }

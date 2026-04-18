@@ -3,7 +3,7 @@
     "id": "nav",
     "logo": {
       "text": "Al-Hayaat School",
-      "src": "/images/al-hayaat-logo-img.png",
+      "src": "/images/logo/logo_blue.png",
       "alt": "Al Hayaat logo with stylized blue Arabic calligraphy forming a symmetrical pattern around the name.",
       "href": "/"
     },
@@ -28,7 +28,7 @@
     "phone": "519-589-9669",
     "email": "info@alhayaat.ca",
     "social": [
-      { "id": "footer-social-facebook", "platform": "Facebook", "href": "https://www.facebook.com/alhayaatschool" },
+      { "id": "footer-social-facebook", "platform": "Facebook", "href": "https://www.facebook.com/alhayaat.school" },
       { "id": "footer-social-instagram", "platform": "Instagram", "href": "https://www.instagram.com/alhayaatschool" },
       { "id": "footer-social-youtube", "platform": "Youtube", "href": "https://www.youtube.com/@alhayaatschool" },
       { "id": "footer-social-twitter", "platform": "Twitter", "href": "https://x.com/alhayaatschool" }

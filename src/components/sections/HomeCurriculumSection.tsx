@@ -29,7 +29,7 @@ export function HomeCurriculumSection({
       className={`relative overflow-hidden py-20${className ? ` ${className}` : ''}`}
     >
       <div className="pointer-events-none absolute -bottom-[6.375rem] -right-[5.375rem]" aria-hidden="true">
-        <Image src="/images/dotted.png" alt="" width={270} height={254} />
+        <Image src="/images/shared/decor/dotted.png" alt="" width={270} height={254} />
       </div>
       <Container maxWidth="7xl">
         <FadeIn>

@@ -69,7 +69,7 @@ export function AdmissionsRequirementsSection({
                     </p>
                     <div className="flex justify-end">
                       <Image
-                        src={isFirst ? '/images/file.png' : '/images/pdf.png'}
+                        src={isFirst ? '/images/shared/ui/file.png' : '/images/shared/ui/pdf.png'}
                         alt=""
                         width={64}
                         height={64}

@@ -26,7 +26,7 @@ export function CareersWhyJoinSection({
         {reasons.map((reason) => (
           <li key={reason.id} className="relative mb-4 pl-[2.5rem] text-[1.125rem] leading-relaxed text-brand-black/75">
             <Image
-              src="/images/bullet.png"
+              src="/images/shared/ui/bullet.png"
               alt=""
               aria-hidden="true"
               width={16}

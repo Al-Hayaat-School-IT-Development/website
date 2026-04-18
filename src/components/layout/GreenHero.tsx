@@ -17,7 +17,7 @@ export function GreenHero({ title, id, className }: GreenHeroProps) {
       )}
     >
       <Image
-        src="/images/cta-bg.webp"
+        src="/images/shared/backgrounds/cta-bg.webp"
         alt=""
         fill
         className="object-cover object-center"

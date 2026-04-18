@@ -37,7 +37,7 @@ export interface SchoolPlanCardsSectionProps {
 }
 
 const listCheckStyle = {
-  backgroundImage: "url('/images/list-check.svg')",
+  backgroundImage: "url('/images/shared/ui/list-check.svg')",
   backgroundRepeat: 'no-repeat' as const,
   backgroundPosition: '5px 5px',
   backgroundSize: 'auto' as const,

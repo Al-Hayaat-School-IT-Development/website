@@ -26,7 +26,7 @@ export function AdmissionsEnrollmentCardsSection({
     <Section id={id} background="white" padding="lg" className={className}>
       <Container>
         <FadeIn>
-          <div className="mb-8 max-w-3xl">
+          <div className="mb-8 w-full">
             <h2 className="text-brand-black">{heading}</h2>
           </div>
           <Grid columns={2} gap="lg">

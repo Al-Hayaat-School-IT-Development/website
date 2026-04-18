@@ -56,7 +56,7 @@ export function SupportMissionSection({
                     key={point}
                     className="relative pl-[2.5rem] text-[1.125rem] leading-relaxed text-white/80"
                     style={{
-                      backgroundImage: "url('/images/list-check.svg')",
+                      backgroundImage: "url('/images/shared/ui/list-check.svg')",
                       backgroundRepeat: 'no-repeat',
                       backgroundPosition: '5px 5px',
                       backgroundSize: 'auto',

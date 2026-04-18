@@ -1,0 +1,15 @@
+public/images layout (see also scripts/migrate-image-paths.mjs for path rewrites)
+
+  logo/              Brand + favicons + site.webmanifest (unchanged convention)
+  shared/
+    ui/              Icons & small UI: Polygon-46.svg, list-check.svg, file.png, pdf.png, bullet.png
+    backgrounds/     Full-bleed textures: cta-bg*, glitter-bg*, dashlines* (+ responsive PNG variants)
+    decor/           Ornamental shapes: circles, dotted.png, decor-about-*, Framedots, ellipses, polygons, etc.
+  home/              Home-only marketing assets: hero feature photo + srcsets, growth photo, support-mission classroom photo (classroom-whiteboard-student*), collaborators, islam-written
+    why/             Home “Why” section vector icons (vector-1..4.webp)
+  payments/          Payment method marks (Stripe checkout UI)
+  admissions/        Admissions hero banner (+ srcset variants)
+  overlays/          Decorative frame illustrations (Frame-1362791621.webp, etc.)
+  photos/            Section-scoped photography (replace-in-place friendly), e.g. about/hero-carousel/, about/team/, about/board/, curriculum/carousel/, curriculum/educators/; _legacy/ for unreferenced exports
+
+When adding assets: pick the folder that matches usage; keep filenames stable so content JSON and next/image references stay simple.

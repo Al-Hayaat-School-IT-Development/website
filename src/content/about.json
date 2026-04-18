@@ -15,38 +15,38 @@
       "subtext": "Welcome to Al-Hayaat School, an educational institution dedicated to nurturing young minds through a unique blend of academic excellence and spiritual development. Located in the heart of the Kitchener-Waterloo region, our school is set to become a beacon of knowledge and values for the local Muslim community.",
       "cta": { "label": "Enroll now", "href": "/admissions" },
       "decor": {
-        "shapeOne": "/images/decor-about-1.webp",
-        "shapeTwo": "/images/decor-about-2.webp"
+        "shapeOne": "/images/shared/decor/decor-about-1.webp",
+        "shapeTwo": "/images/shared/decor/decor-about-2.webp"
       },
       "carousel": [
         {
           "id": "about-carousel-1",
-          "src": "/images/MUN03200-1.png",
+          "src": "/images/photos/about/hero-carousel/01.png",
           "alt": "Students sitting at desks in a classroom, with two raising their hands, and a teacher standing near a whiteboard."
         },
         {
           "id": "about-carousel-2",
-          "src": "/images/MUN03349-1.png",
+          "src": "/images/photos/about/hero-carousel/02.png",
           "alt": "Four young girls wearing hijabs sitting at a table with lunchboxes and a juice box, sharing a moment together."
         },
         {
           "id": "about-carousel-3",
-          "src": "/images/MUN03448-1.png",
+          "src": "/images/photos/about/hero-carousel/03.png",
           "alt": "Group of children playing and jumping inside a gymnasium near basketball hoops."
         },
         {
           "id": "about-carousel-4",
-          "src": "/images/MUN03541-1.png",
+          "src": "/images/photos/about/hero-carousel/04.png",
           "alt": "Five children, including two wearing hijabs, playing or running in an indoor gymnasium with a beige brick wall background."
         },
         {
           "id": "about-carousel-5",
-          "src": "/images/MUN03667.png",
+          "src": "/images/photos/about/hero-carousel/05.png",
           "alt": "A group of children sitting on the floor in a gymnasium, listening to two women standing and talking to them."
         },
         {
           "id": "about-carousel-6",
-          "src": "/images/MUN03627.png",
+          "src": "/images/photos/about/hero-carousel/06.png",
           "alt": "Young boy in orange hoodie sitting cross-legged on a gym floor, looking attentively at someone off-frame."
         }
       ]
@@ -76,7 +76,7 @@
           "name": "Dr. Hamid Reza Mohebbi",
           "role": "President",
           "image": {
-            "src": "/images/Frame-1362791640.webp",
+            "src": "/images/overlays/Frame-1362791640.webp",
             "alt": "Headshot of a young man with short dark hair and a beard, wearing a black shirt against a beige background."
           },
           "bio": "Senior Scientist at Quantum Valley Investments in Waterloo and a passionate advocate for community development and education grounded in the teachings of the Qur'an and Ahlulbayt (AS). With more than 30 years of experience in academia across both high school and university settings, Dr. Mohebbi is among the founding members of several schools in Canada. He is an active educator and researcher in Islamic Studies and has dedicated many years to serving and strengthening local communities through education and leadership."
@@ -86,7 +86,7 @@
           "name": "Zaman Alkhafagi",
           "role": "Vice President",
           "image": {
-            "src": "/images/MTZTGvDsHFY_1.webp",
+            "src": "/images/photos/about/team/vp-zaman-alkhafagi.webp",
             "alt": "Portrait image associated with Zaman Alkhafagi."
           },
           "bio": "An experienced leader in municipal service delivery and currently serves as a Supervisor at the Regional Municipality of Waterloo. His work focuses on strategic planning, resident experience, communications, and optimizing public-sector service delivery. With expertise in operations management, stakeholder engagement, and educational leadership, Zaman is committed to enhancing community services, driving innovation, and fostering impactful learning environments."
@@ -96,7 +96,7 @@
           "name": "Ms. Alaa Namus",
           "role": "Principal",
           "image": {
-            "src": "/images/MuslimWomanHijabIcon.png",
+            "src": "/images/photos/about/team/principal-placeholder.png",
             "alt": "Silhouette icon of a woman wearing a hijab."
           },
           "bio": "An experienced educator and dedicated leader committed to fostering academic excellence and Islamic values. She holds a Certification in Teaching English as a Second Language (TESL) and holds a Certification in School Management and Leadership (CSML) – Leading Learning.\n\nHer teaching career includes university-level teaching assistance, Conestoga College’s LINC program, and running her own online school for teaching English for Academic Purposes. Through this, she has guided students in their academic and personal growth.\n\nAs Principal of Al-Hayaat School, Ms. Alaa Namus is dedicated to creating a faith-centered and engaging learning environment that empowers students to excel academically and spiritually."
@@ -104,7 +104,7 @@
       ],
       "boardCaption": "Board of Directors — from left to right: Syed Safdar, Zaman AlKhafagi, Hamid Reza Mohebbi, Muhammad Sajjad, Mohamed Jeafer",
       "boardImage": {
-        "src": "/images/Board-Picture-1_1.webp",
+        "src": "/images/photos/about/board/directors-group.webp",
         "alt": "Five men standing side by side indoors with smiling expressions, traditional Arabic calligraphy displayed above them."
       }
     },
