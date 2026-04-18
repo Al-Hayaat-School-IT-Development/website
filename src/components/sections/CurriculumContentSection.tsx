@@ -1,13 +1,9 @@
 import Image from 'next/image';
 import { Container } from '@/components/layout';
 import { AutoScrollCarousel } from '@/components/ui/AutoScrollCarousel';
-import { FadeIn, subjectIcons } from '@/components/ui';
-import type { SubjectId } from '@/components/ui';
+import { CurriculumSubjectsGrid, FadeIn, type CurriculumSubjectItem } from '@/components/ui';
 
-export interface CurriculumSubject {
-  id: string;
-  label: string;
-}
+export type CurriculumSubject = CurriculumSubjectItem;
 
 export interface CarouselImage {
   id: string;
@@ -18,7 +14,7 @@ export interface CarouselImage {
 export interface CurriculumContentSectionProps {
   id?: string;
   subtext: string;
-  subjects: CurriculumSubject[];
+  subjects: CurriculumSubjectItem[];
   carousel: CarouselImage[];
   className?: string;
 }
@@ -63,18 +59,7 @@ export function CurriculumContentSection({
               </p>
             </div>
             <div className="w-full lg:max-w-[34.1875rem]">
-              <div className="grid grid-cols-2 gap-x-[1.375rem] gap-y-[1.375rem]">
-                {subjects.map((subject) => (
-                  <div key={subject.id} className="flex items-center gap-6">
-                    <div className="h-6 w-6 shrink-0 text-brand-black">
-                      {subjectIcons[subject.id as SubjectId]}
-                    </div>
-                    <span className="font-body text-[1.2rem] font-medium leading-[1.3] text-brand-black opacity-80">
-                      {subject.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
+              <CurriculumSubjectsGrid subjects={subjects} />
             </div>
           </div>
         </FadeIn>

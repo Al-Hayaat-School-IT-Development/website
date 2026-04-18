@@ -4,8 +4,8 @@ import type { ReactNode } from 'react';
  * Academic subject SVG icons sourced from al-hayaat.webflow/index.html
  * .academic-icon w-embed elements.
  *
- * Keyed by curriculum subject ID so both the home page (ordered array)
- * and the curriculum page (record lookup) can share a single source.
+ * Keyed by curriculum subject ID — used by `CurriculumSubjectsGrid` and content JSON `{ id, label }`.
+ * `subjectIconList` is icons in `SUBJECT_ICON_IDS` order (for tests or legacy use).
  */
 export const SUBJECT_ICON_IDS = [
   'language-arts',

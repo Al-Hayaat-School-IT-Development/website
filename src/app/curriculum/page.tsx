@@ -1,5 +1,6 @@
 import { GreenHero } from '@/components/layout';
 import { CTASection, CurriculumContentSection, CurriculumGrowthSection, PageIntroSection } from '@/components/sections';
+import type { CurriculumSubjectItem } from '@/components/ui';
 import content from '@/content/curriculum.json';
 
 export const metadata = {
@@ -25,7 +26,7 @@ export default function CurriculumPage() {
       <CurriculumContentSection
         id="curriculum-content-section"
         subtext={content.intro.subtext}
-        subjects={content.subjects}
+        subjects={content.subjects as CurriculumSubjectItem[]}
         carousel={content.carousel}
       />
 

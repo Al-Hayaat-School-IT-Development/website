@@ -33,12 +33,23 @@ export function TabsPanel({
   const webflowVariant = variant === 'webflow';
 
   return (
-    <Tabs defaultValue={initialTab} className={cn('w-full', className)} orientation={orientation}>
+    <Tabs
+      defaultValue={initialTab}
+      className={cn(
+        'w-full',
+        webflowVariant &&
+          orientation === 'vertical' &&
+          'gap-4 max-[479px]:flex-col max-[479px]:gap-8 md:gap-8',
+        className,
+      )}
+      orientation={orientation}
+    >
       <TabsList
         variant={webflowVariant ? 'line' : 'default'}
         className={cn(
           webflowVariant &&
-            'w-full shrink-0 gap-0 rounded-none bg-transparent p-0 md:mr-20 md:w-auto md:items-start',
+            /* Match Webflow `.about-tab-menu`: flex-none width — never `w-full` or the panel collapses beside it. */
+            'w-auto shrink-0 gap-0 rounded-none bg-transparent p-0 md:mr-20 md:items-start',
           listClassName,
         )}
       >
@@ -61,7 +72,7 @@ export function TabsPanel({
           value={tab.id}
           className={cn(
             webflowVariant &&
-              'rounded-none border-0 bg-transparent p-0 text-[1.4rem] leading-[1.3] text-brand-black shadow-none',
+              'min-w-0 flex-1 rounded-none border-0 bg-transparent p-0 text-[1.4rem] leading-[1.3] text-brand-black shadow-none',
             contentClassName,
           )}
         >

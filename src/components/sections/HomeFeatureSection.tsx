@@ -46,7 +46,8 @@ export function HomeFeatureSection({
                   className="feature-subtext-wrapper relative mx-auto w-full max-w-[69.3125rem] text-center"
                 >
                   <DecorDots />
-                  <div className="relative z-[1] mb-8">
+                  {/* Top padding keeps decor dots (esp. green, which tracks top/right on narrow viewports) from overlapping the calligraphy when resizing. */}
+                  <div className="relative z-[1] mb-8 pt-12 max-md:pt-14">
                     <Image
                       src={writtenImage}
                       alt="Arabic calligraphy spelling Islam."
@@ -64,19 +65,19 @@ export function HomeFeatureSection({
               </div>
             </FadeIn>
 
-            {/* Webflow: .feature-image-wrapper + img.image-4 — max-width 60% */}
+            {/* Webflow: .feature-image-wrapper + img.image-4 — full width of container */}
             <FadeIn delay={120}>
               <div
                 id="home-feature-image-container"
-                className="feature-image-wrapper relative z-[1] flex justify-center overflow-hidden rounded-[0.75rem]"
+                className="feature-image-wrapper relative z-[1] flex w-full justify-center overflow-hidden rounded-[0.75rem]"
               >
                 <Image
                   src={featureImage.src}
                   alt={featureImage.alt}
                   width={1112}
                   height={740}
-                  className="mx-auto h-auto w-full max-w-[60%] object-cover"
-                  sizes="(max-width: 768px) 60vw, (max-width: 1280px) 50vw, 667px"
+                  className="mx-auto h-auto w-full object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 100vw, 1200px"
                 />
               </div>
             </FadeIn>

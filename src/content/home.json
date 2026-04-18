@@ -64,13 +64,13 @@
       "heading": "Academic and curriculum focus",
       "intro": "Our academic program integrates the Ontario educational standards with Islamic teachings, offering a well-rounded education.",
       "subjects": [
-        "Language arts",
-        "Islamic studies",
-        "Mathematics",
-        "Quranic education",
-        "Science",
-        "Arabic language",
-        "Social studies"
+        { "id": "language-arts", "label": "Language arts" },
+        { "id": "studies", "label": "Islamic studies" },
+        { "id": "mathematics", "label": "Mathematics" },
+        { "id": "quranic-education", "label": "Quranic education" },
+        { "id": "science", "label": "Science" },
+        { "id": "arabic-language", "label": "Arabic language" },
+        { "id": "social-studies", "label": "Social studies" }
       ],
       "cta": { "label": "Explore More", "href": "/curriculum" }
     },

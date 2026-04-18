@@ -1,14 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Container, Section } from '@/components/layout';
-import { FadeIn, subjectIconList } from '@/components/ui';
+import { CurriculumSubjectsGrid, FadeIn, type CurriculumSubjectItem } from '@/components/ui';
 import { Button } from '@/components/ui/button';
 
 export interface HomeCurriculumSectionProps {
   id?: string;
   heading: string;
   intro: string;
-  subjects: string[];
+  subjects: CurriculumSubjectItem[];
   cta: { label: string; href: string };
   className?: string;
 }
@@ -39,16 +39,7 @@ export function HomeCurriculumSection({
               <p className="mt-4 text-lg text-brand-black/65">{intro}</p>
             </div>
             <div id="home-curriculum-subjects" className="w-full">
-              <ul className="mb-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
-                {subjects.map((subject, idx) => (
-                  <li key={subject} className="flex items-center gap-6 text-base font-medium text-brand-black">
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center text-brand-black/70">
-                      {subjectIconList[idx]}
-                    </span>
-                    {subject}
-                  </li>
-                ))}
-              </ul>
+              <CurriculumSubjectsGrid subjects={subjects} className="mb-10" />
               <Button render={<Link href={cta.href} />} size="sm">
                 {cta.label}
               </Button>

@@ -35,15 +35,15 @@ export function MobileNav() {
       <SheetContent side="left" className="w-72 border-r-0 bg-white p-0 text-brand-black">
         <SheetHeader className="border-b border-black/10 px-6 py-5">
           <SheetTitle className="text-left">
-            <Link href={logo.href} className="flex items-center gap-3">
+            <Link href={logo.href} className="flex min-h-12 items-stretch gap-3">
               <Image
                 src={logo.src}
                 alt={logo.alt}
                 width={48}
                 height={48}
-                className="h-12 w-12 object-contain"
+                className="h-12 w-12 shrink-0 self-center object-contain"
               />
-              <span className="text-xl font-semibold tracking-[0.04em] text-brand-black">
+              <span className="flex flex-1 items-center text-2xl font-semibold leading-snug tracking-[0.04em] text-brand-black">
                 {logo.text}
               </span>
             </Link>

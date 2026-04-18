@@ -12,6 +12,7 @@ export { Icon } from './Icon'
 export { ImageWrapper } from './ImageWrapper'
 export { ColoredBorderCard } from './ColoredBorderCard'
 export { AutoScrollCarousel } from './AutoScrollCarousel'
+export { CurriculumSubjectsGrid, type CurriculumSubjectItem } from './CurriculumSubjectsGrid'
 
 // Interactive / compound components
 export { AccordionList } from './AccordionList'

@@ -74,11 +74,11 @@
       "Copy of child's birth certificate, PR card, or passport"
     ],
     "forms": [
-      { "id": "registration-form", "label": "Registration Form", "file": "al-hayaat-registration-form_2026-2027.pdf" },
-      { "id": "pad-agreement", "label": "Pre-Authorized Debit (PAD) Agreement", "file": "al-hayaat-pad-agreement_2026-2027.pdf" },
-      { "id": "financial-agreement", "label": "Financial Agreement", "file": "al-hayaat-financial-agreement_2026-2027.pdf" },
-      { "id": "parental-agreement", "label": "Parental Agreement", "file": "al-hayaat-parental-agreement_2026-2027.pdf" },
-      { "id": "liability-waiver", "label": "Liability Waiver", "file": "al-hayaat-liability-waiver_2026-2027.pdf" }
+      { "id": "registration-form", "label": "Registration Form", "file": "Registration Form.pdf" },
+      { "id": "pad-agreement", "label": "Pre-Authorized Debit (PAD) Agreement", "file": "PAD Agreement.pdf" },
+      { "id": "financial-agreement", "label": "Financial Agreement", "file": "Financial Agreement.pdf" },
+      { "id": "parental-agreement", "label": "Parental Agreement", "file": "Parental Agreement.pdf" },
+      { "id": "liability-waiver", "label": "Liability Waiver", "file": "Liability Waiver.pdf" }
     ]
   },
   "fees": {

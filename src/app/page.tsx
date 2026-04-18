@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Container, Section } from '@/components/layout';
-import { FadeIn, AnimatedCounter, homeWhyIcons } from '@/components/ui';
+import { FadeIn, AnimatedCounter, homeWhyIcons, type CurriculumSubjectItem } from '@/components/ui';
 import { CTASection, HomeCurriculumSection, HomeFeatureSection, HomeHeroSection, SupportMissionSection, WhySection } from '@/components/sections';
 import type { WhySectionCard } from '@/components/sections';
 import homeContent from '@/content/home.json';
@@ -83,7 +83,7 @@ export default function HomePage() {
         id="home-curriculum-section"
         heading={curriculum.heading}
         intro={curriculum.intro}
-        subjects={curriculum.subjects}
+        subjects={curriculum.subjects as CurriculumSubjectItem[]}
         cta={curriculum.cta}
       />
 
