@@ -6,12 +6,14 @@ title: >-
 status: To Do
 assignee: []
 created_date: '2026-04-19 13:04'
+updated_date: '2026-04-19 13:04'
 labels:
   - bug
   - production
   - azure
   - security
-dependencies: []
+dependencies:
+  - TASK-132
 priority: medium
 ---
 
@@ -27,3 +29,9 @@ DATABASE_URL is visible as a plain application setting on the Web App. After Key
 - [ ] #2 Database user password rotated; old password invalidated
 - [ ] #3 Application connects and write flows still pass smoke test
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+Depends on TASK-132: Key Vault references must resolve before moving DATABASE_URL to a vault secret.
+<!-- SECTION:NOTES:END -->
