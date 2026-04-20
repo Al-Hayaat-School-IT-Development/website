@@ -66,7 +66,13 @@ resource appService 'Microsoft.Web/sites@2023-01-01' = {
         { name: 'NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY', value: '@Microsoft.KeyVault(SecretUri=https://${keyVaultName}.vault.azure.net/secrets/STRIPE-PUBLISHABLE-KEY/)' }
         // Admissions PDFs — server-rendered links (see registration-forms.ts). No Key Vault; not secret.
         { name: 'NEXT_PUBLIC_REGISTRATION_FORMS_BASE_URL', value: registrationFormsPublicBaseUrl }
-        { name: 'DATABASE_URL',                       value: '@Microsoft.KeyVault(SecretUri=https://${keyVaultName}.vault.azure.net/secrets/DATABASE-URL/)' }
+        // PostgreSQL connection — non-secret parameters for Entra ID token auth.
+        // The App Service managed identity authenticates with an OAuth2 token at connection time
+        // (see src/lib/db.ts). No password is stored anywhere.
+        { name: 'PGHOST',     value: 'al-hayaat-${environment}-psql.postgres.database.azure.com' }
+        { name: 'PGDATABASE', value: 'alhayaat_db' }
+        { name: 'PGUSER',     value: 'al-hayaat-${environment}-identity' }
+        { name: 'PGPORT',     value: '5432' }
         { name: 'NEXTAUTH_SECRET',                    value: '@Microsoft.KeyVault(SecretUri=https://${keyVaultName}.vault.azure.net/secrets/NEXTAUTH-SECRET/)' }
         // Careers resume upload (src/lib/services/job-application.service.ts)
         { name: 'AZURE_STORAGE_CONNECTION_STRING',    value: '@Microsoft.KeyVault(SecretUri=https://${keyVaultName}.vault.azure.net/secrets/AZURE-STORAGE-CONNECTION-STRING/)' }

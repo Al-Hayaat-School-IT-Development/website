@@ -51,6 +51,8 @@ module database 'modules/database.bicep' = {
     tags: tags
     adminLogin: dbAdminLogin
     adminPassword: dbAdminPassword
+    identityPrincipalId: identity.outputs.identityPrincipalId
+    identityName: '${appName}-identity'
   }
 }
 
