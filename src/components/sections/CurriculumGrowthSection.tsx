@@ -16,7 +16,7 @@ export function CurriculumGrowthSection({
   body2,
   image,
   className,
-}: CurriculumGrowthSectionProps) {
+}: Readonly<CurriculumGrowthSectionProps>) {
   return (
     <div
       id={id}

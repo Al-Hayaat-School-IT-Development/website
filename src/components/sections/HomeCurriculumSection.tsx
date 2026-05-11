@@ -20,7 +20,7 @@ export function HomeCurriculumSection({
   subjects,
   cta,
   className,
-}: HomeCurriculumSectionProps) {
+}: Readonly<HomeCurriculumSectionProps>) {
   return (
     <Section
       id={id}

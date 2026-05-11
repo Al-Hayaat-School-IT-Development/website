@@ -21,7 +21,7 @@ export function AdminNotificationEmail({
   name,
   email,
   details,
-}: AdminNotificationEmailProps) {
+}: Readonly<AdminNotificationEmailProps>) {
   return (
     <Html lang="en">
       <Head />

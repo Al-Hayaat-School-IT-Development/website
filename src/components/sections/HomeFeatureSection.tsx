@@ -26,7 +26,7 @@ export function HomeFeatureSection({
   featureImage,
   paragraphs,
   className,
-}: HomeFeatureSectionProps) {
+}: Readonly<HomeFeatureSectionProps>) {
   return (
     <Section
       id={id}

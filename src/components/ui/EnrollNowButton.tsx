@@ -15,7 +15,7 @@ export function EnrollNowButton({
   size = 'default',
   variant = 'default',
   className,
-}: EnrollNowButtonProps) {
+}: Readonly<EnrollNowButtonProps>) {
   return (
     <Button size={size} variant={variant} className={className} render={<Link href={href} />}>
       {label}

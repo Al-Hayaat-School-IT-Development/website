@@ -18,7 +18,7 @@ interface ContactConfirmationEmailProps {
 export function ContactConfirmationEmail({
   name,
   message,
-}: ContactConfirmationEmailProps) {
+}: Readonly<ContactConfirmationEmailProps>) {
   const preview = message.length > 120 ? message.slice(0, 120) + '…' : message;
 
   return (

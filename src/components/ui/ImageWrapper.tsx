@@ -19,7 +19,7 @@ export function ImageWrapper({
   fill = false,
   priority = false,
   className,
-}: ImageWrapperProps) {
+}: Readonly<ImageWrapperProps>) {
   const safeAlt = alt.trim() !== '' ? alt : 'image';
 
   if (fill) {

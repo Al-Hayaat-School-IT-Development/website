@@ -28,7 +28,7 @@ export function SubmitButton({
   disabled = false,
   className,
   size = 'md',
-}: SubmitButtonProps) {
+}: Readonly<SubmitButtonProps>) {
   return (
     <Button
       type="submit"

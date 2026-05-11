@@ -48,7 +48,7 @@ async function getDonationBySession(sessionId: string): Promise<Donation | null>
   }
 }
 
-export default async function DonateSuccessPage({ searchParams }: SuccessPageProps) {
+export default async function DonateSuccessPage({ searchParams }: Readonly<SuccessPageProps>) {
   const params = await searchParams;
   const sessionId = params.session_id;
 

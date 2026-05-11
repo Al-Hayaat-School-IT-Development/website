@@ -17,7 +17,7 @@ export default function DataCard({
   trendValue,
   icon,
   className,
-}: DataCardProps) {
+}: Readonly<DataCardProps>) {
   return (
     <div
       className={cn(

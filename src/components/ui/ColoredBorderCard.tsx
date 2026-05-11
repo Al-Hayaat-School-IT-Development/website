@@ -27,7 +27,7 @@ export function ColoredBorderCard({
   children,
   className,
   contentClassName,
-}: ColoredBorderCardProps) {
+}: Readonly<ColoredBorderCardProps>) {
   const accentHeight = accentStyle === 'bar' ? 'h-3' : 'h-2.5';
 
   return (

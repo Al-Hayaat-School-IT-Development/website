@@ -49,7 +49,7 @@ export default function ContactTable({
   page,
   perPage,
   search,
-}: ContactTableProps) {
+}: Readonly<ContactTableProps>) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();

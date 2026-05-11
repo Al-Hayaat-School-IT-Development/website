@@ -18,7 +18,7 @@ export function TooltipWrapper({
   children,
   content,
   side = 'top',
-}: TooltipWrapperProps) {
+}: Readonly<TooltipWrapperProps>) {
   return (
     <TooltipProvider>
       <Tooltip>

@@ -16,7 +16,7 @@ export interface HomeHeroSectionProps {
   className?: string;
 }
 
-export function HomeHeroSection({ headline, subtext, cta, background, className }: HomeHeroSectionProps) {
+export function HomeHeroSection({ headline, subtext, cta, background, className }: Readonly<HomeHeroSectionProps>) {
   return (
     <section
       id="home-hero-section"

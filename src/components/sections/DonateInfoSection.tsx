@@ -56,7 +56,7 @@ export function DonateInfoSection({
   methods,
   paymentForm,
   className,
-}: DonateInfoSectionProps) {
+}: Readonly<DonateInfoSectionProps>) {
   return (
     <Section id={id} background="white" padding="lg" className={className}>
       <Container maxWidth="7xl">

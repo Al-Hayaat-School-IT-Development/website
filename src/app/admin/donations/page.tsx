@@ -37,7 +37,7 @@ function formatDate(date: Date | string): string {
   });
 }
 
-export default async function AdminDonationsPage({ searchParams }: DonationsPageProps) {
+export default async function AdminDonationsPage({ searchParams }: Readonly<DonationsPageProps>) {
   const params = await searchParams;
   const page = Math.max(1, parseInt(params.page ?? '1', 10));
   const search = params.search?.trim() || undefined;

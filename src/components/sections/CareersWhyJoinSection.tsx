@@ -18,7 +18,7 @@ export function CareersWhyJoinSection({
   heading,
   reasons,
   className,
-}: CareersWhyJoinSectionProps) {
+}: Readonly<CareersWhyJoinSectionProps>) {
   return (
     <div id={id} className={className}>
       <h2 className="mb-[0.875rem] text-brand-black">{heading}</h2>

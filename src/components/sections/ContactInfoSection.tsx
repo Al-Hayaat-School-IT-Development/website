@@ -20,7 +20,7 @@ export function ContactInfoSection({
   id,
   contactInfo,
   className,
-}: ContactInfoSectionProps) {
+}: Readonly<ContactInfoSectionProps>) {
   return (
     <Section id={id} background="white" padding="lg" className={className}>
       <Container maxWidth="7xl">

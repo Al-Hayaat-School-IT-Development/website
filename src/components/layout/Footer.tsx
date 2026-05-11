@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import sharedData from '@/content/_shared.json';
 
-function FacebookIcon({ className }: { className?: string }) {
+function FacebookIcon({ className }: Readonly<{ className?: string }>) {
   return (
     <svg
       width="12"
@@ -21,7 +21,7 @@ function FacebookIcon({ className }: { className?: string }) {
   );
 }
 
-function InstagramIcon({ className }: { className?: string }) {
+function InstagramIcon({ className }: Readonly<{ className?: string }>) {
   return (
     <svg
       width="16"
@@ -40,7 +40,7 @@ function InstagramIcon({ className }: { className?: string }) {
   );
 }
 
-function YoutubeIcon({ className }: { className?: string }) {
+function YoutubeIcon({ className }: Readonly<{ className?: string }>) {
   return (
     <svg
       width="20"
@@ -59,7 +59,7 @@ function YoutubeIcon({ className }: { className?: string }) {
   );
 }
 
-function XTwitterIcon({ className }: { className?: string }) {
+function XTwitterIcon({ className }: Readonly<{ className?: string }>) {
   return (
     <svg
       width="17"

@@ -26,7 +26,7 @@ export function RadioGroupField({
   value,
   onChange,
   orientation = 'vertical',
-}: RadioGroupFieldProps) {
+}: Readonly<RadioGroupFieldProps>) {
   return (
     <RadioGroup
       name={name}

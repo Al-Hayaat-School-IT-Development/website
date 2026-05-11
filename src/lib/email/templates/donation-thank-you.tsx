@@ -33,7 +33,7 @@ export function DonationThankYouEmail({
   donationDate,
   bodyText,
   charityNote,
-}: DonationThankYouEmailProps) {
+}: Readonly<DonationThankYouEmailProps>) {
   return (
     <Html lang="en">
       <Head />

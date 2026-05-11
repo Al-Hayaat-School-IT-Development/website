@@ -23,7 +23,7 @@ export function AdmissionsFeesTableSection({
   academicYear,
   items,
   className,
-}: AdmissionsFeesTableSectionProps) {
+}: Readonly<AdmissionsFeesTableSectionProps>) {
   return (
     <Section id={id} background="white" padding="lg" className={className}>
       <Container>

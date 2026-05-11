@@ -35,7 +35,7 @@ interface StatCardProps {
   readonly error?: boolean;
 }
 
-function StatCard({ label, value, sub, href, icon: Icon, color, error }: StatCardProps) {
+function StatCard({ label, value, sub, href, icon: Icon, color, error }: Readonly<StatCardProps>) {
   return (
     <Link
       href={href}

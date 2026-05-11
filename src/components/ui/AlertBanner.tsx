@@ -39,7 +39,7 @@ export default function AlertBanner({
   title,
   children,
   className,
-}: AlertBannerProps) {
+}: Readonly<AlertBannerProps>) {
   const config = variantConfig[variant];
   const Icon = config.icon;
   const needsRole = variant === 'error' || variant === 'warning';

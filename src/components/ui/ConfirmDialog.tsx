@@ -24,7 +24,7 @@ export default function ConfirmDialog({
   confirmLabel = 'Confirm',
   cancelLabel = 'Cancel',
   variant = 'default',
-}: ConfirmDialogProps) {
+}: Readonly<ConfirmDialogProps>) {
   function handleConfirm() {
     onConfirm();
     onClose();

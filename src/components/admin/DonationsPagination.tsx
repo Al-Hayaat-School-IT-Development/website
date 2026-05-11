@@ -15,7 +15,7 @@ function buildUrl(page: number, search?: string): string {
   return `/admin/donations?${params.toString()}`;
 }
 
-export function DonationsPagination({ currentPage, totalPages, search }: DonationsPaginationProps) {
+export function DonationsPagination({ currentPage, totalPages, search }: Readonly<DonationsPaginationProps>) {
   return (
     <nav
       className="flex items-center justify-between"

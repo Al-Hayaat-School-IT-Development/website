@@ -24,7 +24,7 @@ export function AvatarDisplay({
   alt,
   initials,
   size = 'md',
-}: AvatarDisplayProps) {
+}: Readonly<AvatarDisplayProps>) {
   const fallbackText = initials ?? alt.charAt(0).toUpperCase();
   const avatarSize = sizeMap[size];
 

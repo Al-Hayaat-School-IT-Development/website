@@ -19,7 +19,7 @@ export function FileUpload({
   error,
   label = 'Upload file',
   id = 'file-upload',
-}: FileUploadProps) {
+}: Readonly<FileUploadProps>) {
   const inputRef = React.useRef<HTMLInputElement>(null)
   const [selectedFile, setSelectedFile] = React.useState<File | null>(null)
   const [isDragOver, setIsDragOver] = React.useState(false)

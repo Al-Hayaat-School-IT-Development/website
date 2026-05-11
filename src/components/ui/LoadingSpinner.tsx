@@ -17,7 +17,7 @@ export default function LoadingSpinner({
   size = 'md',
   label = 'Loading…',
   className,
-}: LoadingSpinnerProps) {
+}: Readonly<LoadingSpinnerProps>) {
   return (
     <span
       role="status"

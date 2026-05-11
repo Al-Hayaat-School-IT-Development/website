@@ -8,7 +8,7 @@ export interface AboutHeroCarouselSectionProps {
   className?: string;
 }
 
-export function AboutHeroCarouselSection({ id, images, className }: AboutHeroCarouselSectionProps) {
+export function AboutHeroCarouselSection({ id, images, className }: Readonly<AboutHeroCarouselSectionProps>) {
   return (
     <section
       id={id}

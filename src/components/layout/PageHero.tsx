@@ -9,7 +9,7 @@ export interface PageHeroProps {
   readonly className?: string;
 }
 
-export function PageHero({ title, subtitle, id, className }: PageHeroProps) {
+export function PageHero({ title, subtitle, id, className }: Readonly<PageHeroProps>) {
   return (
     <section
       id={id}

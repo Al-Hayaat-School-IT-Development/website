@@ -14,7 +14,7 @@ export interface AutoScrollCarouselProps {
   fadeColor?: string;
 }
 
-export function AutoScrollCarousel({ images, className, fadeColor = 'from-white' }: AutoScrollCarouselProps) {
+export function AutoScrollCarousel({ images, className, fadeColor = 'from-white' }: Readonly<AutoScrollCarouselProps>) {
   const loopImages = [...images, ...images];
 
   return (

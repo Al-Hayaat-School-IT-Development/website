@@ -15,7 +15,7 @@ export function DonateVerseSection({
   translation,
   reference,
   className,
-}: DonateVerseSectionProps) {
+}: Readonly<DonateVerseSectionProps>) {
   return (
     <Section id={id} background="white" padding="lg" className={className}>
       <Container maxWidth="7xl">

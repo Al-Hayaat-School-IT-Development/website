@@ -6,7 +6,7 @@ export interface PageHeaderProps {
   className?: string;
 }
 
-export function PageHeader({ title, subtitle, className }: PageHeaderProps) {
+export function PageHeader({ title, subtitle, className }: Readonly<PageHeaderProps>) {
   return (
     <div className={cn('py-8', className)}>
       <h1 className="text-3xl font-bold tracking-tight text-gray-900">{title}</h1>

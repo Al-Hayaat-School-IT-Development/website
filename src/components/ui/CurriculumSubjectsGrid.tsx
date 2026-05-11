@@ -12,7 +12,7 @@ export interface CurriculumSubjectsGridProps {
   className?: string;
 }
 
-export function CurriculumSubjectsGrid({ subjects, className }: CurriculumSubjectsGridProps) {
+export function CurriculumSubjectsGrid({ subjects, className }: Readonly<CurriculumSubjectsGridProps>) {
   return (
     <ul
       role="list"

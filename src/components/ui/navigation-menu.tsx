@@ -9,8 +9,10 @@ function NavigationMenu({
   className,
   children,
   ...props
-}: NavigationMenuPrimitive.Root.Props &
-  Pick<NavigationMenuPrimitive.Positioner.Props, "align">) {
+}: Readonly<
+  NavigationMenuPrimitive.Root.Props &
+    Pick<NavigationMenuPrimitive.Positioner.Props, "align">
+>) {
   return (
     <NavigationMenuPrimitive.Root
       data-slot="navigation-menu"
@@ -45,7 +47,7 @@ function NavigationMenuList({
 function NavigationMenuItem({
   className,
   ...props
-}: React.ComponentPropsWithRef<typeof NavigationMenuPrimitive.Item>) {
+}: Readonly<React.ComponentPropsWithRef<typeof NavigationMenuPrimitive.Item>>) {
   return (
     <NavigationMenuPrimitive.Item
       data-slot="navigation-menu-item"
@@ -63,7 +65,7 @@ function NavigationMenuTrigger({
   className,
   children,
   ...props
-}: NavigationMenuPrimitive.Trigger.Props) {
+}: Readonly<NavigationMenuPrimitive.Trigger.Props>) {
   return (
     <NavigationMenuPrimitive.Trigger
       data-slot="navigation-menu-trigger"
@@ -79,7 +81,7 @@ function NavigationMenuTrigger({
 function NavigationMenuContent({
   className,
   ...props
-}: NavigationMenuPrimitive.Content.Props) {
+}: Readonly<NavigationMenuPrimitive.Content.Props>) {
   return (
     <NavigationMenuPrimitive.Content
       data-slot="navigation-menu-content"
@@ -99,7 +101,7 @@ function NavigationMenuPositioner({
   align = "start",
   alignOffset = 0,
   ...props
-}: NavigationMenuPrimitive.Positioner.Props) {
+}: Readonly<NavigationMenuPrimitive.Positioner.Props>) {
   return (
     <NavigationMenuPrimitive.Portal>
       <NavigationMenuPrimitive.Positioner
@@ -124,7 +126,7 @@ function NavigationMenuPositioner({
 function NavigationMenuLink({
   className,
   ...props
-}: NavigationMenuPrimitive.Link.Props) {
+}: Readonly<NavigationMenuPrimitive.Link.Props>) {
   return (
     <NavigationMenuPrimitive.Link
       data-slot="navigation-menu-link"
@@ -140,7 +142,7 @@ function NavigationMenuLink({
 function NavigationMenuIndicator({
   className,
   ...props
-}: React.ComponentPropsWithRef<typeof NavigationMenuPrimitive.Icon>) {
+}: Readonly<React.ComponentPropsWithRef<typeof NavigationMenuPrimitive.Icon>>) {
   return (
     <NavigationMenuPrimitive.Icon
       data-slot="navigation-menu-indicator"

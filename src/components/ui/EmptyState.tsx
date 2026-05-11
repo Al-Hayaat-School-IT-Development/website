@@ -16,7 +16,7 @@ export default function EmptyState({
   cta,
   icon,
   className,
-}: EmptyStateProps) {
+}: Readonly<EmptyStateProps>) {
   return (
     <div
       className={cn(

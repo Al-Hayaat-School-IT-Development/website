@@ -9,7 +9,7 @@ interface DonationsSearchFormProps {
   defaultValue?: string;
 }
 
-export function DonationsSearchForm({ defaultValue }: DonationsSearchFormProps) {
+export function DonationsSearchForm({ defaultValue }: Readonly<DonationsSearchFormProps>) {
   const [value, setValue] = useState(defaultValue ?? '');
   const router = useRouter();
   const pathname = usePathname();

@@ -7,7 +7,7 @@ export interface AdmissionsBannerSectionProps {
   className?: string;
 }
 
-export function AdmissionsBannerSection({ id, image, className }: AdmissionsBannerSectionProps) {
+export function AdmissionsBannerSection({ id, image, className }: Readonly<AdmissionsBannerSectionProps>) {
   return (
     <Section id={id} background="white" padding="none" className={`pb-[3rem] pt-[2rem] ${className ?? ''}`}>
       <Container>

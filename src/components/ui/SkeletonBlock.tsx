@@ -15,7 +15,7 @@ export default function SkeletonBlock({
   width = 'w-full',
   count = 1,
   rounded = false,
-}: SkeletonBlockProps) {
+}: Readonly<SkeletonBlockProps>) {
   return (
     <>
       {Array.from({ length: count }).map((_, i) => (

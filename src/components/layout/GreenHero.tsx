@@ -7,7 +7,7 @@ export interface GreenHeroProps {
   readonly className?: string;
 }
 
-export function GreenHero({ title, id, className }: GreenHeroProps) {
+export function GreenHero({ title, id, className }: Readonly<GreenHeroProps>) {
   return (
     <section
       id={id}

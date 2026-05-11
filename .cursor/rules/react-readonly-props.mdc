@@ -1,0 +1,28 @@
+---
+description: Type destructured React component props as Readonly for Sonar/immutability
+alwaysApply: false
+---
+# Readonly component props
+
+When you add or edit a **function component** that destructures props, type those props as **`Readonly<…>`** so static analysis (e.g. Sonar “mark props as read-only”) passes and props stay clearly immutable.
+
+## Apply `Readonly` to the whole props type
+
+Wrap the **entire** annotation, including intersections and `Pick`:
+
+- Named props: `}: Readonly<MyComponentProps>) {`
+- Base UI primitives: `}: Readonly<TabsPrimitive.Root.Props>) {`
+- `React` helpers: `}: Readonly<React.ComponentProps<"div">>) {` and `Readonly<React.ComponentPropsWithRef<typeof X>>`
+- Combined types: `}: Readonly<FooPrimitive.Root.Props & { extra?: string }>) {`
+- `Pick` / `VariantProps`: `}: Readonly<Popup.Props & Pick<Positioner.Props, "side">>) {`
+
+Do **not** only wrap part of an intersection; one `Readonly<>` around the full combined type is enough.
+
+## Rest props
+
+Spread-only props are still props: `function X({ ...props }: Readonly<SomePrimitive.Root.Props>)`.
+
+## Out of scope
+
+- This rule does not change runtime behavior; it is a type-level convention.
+- Class components and non-React TSX (e.g. emails) should follow the same pattern when the same analyzer applies.

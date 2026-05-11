@@ -17,7 +17,7 @@ export default function PaginationBar({
   perPage,
   onPageChange,
   className,
-}: PaginationBarProps) {
+}: Readonly<PaginationBarProps>) {
   const totalPages = Math.ceil(total / perPage);
 
   if (totalPages <= 1) return null;

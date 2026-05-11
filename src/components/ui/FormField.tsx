@@ -19,7 +19,7 @@ export function FormField({
   error,
   helpText,
   children,
-}: FormFieldProps) {
+}: Readonly<FormFieldProps>) {
   const helpId = helpText ? `${name}-help` : undefined
   const errorId = error ? `${name}-error` : undefined
   const describedBy = [helpId, errorId].filter(Boolean).join(' ') || undefined

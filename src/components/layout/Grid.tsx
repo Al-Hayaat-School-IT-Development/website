@@ -20,7 +20,7 @@ const gapMap: Record<NonNullable<GridProps['gap']>, string> = {
   lg: 'gap-8',
 };
 
-export function Grid({ children, columns = 2, gap = 'md', className }: GridProps) {
+export function Grid({ children, columns = 2, gap = 'md', className }: Readonly<GridProps>) {
   return (
     <div className={cn('grid grid-cols-1', columnsMap[columns], gapMap[gap], className)}>
       {children}

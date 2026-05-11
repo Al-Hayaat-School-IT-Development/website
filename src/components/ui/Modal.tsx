@@ -25,7 +25,7 @@ export default function Modal({
   description,
   children,
   className,
-}: ModalProps) {
+}: Readonly<ModalProps>) {
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className={cn(className)}>

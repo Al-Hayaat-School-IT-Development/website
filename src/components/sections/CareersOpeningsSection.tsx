@@ -20,7 +20,7 @@ export function CareersOpeningsSection({
   heading,
   positions,
   className,
-}: CareersOpeningsSectionProps) {
+}: Readonly<CareersOpeningsSectionProps>) {
   if (!positions.length) return null;
 
   return (

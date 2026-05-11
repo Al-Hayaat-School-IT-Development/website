@@ -26,7 +26,7 @@ export function AboutTeamSection({
   boardImage,
   boardCaption,
   className,
-}: AboutTeamSectionProps) {
+}: Readonly<AboutTeamSectionProps>) {
   return (
     <Section id={id} background="white" padding="none" className={className}>
       <Container maxWidth="7xl" className="py-20">

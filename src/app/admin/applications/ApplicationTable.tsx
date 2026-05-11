@@ -34,7 +34,7 @@ export default function ApplicationTable({
   search,
   position,
   positions
-}: ApplicationTableProps) {
+}: Readonly<ApplicationTableProps>) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();

@@ -14,7 +14,7 @@ const maxWidthMap: Record<NonNullable<ContainerProps['maxWidth']>, string> = {
   '7xl': 'max-w-7xl',
 };
 
-export function Container({ children, className, maxWidth = '7xl' }: ContainerProps) {
+export function Container({ children, className, maxWidth = '7xl' }: Readonly<ContainerProps>) {
   return (
     <div className={cn('mx-auto px-4 sm:px-6 lg:px-10', maxWidthMap[maxWidth], className)}>
       {children}

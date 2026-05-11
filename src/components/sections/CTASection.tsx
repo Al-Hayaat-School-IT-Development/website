@@ -22,7 +22,7 @@ export function CTASection({
   variant = 'green',
   className,
   id,
-}: CTASectionProps) {
+}: Readonly<CTASectionProps>) {
   const isPrimary = variant === 'primary';
   const isGreen = variant === 'green';
 

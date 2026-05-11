@@ -106,7 +106,7 @@ interface ReceiptDocumentProps {
   donation: Donation;
 }
 
-function ReceiptDocument({ donation }: ReceiptDocumentProps) {
+function ReceiptDocument({ donation }: Readonly<ReceiptDocumentProps>) {
   const donorDisplayName = donation.isAnonymous
     ? 'Anonymous Donor'
     : (donation.donorName ?? 'Anonymous Donor');

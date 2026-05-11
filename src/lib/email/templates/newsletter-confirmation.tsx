@@ -16,7 +16,7 @@ interface NewsletterConfirmationEmailProps {
 
 export function NewsletterConfirmationEmail({
   email,
-}: NewsletterConfirmationEmailProps) {
+}: Readonly<NewsletterConfirmationEmailProps>) {
   return (
     <Html lang="en">
       <Head />

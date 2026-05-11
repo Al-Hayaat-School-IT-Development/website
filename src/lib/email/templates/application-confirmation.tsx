@@ -18,7 +18,7 @@ interface ApplicationConfirmationEmailProps {
 export function ApplicationConfirmationEmail({
   guardianName,
   studentName,
-}: ApplicationConfirmationEmailProps) {
+}: Readonly<ApplicationConfirmationEmailProps>) {
   return (
     <Html lang="en">
       <Head />

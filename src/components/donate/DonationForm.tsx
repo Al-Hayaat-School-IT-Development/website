@@ -41,7 +41,7 @@ interface DonationFormProps {
   content: PaymentFormContent;
 }
 
-export function DonationForm({ content }: DonationFormProps) {
+export function DonationForm({ content }: Readonly<DonationFormProps>) {
   const [customAmount, setCustomAmount] = useState(false);
   const [selectedPreset, setSelectedPreset] = useState<number | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);

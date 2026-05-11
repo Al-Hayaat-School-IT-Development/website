@@ -29,7 +29,7 @@ export function HeroSection({
   backgroundVariant = 'primary',
   backgroundImage,
   className,
-}: HeroSectionProps) {
+}: Readonly<HeroSectionProps>) {
   const showImage = backgroundImage != null;
 
   return (

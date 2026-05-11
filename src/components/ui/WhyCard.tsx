@@ -8,7 +8,7 @@ export interface WhyCardProps {
   className?: string;
 }
 
-export function WhyCard({ icon, title, description, className }: WhyCardProps) {
+export function WhyCard({ icon, title, description, className }: Readonly<WhyCardProps>) {
   return (
     <div className={cn('flex flex-col gap-8 sm:flex-row sm:items-start lg:gap-16', className)}>
       <div className="h-16 w-16 shrink-0">{icon}</div>

@@ -27,7 +27,7 @@ export function AccordionList({
   type = 'single',
   defaultValue,
   className,
-}: AccordionListProps) {
+}: Readonly<AccordionListProps>) {
   return (
     <Accordion
       multiple={type === 'multiple'}

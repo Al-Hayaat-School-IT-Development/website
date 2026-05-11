@@ -25,7 +25,7 @@ export function SlideIn({
   delay = 0,
   once = true,
   className = '',
-}: SlideInProps) {
+}: Readonly<SlideInProps>) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

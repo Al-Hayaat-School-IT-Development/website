@@ -8,7 +8,7 @@ export interface PageIntroSectionProps {
   className?: string;
 }
 
-export function PageIntroSection({ id, headline, body, className }: PageIntroSectionProps) {
+export function PageIntroSection({ id, headline, body, className }: Readonly<PageIntroSectionProps>) {
   const paragraphs = Array.isArray(body) ? body : [body];
 
   return (

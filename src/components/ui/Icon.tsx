@@ -14,7 +14,7 @@ const sizeMap: Record<NonNullable<IconProps['size']>, number> = {
   xl: 32,
 };
 
-export function Icon({ icon: IconComponent, size = 'md', className }: IconProps) {
+export function Icon({ icon: IconComponent, size = 'md', className }: Readonly<IconProps>) {
   const px = sizeMap[size];
   return (
     <IconComponent

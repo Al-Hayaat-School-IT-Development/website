@@ -28,7 +28,7 @@ export function TabsPanel({
   contentClassName,
   orientation = 'horizontal',
   variant = 'default',
-}: TabsPanelProps) {
+}: Readonly<TabsPanelProps>) {
   const initialTab = defaultTab ?? tabs[0]?.id;
   const webflowVariant = variant === 'webflow';
 

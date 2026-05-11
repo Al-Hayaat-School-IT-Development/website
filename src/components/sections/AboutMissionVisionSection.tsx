@@ -8,7 +8,7 @@ export interface AboutMissionVisionSectionProps {
   className?: string;
 }
 
-export function AboutMissionVisionSection({ id, heading, tabs, className }: AboutMissionVisionSectionProps) {
+export function AboutMissionVisionSection({ id, heading, tabs, className }: Readonly<AboutMissionVisionSectionProps>) {
   const mappedTabs = tabs.map((tab) => ({
     id: tab.id,
     label: tab.label,

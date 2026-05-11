@@ -50,7 +50,7 @@ function Button({
   nativeButton,
   render,
   ...props
-}: ButtonPrimitive.Props & VariantProps<typeof buttonVariants>) {
+}: Readonly<ButtonPrimitive.Props & VariantProps<typeof buttonVariants>>) {
   return (
     <ButtonPrimitive
       data-slot="button"

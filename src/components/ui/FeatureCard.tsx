@@ -16,7 +16,7 @@ export function FeatureCard({
   description,
   variant = 'default',
   className,
-}: FeatureCardProps) {
+}: Readonly<FeatureCardProps>) {
   return (
     <Card
       className={cn(

@@ -18,7 +18,7 @@ interface JobApplicationConfirmationEmailProps {
 export function JobApplicationConfirmationEmail({
   name,
   position,
-}: JobApplicationConfirmationEmailProps) {
+}: Readonly<JobApplicationConfirmationEmailProps>) {
   return (
     <Html lang="en">
       <Head />

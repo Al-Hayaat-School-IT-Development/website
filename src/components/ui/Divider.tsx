@@ -12,7 +12,7 @@ export function Divider({
   orientation = 'horizontal',
   label,
   className,
-}: DividerProps) {
+}: Readonly<DividerProps>) {
   if (orientation === 'vertical') {
     return (
       <div

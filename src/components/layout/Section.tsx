@@ -29,7 +29,7 @@ export function Section({
   padding = 'md',
   className,
   id,
-}: SectionProps) {
+}: Readonly<SectionProps>) {
   return (
     <section id={id} className={cn(backgroundMap[background], paddingMap[padding], className)}>
       {children}

@@ -20,7 +20,7 @@ export function AnimatedCounter({
   suffix = '',
   prefix = '',
   className = '',
-}: AnimatedCounterProps) {
+}: Readonly<AnimatedCounterProps>) {
   const [count, setCount] = useState(0);
   const containerRef = useRef<HTMLSpanElement>(null);
   const rafRef = useRef<number | null>(null);
