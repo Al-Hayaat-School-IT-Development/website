@@ -9,7 +9,7 @@
     "subtext": "We would love to hear from you! If you have any questions or would like more information about Al-Hayaat School, please feel free to contact us using the information below."
   },
   "contact_info": {
-    "email_general": "info@alhayaat.ca",
+    "email_general": "admin@alhayaat.ca",
     "email_admin": "admin@alhayaat.ca",
     "phone": "519-589-9669",
     "address": "158 Newbury Drive, Kitchener, ON, N2N 2N8"
@@ -25,7 +25,7 @@
     "submit_label": "Submit",
     "success_message": "Thank you! Your submission has been received!",
     "error_message": "Oops! Something went wrong while submitting the form.",
-    "coming_soon_note": "Form submission coming soon. In the meantime, please email us directly at info@alhayaat.ca."
+    "coming_soon_note": "Form submission coming soon. In the meantime, please email us directly at admin@alhayaat.ca."
   },
   "cta": {
     "heading": "Join Our Community",

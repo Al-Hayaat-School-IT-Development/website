@@ -23,7 +23,7 @@ export function CurriculumSubjectsGrid({ subjects, className }: Readonly<Curricu
     >
       {subjects.map((subject) => (
         <li key={subject.id} className="flex items-center gap-6">
-          <span className="flex h-6 w-6 shrink-0 items-center justify-center text-brand-black" aria-hidden>
+          <span className="flex h-8 w-8 shrink-0 items-center justify-center text-brand-black" aria-hidden>
             {subjectIcons[subject.id]}
           </span>
           <span className="font-body text-[1.2rem] font-medium leading-[1.3] text-brand-black opacity-80">

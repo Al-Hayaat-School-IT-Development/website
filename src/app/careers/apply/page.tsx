@@ -7,7 +7,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
 import { CheckCircle2 } from 'lucide-react';
-import { Container, Section, PageHeader } from '@/components/layout';
+import { Container, GreenHero, Section } from '@/components/layout';
 import { FormField } from '@/components/ui/FormField';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -15,18 +15,26 @@ import { SelectField } from '@/components/ui/select';
 import { FileUpload } from '@/components/ui/FileUpload';
 import { SubmitButton } from '@/components/ui/SubmitButton';
 import { Label } from '@/components/ui/label';
+import { SupportMissionSection } from '@/components/sections';
 import { jobApplicationSchema, type JobApplicationFormData } from '@/lib/validations/forms';
-import careersContent from '@/content/careers.json';
+const positions = [
+  { value: 'Home Teacher (JK - Grade 3)', label: 'Home Teacher (JK - Grade 3)' },
+  { value: 'Arts Teacher', label: 'Arts Teacher' },
+  { value: 'French Teacher', label: 'French Teacher' },
+  { value: 'Islamic Studies', label: 'Islamic Studies' },
+  { value: 'Quran/Arabic', label: 'Quran/Arabic' },
+];
 
-const positions = careersContent.openings.positions.map((p) => ({
-  value: p.title,
-  label: p.title,
-}));
+function getBodyErrorMessage(body: Record<string, unknown>): string | null {
+  return typeof body.error === 'string' ? body.error : null;
+}
 
 function JobApplicationFormInner() {
   const searchParams = useSearchParams();
   const positionParam = searchParams.get('position') ?? '';
-  const defaultPosition = positions.find((p) => p.value === positionParam)?.value ?? '';
+  const normalizedPositionParam =
+    positionParam === 'Elementary School Teacher' ? 'Home Teacher (JK - Grade 3)' : positionParam;
+  const defaultPosition = positions.find((p) => p.value === normalizedPositionParam)?.value ?? '';
 
   const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [resumeError, setResumeError] = useState('');
@@ -90,10 +98,16 @@ function JobApplicationFormInner() {
           }
         );
         if (body.error) {
-          toast.error(String(body.error));
+          const message = getBodyErrorMessage(body);
+          if (message) {
+            toast.error(message);
+          }
         }
       } else if (body.error) {
-        toast.error(String(body.error));
+        const message = getBodyErrorMessage(body);
+        if (message) {
+          toast.error(message);
+        }
       }
       return;
     }
@@ -110,15 +124,17 @@ function JobApplicationFormInner() {
 
   if (submitted) {
     return (
-      <div className="rounded-xl border border-green-200 bg-green-50 p-10 text-center">
-        <CheckCircle2 className="mx-auto mb-4 h-12 w-12 text-green-600" />
-        <h2 className="mb-2 text-2xl font-semibold text-green-900">Application Submitted!</h2>
-        <p className="mb-6 text-green-800">
+      <div className="rounded-[1.25rem] border border-[#d9d9d9] bg-brand-off-white-background/30 p-10 text-center">
+        <CheckCircle2 className="mx-auto mb-4 h-12 w-12 text-brand-green" />
+        <h2 className="mb-3 text-[1.75rem] leading-[1.35] font-semibold tracking-[0.01em] text-brand-black/85">
+          Application Submitted
+        </h2>
+        <p className="mx-auto mb-6 max-w-[40rem] text-[1.0625rem] leading-[1.75] text-brand-black/70">
           Thank you for applying to Al-Hayaat School. We will review your application and be in
           touch soon.
         </p>
-        <Link href="/careers" className="text-sm font-medium text-primary hover:underline">
-          ← Back to Careers
+        <Link href="/careers" className="text-sm font-medium text-brand-blue hover:underline">
+          Back to Careers
         </Link>
       </div>
     );
@@ -148,7 +164,7 @@ function JobApplicationFormInner() {
       {/* Position — uses SelectField + Controller, rendered manually for accessibility */}
       <div className="flex flex-col gap-1.5">
         <Label htmlFor="position">
-          Position
+          {'Position '}
           <span className="ml-0.5 text-destructive" aria-hidden="true">
             *
           </span>
@@ -177,7 +193,7 @@ function JobApplicationFormInner() {
       {/* Resume upload */}
       <div className="flex flex-col gap-1.5">
         <Label htmlFor="resume">
-          Resume
+          {'Resume '}
           <span className="ml-0.5 text-destructive" aria-hidden="true">
             *
           </span>
@@ -224,24 +240,33 @@ function JobApplicationFormInner() {
 export default function JobApplicationPage() {
   return (
     <main className="min-h-screen bg-white">
-      <Section background="gray" padding="md">
-        <Container>
-          <PageHeader
-            title="Apply for a Position"
-            subtitle="Al-Hayaat School — Join our team"
-          />
-        </Container>
-      </Section>
+      <GreenHero id="careers-apply-hero-section" title="Apply for a Position" />
 
-      <Section background="white" padding="lg">
-        <Container maxWidth="lg">
+      <Section id="careers-apply-content-section" background="white" padding="none">
+        <Container maxWidth="7xl">
+          <div className="max-w-[56rem] py-[6rem]">
+            <p className="mb-8 text-[1.0625rem] font-medium tracking-[0.01em] text-brand-black/65">
+              Al-Hayaat School - Join our team
+            </p>
+            <h2 className="mb-3 text-[1.75rem] leading-[1.35] font-semibold tracking-[0.01em] text-brand-black/85">
+              Job Application Form
+            </h2>
+            <p className="mb-[2.0625rem] text-[1.0625rem] leading-[1.75] text-brand-black/70">
+              Complete this form to apply for an open position. You can choose the role from the
+              list below and upload your resume.
+            </p>
           <Suspense
             fallback={<div className="h-96 animate-pulse rounded-xl bg-gray-100" />}
           >
-            <JobApplicationFormInner />
+              <div className="rounded-[1.25rem] border border-[#d9d9d9] p-[1.75rem]">
+                <JobApplicationFormInner />
+              </div>
           </Suspense>
+          </div>
         </Container>
       </Section>
+
+      <SupportMissionSection sectionId="careers-apply-support-mission-section" />
     </main>
   );
 }

@@ -74,8 +74,8 @@ export function JobApplicationConfirmationEmail({
             </Text>
             <Text style={{ fontSize: 12, color: '#9ca3af', margin: '4px 0 0' }}>
               HR enquiries:{' '}
-              <Link href="mailto:hr@alhayaat.ca" style={{ color: '#2563eb' }}>
-                hr@alhayaat.ca
+              <Link href="mailto:admin@alhayaat.ca" style={{ color: '#2563eb' }}>
+                admin@alhayaat.ca
               </Link>
             </Text>
           </Section>

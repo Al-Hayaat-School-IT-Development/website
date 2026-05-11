@@ -44,7 +44,8 @@
         "id": "elementary-school-teacher",
         "slug": "elementary-school-teacher",
         "title": "Elementary School Teacher",
-        "grades": "Grades 3, 4, 5",
+        "posterImage": "/images/careers/elementary-school-teacher-poster.webp",
+        "grades": "JK/SK, G1, G2, G3 & Quran",
         "description": "As an elementary teacher, you will provide a well-rounded education rooted in both academic excellence and values. This role requires delivering core subjects (such as Language Arts, Mathematics, Science, and Social Studies), all while fostering a nurturing and respectful classroom environment that aligns with principles.",
         "responsibilities": [
           "Integrate principles into lessons and school activities to support the students' understanding of their faith.",

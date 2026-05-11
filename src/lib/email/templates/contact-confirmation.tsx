@@ -71,8 +71,8 @@ export function ContactConfirmationEmail({
             </Text>
             <Text style={{ fontSize: 12, color: '#9ca3af', margin: '4px 0 0' }}>
               Questions? Email us at{' '}
-              <Link href="mailto:info@alhayaat.ca" style={{ color: '#2563eb' }}>
-                info@alhayaat.ca
+              <Link href="mailto:admin@alhayaat.ca" style={{ color: '#2563eb' }}>
+                admin@alhayaat.ca
               </Link>
             </Text>
           </Section>

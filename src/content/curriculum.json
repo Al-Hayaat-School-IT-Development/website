@@ -10,12 +10,15 @@
   },
   "subjects": [
     { "id": "language-arts", "label": "Language arts" },
+    { "id": "arts", "label": "Arts" },
     { "id": "studies", "label": "Islamic studies" },
     { "id": "mathematics", "label": "Mathematics" },
     { "id": "quranic-education", "label": "Quranic education" },
     { "id": "science", "label": "Science" },
     { "id": "arabic-language", "label": "Arabic language" },
-    { "id": "social-studies", "label": "Social studies" }
+    { "id": "social-studies", "label": "Social studies" },
+    { "id": "french", "label": "French language" },
+    { "id": "physical-education", "label": "Physical education" }
   ],
   "carousel": [
     {
